@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_lighter_f2"
+        android:orientation="vertical"
+        tools:context="com.donut.app.mvp.wish.wishing.WishingActivity">
+
+        <include
+            android:id="@+id/toolbar_head"
+            layout="@layout/head_include_databinding"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:scrollbars="none">
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <com.bis.android.plug.autolayout.AutoFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px_25"
+                    android:paddingLeft="@dimen/px_30"
+                    android:paddingRight="@dimen/px_30">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_gravity="center"
+                        android:background="@color/line_gray2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@android:color/white"
+                        android:paddingLeft="@dimen/px_20"
+                        android:paddingRight="@dimen/px_20"
+                        android:text="1 您想对谁说"/>
+
+                </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                <com.bis.android.plug.autolayout.AutoLinearLayout
+                    xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/px_25"
+                    android:layout_marginTop="@dimen/px_15"
+                    android:orientation="vertical"
+                    android:padding="@dimen/px_30">
+
+                    <com.donut.app.customview.WishingRadioButton
+                        android:id="@+id/wishing_radio_star"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        custom:cchecked="true"
+                        custom:contentText="你想让爱豆完成你的哪些心愿呢!"
+                        custom:titleText="明星"/>
+
+                    <com.donut.app.customview.WishingRadioButton
+                        android:id="@+id/wishing_radio_channel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_horizontal"
+                        custom:contentText="你有哪些别具匠心的创意呢!"
+                        custom:titleText="频道"/>
+
+                    <com.donut.app.customview.WishingRadioButton
+                        android:id="@+id/wishing_radio_platform"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_horizontal"
+                        custom:contentText="你想哪些大咖在甜麦圈大展拳脚呢!"
+                        custom:titleText="甜麦圈"/>
+
+                </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_20"
+                    android:background="@color/gray_lighter_f2"/>
+
+                <com.bis.android.plug.autolayout.AutoFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px_25"
+                    android:paddingLeft="@dimen/px_30"
+                    android:paddingRight="@dimen/px_30">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_gravity="center"
+                        android:background="@color/line_gray2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@android:color/white"
+                        android:paddingLeft="@dimen/px_20"
+                        android:paddingRight="@dimen/px_20"
+                        android:text="2 您的心愿明星"/>
+
+                </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                <EditText
+                    android:id="@+id/wishing_star_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/px_25"
+                    android:layout_marginLeft="@dimen/px_30"
+                    android:layout_marginRight="@dimen/px_30"
+                    android:layout_marginTop="@dimen/px_45"
+                    android:background="@drawable/wishing_radio_button_bg_normal"
+                    android:gravity="center"
+                    android:hint="请写下一位您的心愿明星"
+                    android:maxLength="21"
+                    android:maxLines="1"
+                    android:padding="@dimen/px_30"
+                    android:textColorHint="@color/text_grayA"
+                    android:textSize="@dimen/text_second_font_size"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_20"
+                    android:background="@color/gray_lighter_f2"/>
+
+                <com.bis.android.plug.autolayout.AutoFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px_25"
+                    android:paddingLeft="@dimen/px_30"
+                    android:paddingRight="@dimen/px_30">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_gravity="center"
+                        android:background="@color/line_gray2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@android:color/white"
+                        android:paddingLeft="@dimen/px_20"
+                        android:paddingRight="@dimen/px_20"
+                        android:text="3 您的心愿描述"/>
+
+                </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                <com.bis.android.plug.autolayout.AutoFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/px_25"
+                    android:layout_marginTop="@dimen/px_45"
+                    android:paddingLeft="@dimen/px_30"
+                    android:paddingRight="@dimen/px_30">
+
+                    <EditText
+                        android:id="@+id/wishing_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/wishing_radio_button_bg_normal"
+                        android:gravity="top"
+                        android:maxLength="201"
+                        android:maxLines="5"
+                        android:minLines="3"
+                        android:padding="@dimen/px_30"
+                        android:textColorHint="@color/text_grayA"
+                        android:textSize="@dimen/text_second_font_size"/>
+
+                    <TextView
+                        android:id="@+id/wishing_content_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/px_40"
+                        android:text="请写下您的心愿描述"
+                        android:textColor="@color/text_grayA"
+                        android:textSize="@dimen/text_second_font_size"/>
+                </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_20"
+                    android:background="@color/gray_lighter_f2"/>
+
+                <com.bis.android.plug.autolayout.AutoFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px_25"
+                    android:paddingLeft="@dimen/px_30"
+                    android:paddingRight="@dimen/px_30">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_gravity="center"
+                        android:background="@color/line_gray2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@android:color/white"
+                        android:paddingLeft="@dimen/px_20"
+                        android:paddingRight="@dimen/px_20"
+                        android:text="4 您的心愿阐述(选填)"/>
+
+                </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                <com.bis.android.plug.autolayout.AutoFrameLayout
+                    android:id="@+id/wishing_img_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="366px"
+                    android:padding="@dimen/px_20">
+
+                    <ImageView
+                        android:id="@+id/wishing_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/wishing_radio_button_bg_normal"/>
+
+                    <TextView
+                        android:id="@+id/wishing_img_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawablePadding="15dp"
+                        android:drawableTop="@drawable/wish_star_reply_add_pic"
+                        android:text="上传视频或图片"
+                        android:textColor="@color/text_grayA"
+                        android:textSize="@dimen/text_third_font_size"/>
+
+                    <ProgressBar
+                        android:id="@+id/wishing_uploading_pb"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="280dp"
+                        android:layout_height="2dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:max="100"
+                        android:progressDrawable="@drawable/progressbarbg"
+                        android:visibility="gone"/>
+
+                </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                <com.bis.android.plug.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray_lighter_f2"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/px_20"
+                    android:paddingLeft="@dimen/px_30"
+                    android:paddingRight="@dimen/px_30"
+                    android:paddingTop="@dimen/px_40">
+
+                    <CheckBox
+                        android:id="@+id/wishing_cb_approve"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/wishing_statute_icon_selector"
+                        android:checked="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px_20"
+                        android:layout_marginStart="@dimen/px_20"
+                        android:text="我已阅读并同意"
+                        android:textColor="@color/text_gray9"
+                        android:textSize="@dimen/text_fourth_font_size"/>
+
+                    <TextView
+                        android:id="@+id/wishing_provisions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="《发起心愿征集活动条款》"
+                        android:textColor="@color/text_tiffany"
+                        android:textSize="@dimen/text_fourth_font_size"/>
+
+                </com.bis.android.plug.autolayout.AutoLinearLayout>
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</layout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.shakestar.attention.ShakeStarAttentionFragment" />
+
+    </data>
+<com.bis.android.plug.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/shake_attention_swip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/shake_attention_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ImageView
+        android:id="@+id/gz_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="81dp"
+        android:layout_marginEnd="13dp"
+        android:src="@drawable/video_add" />
+    <ImageView
+        android:id="@+id/attention_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/attention_logo"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+</com.bis.android.plug.autolayout.AutoRelativeLayout>
+</layout>

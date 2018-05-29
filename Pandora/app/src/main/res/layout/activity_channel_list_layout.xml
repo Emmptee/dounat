@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.channel.list.ChannelListActivity"/>
+
+        <variable
+            name="detail"
+            type="com.donut.app.http.message.SubjectListDetail"/>
+
+    </data>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f8f8"
+        android:clipChildren="false"
+        android:orientation="vertical"
+        tools:context="com.donut.app.mvp.channel.list.ChannelListActivity">
+
+        <include layout="@layout/head_include_databinding"/>
+
+        <com.bis.android.plug.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/px_25"
+            android:paddingLeft="@dimen/px_40"
+            android:paddingRight="@dimen/px_40"
+            android:paddingTop="@dimen/px_60">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->handler.gotoSearchAll()}"
+                android:padding="@dimen/px_10"
+                android:scaleType="center"
+                android:src="@drawable/ic_channel_list_menu"/>
+
+            <TextView
+                android:id="@+id/channel_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@{String.format(@string/subject_period, detail.period)}"
+                android:textColor="@color/text_tiffany"
+                android:textSize="38px"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/channel_num"
+                android:layout_marginTop="12px"
+                android:text='@{handler.createTimeFormat(detail.createTime)}'
+                android:textSize="26px"/>
+
+        </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/channel_list_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:clipChildren="false">
+        </android.support.v4.view.ViewPager>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</layout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:id="@+id/activity_spin_off"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:orientation="vertical"
+        tools:context=".mvp.spinOff.SpinOffActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/colorPrimary"
+            app:contentInsetStart="0dp"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:navigationIcon="@drawable/icon_back"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <!--<com.bis.android.plug.autolayout.AutoRelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="44dp">-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/back"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:onClick="@{()->handler.viewBack()}"-->
+            <!--android:paddingRight="20dp"-->
+            <!--android:scaleType="centerInside"-->
+            <!--android:src="@drawable/icon_back" />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="明星衍生品"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <!--</com.bis.android.plug.autolayout.AutoRelativeLayout>-->
+
+        </android.support.v7.widget.Toolbar>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_100"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/tv_goods"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="衍生商品"
+                android:textColor="@drawable/challenger_text_selector"
+                android:textSize="@dimen/text_first_font_size" />
+
+
+            <com.bis.android.plug.autolayout.AutoFrameLayout
+                android:id="@+id/top_boons_view"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_boons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:drawablePadding="5dp"
+                    android:drawableRight="@drawable/activity_notice_item_top_down_icon"
+                    android:gravity="center"
+                    android:text="福利区"
+                    android:textColor="@drawable/challenger_text_selector"
+                    android:textSize="@dimen/text_first_font_size" />
+
+            </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+            <TextView
+                android:id="@+id/tv_plans"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="独家策划"
+                android:textColor="@drawable/challenger_text_selector"
+                android:textSize="@dimen/text_first_font_size" />
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line2" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</layout>

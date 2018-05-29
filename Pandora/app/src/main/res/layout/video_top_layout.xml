@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/video_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_gray3">
+
+    <com.donut.app.model.video.FullScreenVideoView
+        android:id="@+id/videoview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="25px"
+        android:layout_height="25px"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/pb_loading"
+        android:indeterminateDuration="2000"/>
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_88"
+        android:background="@drawable/top_shadow_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/px_100"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_back"/>
+
+        <com.donut.app.customview.ScrollAlwaysTextView
+            android:id="@+id/video_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/px_10"
+            android:layout_marginRight="@dimen/px_120"
+            android:layout_toRightOf="@id/back"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="36px"
+            />
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_90"
+        android:layout_alignParentBottom="true"
+        android:background="#50000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/play_btn_linear"
+            android:layout_width="@dimen/px_50"
+            android:layout_height="@dimen/px_50"
+            android:layout_marginLeft="@dimen/px_20"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/play_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/video_btn_down"/>
+        </LinearLayout>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <SeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:maxHeight="5px"
+                android:minHeight="5px"
+                android:progressDrawable="@drawable/seekbar_define_style"
+                android:thumb="@drawable/icon_thumb"
+                />
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_30"
+                android:layout_marginTop="10px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/play_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="00:00:00"
+                    android:textColor="@color/gray_lighter"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:textColor="@color/gray_lighter_b"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:id="@+id/total_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10px"
+                    android:gravity="center_vertical"
+                    android:text="00:00:00"
+                    android:textColor="@color/gray_lighter_b"
+                    android:textSize="20px"/>
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <LinearLayout
+            android:id="@+id/screen_btn"
+            android:layout_width="@dimen/px_50"
+            android:layout_height="@dimen/px_50"
+            android:layout_marginRight="@dimen/px_20"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/screen_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_full_screen"/>
+        </LinearLayout>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:id="@+id/play_num_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/px_50"
+        android:layout_above="@id/bottom_layout"
+        android:background="@drawable/half_round_rect_bg"
+        android:drawableLeft="@drawable/icon_play_small"
+        android:drawablePadding="@dimen/px_10"
+        android:gravity="center"
+        android:padding="@dimen/px_10"
+        android:textColor="@android:color/white"
+        android:textSize="23px" />
+
+</com.bis.android.plug.autolayout.AutoRelativeLayout>
+

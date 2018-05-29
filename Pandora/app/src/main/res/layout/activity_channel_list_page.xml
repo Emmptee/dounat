@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data>
+
+    <variable
+        name="handler"
+        type="com.donut.app.mvp.channel.list.ChanneListPageActivity"/>
+
+</data>
+<com.bis.android.plug.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/head_title_color"
+        android:gravity="center_vertical"
+        >
+        <ImageView
+            android:id="@+id/home_left_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_back"
+            android:layout_marginLeft="30px"
+            android:padding="10dp"
+            />
+        <TextView
+            android:id="@+id/home_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="34px"
+            />
+        <ImageView
+            android:id="@+id/home_pd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home_cd"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30px"
+            />
+
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_recy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        >
+    </android.support.v7.widget.RecyclerView>
+</com.bis.android.plug.autolayout.AutoRelativeLayout>
+</layout>

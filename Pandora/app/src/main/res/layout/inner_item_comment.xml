@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="13px"
+    android:paddingTop="13px"
+    android:paddingBottom="@dimen/px_20"
+    android:background="@color/white" >
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:id="@+id/inner_comment_item_header_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px_20"
+        android:background="@drawable/icon_head_bg">
+        <ImageView
+            android:id="@+id/inner_comment_item_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/inner_comment_item_header_v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@drawable/icon_vip"/>
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13px"
+        android:orientation="vertical">
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/px_20"
+            android:orientation="horizontal">
+          <TextView
+            android:id="@+id/inner_comment_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/text_gray6"
+            android:textSize="28px"/>
+            <TextView
+                android:id="@+id/inner_comment_item_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/icon_money"
+                android:drawablePadding="@dimen/px_5"
+                android:layout_marginLeft="@dimen/px_20"
+                android:textSize="26px"
+                android:textColor="@color/gold"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/inner_comment_item_creattime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/px_20"
+                android:textColor="@color/text_gray9"
+               />
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+        <TextView
+            android:id="@+id/inner_comment_item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px_20"
+            android:paddingRight="@dimen/px_20"
+            android:textSize="30px"
+
+            android:textColor="@color/text_gray3"
+            android:lineSpacingExtra="@dimen/px_5"/>
+        <!--
+        android:maxLines="2"
+            android:ellipsize="end"-->
+        <TextView
+            android:id="@+id/inner_comment_item_addr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/px_10"
+            android:textSize="20px"
+            android:textColor="@color/text_gray9"
+            />
+        <TextView
+            android:id="@+id/inner_item_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/px_20"
+            android:background="@color/bg_img_gray"/>
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+</com.bis.android.plug.autolayout.AutoLinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:orientation="vertical">
+
+    <com.bis.android.plug.autolayout.AutoFrameLayout
+        android:id="@+id/notice_item_goods_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="@dimen/px_10"
+        android:layout_marginRight="@dimen/px_10"
+        android:layout_marginTop="@dimen/px_10">
+
+        <ImageView
+            android:id="@+id/fragment_notice_item_goods_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@color/backgroud_color"/>
+
+        <TextView
+            android:id="@+id/fragment_notice_item_goods_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:background="@drawable/activity_notice_item_goods_num_bg"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_fourth_font_size"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/activity_notice_item_goods_front"/>
+
+        <TextView
+            android:id="@+id/fragment_notice_item_goods_no"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/activity_notice_item_goods_no"
+            android:gravity="center"
+            android:text="领光了"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_fourth_font_size"
+            android:visibility="gone"/>
+    </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+    <ImageView
+        android:id="@+id/fragment_notice_item_goods_vip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/notice_item_goods_img"
+        android:layout_alignRight="@id/notice_item_goods_img"
+        android:layout_alignTop="@id/notice_item_goods_img"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:src="@drawable/activity_notice_item_goods_vip_icon"
+        android:visibility="gone"/>
+
+    <CheckBox
+        android:id="@+id/fragment_notice_item_goods_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notice_item_goods_img"
+        android:layout_marginLeft="@dimen/px_65"
+        android:layout_marginStart="@dimen/px_65"
+        android:button="@drawable/activity_notice_item_goods_check_selector"
+        android:paddingEnd="@dimen/px_30"
+        android:paddingLeft="@dimen/px_0"
+        android:paddingRight="@dimen/px_30"
+        android:paddingStart="@dimen/px_0"
+        android:paddingTop="@dimen/px_60"/>
+
+</com.bis.android.plug.autolayout.AutoRelativeLayout>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context="com.donut.app.activity.RewardActivity">
+
+    <include layout="@layout/head_include" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_290"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/reward_iv_payer_header"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="@dimen/px_20"
+                    android:background="@drawable/shape_ring_round_main"
+                    android:padding="1dp"
+                    android:src="@drawable/default_header" />
+
+                <TextView
+                    android:id="@+id/reward_tv_payer_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px_15"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_first_font_size" />
+
+                <com.bis.android.plug.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px_25"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="账户余额:"
+                        android:textColor="@color/text_gray3"
+                        android:textSize="@dimen/text_first_font_size" />
+
+                    <TextView
+                        android:id="@+id/reward_tv_balance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px_20"
+                        android:text="0.00"
+                        android:textColor="@color/text_tiffany"
+                        android:textSize="@dimen/text_first_font_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_money"
+                        android:layout_marginLeft="@dimen/px_5"
+                        android:textColor="@color/text_gray3"
+                        android:textSize="@dimen/text_first_font_size" />
+
+                    <TextView
+                        android:id="@+id/reward_tv_recharge"
+                        android:layout_width="@dimen/px_80"
+                        android:layout_height="@dimen/px_40"
+                        android:layout_marginLeft="@dimen/px_20"
+                        android:background="@drawable/shape_btn_main"
+                        android:gravity="center"
+                        android:text="@string/recharge"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_fourth_font_size" />
+
+                </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_20"
+                android:background="@color/gray_lighter_f2" />
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/px_30">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="打赏给"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_second_font_size" />
+
+                <TextView
+                    android:id="@+id/reward_tv_payee_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_orange"
+                    android:textSize="@dimen/text_second_font_size" />
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+            <ImageView
+                android:id="@+id/reward_iv_payee_header"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/px_20"
+                android:background="@drawable/shape_ring_round_orange"
+                android:padding="1dp"
+                android:src="@drawable/default_header" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/reward_list_select_amounts"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_220"
+                android:paddingLeft="@dimen/px_55"
+                android:paddingRight="@dimen/px_55"
+                android:scrollbars="none">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_70"
+                android:layout_marginRight="@dimen/px_70"
+                android:layout_marginTop="@dimen/px_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="其他金额"
+                    android:textColor="@color/text_gray6"
+                    android:textSize="@dimen/text_second_font_size" />
+
+                <EditText
+                    android:id="@+id/reward_et_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="请输入打赏金额"
+                    android:inputType="number"
+                    android:textColor="@color/text_gray6"
+                    android:textColorHint="@color/text_gray9"
+                    android:textSize="@dimen/text_second_font_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px_10"
+                    android:text="@string/app_money"
+                    android:textColor="@color/text_color_orange"
+                    android:textSize="@dimen/text_second_font_size" />
+
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+            <EditText
+                android:id="@+id/reward_et_content"
+                android:layout_width="610px"
+                android:layout_height="@dimen/px_180"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/px_40"
+                android:background="@drawable/shape_half_rec_gray"
+                android:gravity="top"
+                android:hint="添加评论"
+                android:maxLength="513"
+                android:padding="@dimen/px_10"
+                android:textColorHint="@color/text_gray9"
+                android:textSize="@dimen/text_second_font_size" />
+
+            <Button
+                android:id="@+id/reward_btn_pay"
+                android:layout_width="610px"
+                android:layout_height="@dimen/px_110"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/px_40"
+                android:gravity="center"
+                android:text="打赏支付"
+                android:textColor="@android:color/white"
+                android:background="@drawable/pay_btn_bg"
+                android:textSize="32px" />
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+    </ScrollView>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

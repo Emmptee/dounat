@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/px_20"
+    android:paddingRight="@dimen/px_20"
+    android:paddingBottom="@dimen/px_20"
+    android:layout_marginBottom="@dimen/px_20"
+    android:background="@color/white">
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/chellange_area_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+        <com.donut.app.customview.InSideGridView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:listSelector="@color/transparent"
+            android:numColumns="4"
+            android:horizontalSpacing="10px"
+            android:verticalSpacing="@dimen/px_10"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+        </com.donut.app.customview.InSideGridView>
+        <TextView
+            android:id="@+id/challenge_area_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/gray_lighter"
+            android:textColor="@color/text_gray9"
+            android:visibility="gone"
+            android:textSize="26px"/>
+</com.bis.android.plug.autolayout.AutoRelativeLayout>

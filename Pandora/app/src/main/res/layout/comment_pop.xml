@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="960px">
+        <com.bis.android.plug.autolayout.AutoRelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="44px"
+            android:layout_marginTop="30px"
+            android:layout_marginBottom="30px"
+            >
+            <TextView
+                android:id="@+id/pl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="评论 "
+                android:textColor="@color/black"
+                android:textSize="32px"
+                android:layout_marginLeft="30px"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:id="@+id/commend_sum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="28px"
+                android:textColor="#D8D8D8"
+                android:layout_toRightOf="@id/pl"
+                android:layout_marginLeft="5px"
+                android:layout_centerVertical="true"
+                />
+            <ImageView
+                android:id="@+id/pop_back"
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:src="@drawable/x"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30px"
+                android:layout_centerVertical="true"
+                />
+        </com.bis.android.plug.autolayout.AutoRelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/comment_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/title"
+            android:layout_above="@id/edit"
+            >
+        </android.support.v7.widget.RecyclerView>
+        <com.bis.android.plug.autolayout.AutoRelativeLayout
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="100px"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            >
+
+            <EditText
+                android:id="@+id/commend_edit"
+                android:layout_width="352dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:background="@drawable/shape_shake_rec_gray2"
+                android:drawablePadding="5dp"
+                android:hint="说点什么"
+                android:imeOptions="actionSend"
+                android:paddingTop="@dimen/px_10"
+                android:paddingBottom="@dimen/px_10"
+                android:paddingLeft="@dimen/px_20"
+                android:paddingRight="@dimen/px_20"
+                android:singleLine="true"
+                android:textColor="@color/text_gray3"
+                android:textColorHint="@color/text_gray9"
+
+                android:textSize="28px" />
+
+        </com.bis.android.plug.autolayout.AutoRelativeLayout>
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+</com.bis.android.plug.autolayout.AutoRelativeLayout>

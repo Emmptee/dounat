@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	    <meta name="format-detection" content="telephone=no"/>
+		<title>商品详情</title>
+		<link rel="stylesheet" type="text/css" href="css/shop.css">
+		<link rel="stylesheet" type="text/css" href="css/loading.css">
+
+		<script type="text/javascript" src="js/common.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="layer/layer.js"></script>
+		<script src="js/goodsDetailsVideo.js"></script>
+		<script type="text/javascript" src="js/cordova.js" ></script>
+		<!--<link rel="stylesheet" type="text/css" href="js/video-js.css">-->
+		<!--<script src="js/video.js"></script>
+		<link rel="stylesheet" type="text/css" href="js/video-js.min.css">
+		<script src="js/video.min.js"></script>-->
+		<script type="text/javascript">
+			localStorage.setItem("refer","goods_details_videos.html?fromHtml=true");
+		</script>
+	</head>
+
+	<body id="goods-details" onload="onLoad()">
+
+		<!--拼命加载中-->
+		<div class="infopage" id="loadingDiv" style="display:none;">
+			<section class="ui-notice">
+				<i><img src="images/load.gif"></i>
+				<p>o(>﹏<)o,拼命加载中</p>
+			</section>
+		</div>
+
+		<!--网络不太稳-->
+		<div class="infopage" id="errorDiv" style="display:none;">
+			<section class="no_wifi">
+				<i><img src="images/no_wifi.png"></i>
+				<p>网络不太稳,稍后重试</p>
+			</section>
+		</div>
+
+		<!--商品正在努力上架中-->
+		<div class="infopage" id="emptyDiv" style="display:none;">
+			<section class="nothing">
+				<i><img src="images/no_secah_Info.png"></i>
+				<p>商品正在努力上架中</p>
+			</section>
+		</div>
+
+		<div class="header_top">
+			<div  class="video_play">
+				<div class="video_no"><span>购买后即可观看</span></div>
+				<div class="video_yes">
+
+				</div>
+			</div>
+		</div>
+		<div class="container">
+		  <div class="goods-info-box goods-header">
+			<div>
+			  <h3 class="title gdv_title" style="float:left"></h3>
+			  <span style="float:right">播放次数：<i id="play_num"></i></span>
+			</div>
+			<div class="goods-video">
+				<!--<span class="video_one">¥<i class="gdv_priceOrdinary"></i></span>-->
+				<!--<span class="video_two">会员价：<i class="gdv_priceVip"></i></span>-->
+				<!--<span class="video_three">月销：<i class="gdv_buyTimes"></i>次</span>-->
+			</div>
+		  </div>
+		</div>
+		
+		<!--折扣活动-->
+		<div class="goods_discount">
+				<div style="height: 5px; border-bottom: 1px solid #DADADA;border-top: 1px solid #DADADA;"></div>
+			<div class="discount_minus">
+				<span class="discount_span">促销</span>
+				<ul class="list_discount">
+
+				</ul>
+			</div>
+		</div>
+		
+		<div style="height: 10px; border-bottom: 1px solid #DADADA;border-top: 1px solid #DADADA;"></div>
+		<!--商品详情-->
+		<h2 class="container_title">商品详情</h2>
+		<ul class="videoImg">
+			<span>视频截图</span>
+			<div class="gdv_detail">
+			</div>
+		</ul>
+
+		<!--底部-->
+		<footer class="goods-details-footer">
+		  <ul>
+			  <li><a href="javascript:void(0);" class="addToCart"  onclick="addToCart();">加入购物车</a></li>
+			  <li class="video-btn gdv_buy" >
+				  <a href="javascript:void(0);" onclick="immediatelyBuy();">立即购买</a></li>
+		  </ul>
+		</footer>
+		<!--尾部-->
+		<!--返回上一级-->
+		<div class="fack_back" data-link="" onclick="back();"></div>
+		<!--购物车-->
+		<div class="shopping" data-link="" onclick="shopping();"><span class="shopping-goods-num ellipsis gdv_priceSum">0</span> </div>
+		<!--弹出选择规格购买或加入购物车-->
+
+		<script>
+			$(document).ready(function() {
+				//设置图片所在P标签首行缩进为0
+				$('.detail-container-content img').parent('p').css('text-indent', '0');
+
+				//渐显详细内容
+				//	$('.loading').delay(700).fadeOut(300);
+				$('.detail-container').delay(1).fadeIn(1);
+			});
+		</script>
+	</body>
+</html>

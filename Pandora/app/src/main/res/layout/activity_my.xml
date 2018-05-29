@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.shakestar.mine.MyActivity" />
+
+    </data>
+<com.bis.android.plug.autolayout.AutoFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+    <com.donut.app.mvp.shakestar.select.ScrollInterceptScrollView
+        android:id="@+id/my_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+       <com.bis.android.plug.autolayout.AutoRelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           >
+            <com.bis.android.plug.autolayout.AutoRelativeLayout
+                android:id="@+id/user_background"
+                android:layout_width="match_parent"
+                android:layout_height="600px"
+                >
+                <ImageView
+                    android:id="@+id/background_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    />
+                 <com.bis.android.plug.autolayout.AutoRelativeLayout
+                     android:id="@+id/img"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_centerHorizontal="true"
+                     android:layout_marginTop="81px"
+                     android:layout_marginBottom="40px"
+                     >
+                     <ImageView
+                         android:id="@+id/user_img"
+                         android:layout_width="140px"
+                         android:layout_height="140px"
+                         android:src="@drawable/icon_logo"
+                         />
+                 </com.bis.android.plug.autolayout.AutoRelativeLayout>
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="一只鹿朵朵"
+                    android:layout_below="@id/img"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="34px"
+                    android:textColor="@color/white"
+                    />
+                <com.bis.android.plug.autolayout.AutoLinearLayout
+                    android:id="@+id/num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20px"
+                    >
+                    <TextView
+                        android:id="@+id/attention_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关注数量"
+                        android:textColor="@color/white"
+                        android:textSize="24px"
+                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 丨 "
+                        android:textColor="@color/white"
+                        android:textSize="24px"
+                        />
+                    <TextView
+                        android:id="@+id/fans_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="粉丝数量"
+                        android:textColor="@color/white"
+                        android:textSize="24px"
+                        />
+                </com.bis.android.plug.autolayout.AutoLinearLayout>
+                <CheckBox
+                    android:id="@+id/is_attention"
+                    android:layout_width="280px"
+                    android:layout_height="60px"
+                    android:text="关注"
+                    android:background="@drawable/upgrade_btn_selector"
+                    android:textSize="28px"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:layout_below="@id/num"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60px"
+                    />
+
+            </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+               <RadioGroup
+                   android:id="@+id/btn_group"
+                   android:layout_width="match_parent"
+                   android:layout_height="88px"
+                   android:orientation="horizontal"
+                   android:layout_below="@id/user_background"
+                   android:background="#ffffff"
+                   >
+
+                   <RadioButton
+                       android:id="@+id/btn_a"
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:drawableBottom="@drawable/my_line"
+                       android:button="@null"
+                       android:checked="true"
+                       android:gravity="center"
+                       android:text="作品"
+                       android:textColor="#bebebe"
+                       android:textSize="17dp"
+                       />
+                   <RadioButton
+                   android:id="@+id/btn_b"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:text="喜欢"
+                   android:textColor="#bebebe"
+                   android:drawableBottom="@drawable/my_line"
+                   android:button="@null"
+                    android:textSize="17dp"
+                   android:gravity="center" />
+
+                   <RadioButton
+                       android:id="@+id/btn_c"
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:text="素材"
+                       android:textSize="17dp"
+                       android:textColor="#bebebe"
+                       android:drawableBottom="@drawable/my_line"
+                       android:button="@null"
+                       android:gravity="center" />
+               </RadioGroup>
+
+
+           <android.support.v7.widget.RecyclerView
+               android:id="@+id/my_recycler"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_below="@id/btn_group">
+
+           </android.support.v7.widget.RecyclerView>
+
+       </com.bis.android.plug.autolayout.AutoRelativeLayout>
+    </com.donut.app.mvp.shakestar.select.ScrollInterceptScrollView>
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="126px"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:background="#00000000" />
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="126px">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:src="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/particulars_fx"
+            android:layout_width="44px"
+            android:layout_height="44px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30px"
+            android:src="@drawable/fx_b"
+            android:visibility="gone" />
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+    <TextView
+        android:id="@+id/challenge_tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="400dp"
+        android:drawablePadding="15dp"
+        android:drawableTop="@drawable/no_msg_icon"
+        android:text="暂无相关信息"
+        android:textColor="@color/text_gray9"
+        android:visibility="gone"
+        android:textSize="@dimen/text_second_font_size" />
+</com.bis.android.plug.autolayout.AutoFrameLayout>
+</layout>

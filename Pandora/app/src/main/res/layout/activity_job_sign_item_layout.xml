@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="@dimen/px_20"
+        android:background="@color/bg_img_gray" />
+
+    <Button
+        android:id="@+id/item_layout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@null"
+        android:drawableRight="@drawable/star_sign_selector"
+        android:paddingLeft="@dimen/px_20"
+        android:paddingRight="@dimen/px_20"
+        android:text="销售"
+        android:gravity="left|center_vertical"
+        android:textColor="@color/text_gray3"
+        android:textSize="13dp" />
+
+</com.bis.android.plug.autolayout.AutoLinearLayout>

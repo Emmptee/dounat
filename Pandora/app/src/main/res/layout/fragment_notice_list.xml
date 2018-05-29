@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_color_gray2">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/fragment_notice_srl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/px_20"
+        android:layout_marginRight="@dimen/px_20">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_notice_list"
+            android:name="com.donut.app.fragment.NoticeHotFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:layoutManager="LinearLayoutManager"
+            tools:context="com.donut.app.fragment.NoticeHotFragment"
+            tools:listitem="@layout/fragment_notice_hot"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:drawablePadding="@dimen/px_20"
+        android:drawableTop="@drawable/activity_notice_no_data"
+        android:gravity="center"
+        android:text="暂时没有活动，敬请期待"
+        android:textColor="@color/text_gray9"
+        android:textSize="@dimen/text_third_font_size"
+        android:visibility="gone"/>
+
+</com.bis.android.plug.autolayout.AutoFrameLayout>

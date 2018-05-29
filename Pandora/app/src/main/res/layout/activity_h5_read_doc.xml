@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_h5_read_doc"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.donut.app.activity.H5ReadDocActivity">
+
+    <include layout="@layout/head_include" />
+
+    <ProgressBar
+        android:id="@+id/webView_pb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:max="100"
+        android:progressDrawable="@drawable/progressbarbg"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/activity_h5_read_doc_web"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+        </WebView>
+
+        <TextView
+            android:id="@+id/noData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="没有网络啦"
+            android:visibility="gone" />
+    </FrameLayout>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

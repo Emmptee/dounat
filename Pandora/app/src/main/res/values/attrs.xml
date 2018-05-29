@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="titleText" format="string"/>
+    <attr name="contentText" format="string"/>
+    <attr name="cchecked" format="boolean"/>
+
+    <declare-styleable name="WishingRadioButton">
+        <attr name="titleText"/>
+        <attr name="contentText"/>
+        <attr name="cchecked"/>
+
+    </declare-styleable>
+    <declare-styleable name="UnderlineTextView">
+        <attr name="text_color" format="color"/>
+        <attr name="text_height" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="NineGridView">
+        <attr name="ngv_singleImageSize" format="dimension"/>
+        <attr name="ngv_singleImageRatio" format="float"/>
+        <attr name="ngv_gridSpacing" format="dimension"/>
+        <attr name="ngv_maxSize" format="integer"/>
+        <attr name="ngv_mode" format="enum">
+            <enum name="fill" value="0"/>
+            <enum name="grid" value="1"/>
+        </attr>
+    </declare-styleable>
+    <!--新添加的内容-->
+    <attr name="iconSize" format="dimension"/>
+    <attr name="iconMargin" format="dimension"/>
+    <attr name="iconSrc" format="reference"/>
+    <attr name="iconLeft" format="reference"/>
+    <attr name="iconRight" format="reference"/>
+    <attr name="duration_max" format="integer"/>
+    <declare-styleable name="JCameraView">
+        <attr name="iconSize"/>
+        <attr name="iconMargin"/>
+        <attr name="iconSrc"/>
+        <attr name="iconLeft"/>
+        <attr name="iconRight"/>
+        <attr name="duration_max"/>
+    </declare-styleable>
+
+    <declare-styleable name="CountDownProgress">
+        <!-- 默认圆实心的颜色 -->
+        <attr name="default_circle_solide_color" format="color"/>
+        <!-- 默认圆边框的颜色 -->
+        <attr name="default_circle_stroke_color" format="color"/>
+        <!-- 默认圆边框的宽度 -->
+        <attr name="default_circle_stroke_width" format="dimension"/>
+        <!-- 默认圆的半径 -->
+        <attr name="default_circle_radius" format="dimension"/>
+        <!-- 进度条的颜色 -->
+        <attr name="progress_color" format="color"/>
+        <!-- 进度条的宽度 -->
+        <attr name="progress_width" format="dimension"/>
+        <!-- 小圆的实心颜色 -->
+        <attr name="small_circle_solide_color" format="color"/>
+        <!-- 小圆的边框颜色 -->
+        <attr name="small_circle_stroke_color" format="color"/>
+        <!-- 小圆的边框宽度 -->
+        <attr name="small_circle_stroke_width" format="dimension"/>
+        <!-- 小圆的半径 -->
+        <attr name="small_circle_radius" format="dimension"/>
+        <!-- 文字的颜色 -->
+        <attr name="text_color_countdown" format="color"/>
+        <!-- 文字的字体大小 -->
+        <attr name="text_size" format="dimension"/>
+    </declare-styleable>
+
+</resources>

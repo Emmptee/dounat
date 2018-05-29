@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.star.area.StarAreaFragment" />
+    </data>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_bg_2"
+        android:clipChildren="false"
+        android:orientation="vertical"
+        tools:context="com.donut.app.mvp.star.area.StarAreaFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_88"
+            android:layout_centerInParent="true"
+            android:background="@color/head_title_color"
+            android:gravity="center"
+            android:text="我的专区"
+            android:textColor="@android:color/white"
+            android:textSize="36px" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/star_area_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:clipChildren="false" />
+
+        <com.bis.android.plug.autolayout.AutoFrameLayout
+            android:id="@+id/star_area_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_180"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-5dp"
+            android:background="@drawable/star_area_bottom_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/px_70"
+                android:layout_marginRight="@dimen/px_70"
+                android:drawablePadding="7.5dp"
+                android:drawableTop="@drawable/ic_star_my_space"
+                android:gravity="center"
+                android:onClick="@{()->handler.gotoStarDetail()}"
+                android:text="我的空间"
+                android:textColor="@color/text_tiffany"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/px_20"
+                android:layout_marginRight="@dimen/px_20"
+                android:drawablePadding="7.5dp"
+                android:drawableTop="@drawable/ic_star_send_notice"
+                android:gravity="center"
+                android:onClick="@{()->handler.sendSubjectNotice()}"
+                android:text="发布通告"
+                android:textColor="@color/text_tiffany"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginLeft="@dimen/px_70"
+                android:layout_marginRight="@dimen/px_70"
+                android:drawablePadding="7.5dp"
+                android:drawableTop="@drawable/ic_star_chosen"
+                android:gravity="center"
+                android:onClick="@{()->handler.gotoStarChosen()}"
+                android:text="我的推荐"
+                android:textColor="@color/text_tiffany"
+                android:textSize="10sp" />
+
+
+        </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</layout>

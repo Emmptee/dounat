@@ -1,0 +1,339 @@
+<resources>
+
+    <string name="app_name">甜麦圈</string>
+    <string name="back">返回</string>
+    <string name="connect_failuer_toast">当前网络不佳</string>
+    <string name="connect_no">当前没网络连接</string>
+    <string name="system_error">系统异常</string>
+    <string name="exit_app">再按一次返回键退出</string>
+    <string name="update">更新</string>
+    <string name="cancel">取消</string>
+    <string name="submit">提交</string>
+    <string name="sure">确定</string>
+    <string name="confirm">确认</string>
+    <string name="search">查询</string>
+    <string name="delete">删除</string>
+    <string name="update_progress_title">下载进度</string>
+    <string name="error_tips">信息获取失败</string>
+    <string name="default_name">小麦穗</string>
+    <string name="default_title">未命名</string>
+    <string name="no_login_msg">请先登录</string>
+    <string name="login_timeout_msg">账户信息已过期，请重新登录</string>
+
+    <string name="hot">甜麦圈</string>
+    <string name="idol">爱豆</string>
+    <string name="special">专题</string>
+    <string name="IP">心愿</string>
+    <string name="channel">拍拍</string>
+    <string name="zone">我的专区</string>
+    <string name="mine">我的</string>
+
+
+    <string name="attention">关注</string>
+    <string name="recommend">推荐</string>
+    <string name="grabble">搜索</string>
+
+    <string name="special_detail">专题详情</string>
+    <string name="pk_final_detail">终极PK详情</string>
+    <string name="challenge_detail">挑战详情</string>
+
+    <string name="plan_detail">心愿详情</string>
+    <string name="reward">打赏</string>
+    <string name="favor">点赞</string>
+    <string name="favored">已点赞</string>
+    <string name="vote">投票</string>
+    <string name="share">分享</string>
+    <string name="more">更多</string>
+    <string name="list_area">上榜区</string>
+    <string name="challenge_area">挑战区</string>
+    <string name="launch">发起</string>
+
+    <string name="idea_new">最新idea</string>
+    <string name="vote_new">最多投票</string>
+    <string name="popularity_hot">人气心愿</string>
+
+    <string name="collect">收藏</string>
+    <string name="collected">已收藏</string>
+    <string name="challenge">挑战</string>
+    <string name="order">订单</string>
+    <string name="action_zone">活动专区</string>
+    <string name="vip_zone">商品专区</string>
+    <string name="vip_share">会员专享>></string>
+
+    <string name="comment_submit_hint">添加评论&#8230;</string>
+    <string name="comment_empty_tips">评论内容不能为空</string>
+    <string name="reply_empty_tips">回复内容不能为空</string>
+    <string name="detail_rule">详细规则</string>
+
+    <string name="video">视频</string>
+    <string name="video_">集锦</string>
+
+
+    <string name="subject_status_ing">进行中</string>
+    <string name="subject_status_ed">已结束</string>
+
+    <string name="invite_star">邀请明星</string>
+
+    <string name="new_idea">最新心愿</string>
+    <string name="most_vote">最多投票</string>
+    <string name="most_hot">人气心愿</string>
+
+    <string name="now_num">%s/</string>
+    <string name="challenge_send_des">请填写挑战描述</string>
+    <string name="ip_collection_des">请添加心愿描述</string>
+
+    <string name="select_pic_error">图片位置错误,请重新选择</string>
+    <string name="head_upload_success">头像上传成功</string>
+    <string name="subject_period">%d期</string>
+
+    <string name="comment_length_tips">评论长度只能是512</string>
+    <string name="reply_length_tips">回复长度只能是512</string>
+    <string name="voted">已投票</string>
+
+    <string name="play">播放</string>
+    <string name="order_detail_title">订单详情</string>
+    <string name="order_detail_money">&#165;%s</string>
+    <string name="order_detail_orderNo">订单号：%s</string>
+    <string name="order_detail_date">下单时间：%s</string>
+    <string name="order_detail_expressName">快递名称：%s</string>
+    <string name="order_detail_expressNo">快递单号：%s</string>
+    <string name="order_detail_receiver">收货人：%s</string>
+    <string name="order_detail_address">收货地址：%s</string>
+    <string name="order_detail_freight">运费</string>
+    <string name="order_detail_realPayAmount">实付款(含运费)</string>
+    <string name="order_detail_btn_success">确认收货</string>
+    <string name="order_detail_btn_cancel">取消订单</string>
+    <string name="order_detail_btn_pay">去支付</string>
+    <string name="order_detail_btn_show">在线观看</string>
+
+    <string name="head">头像</string>
+    <string name="nickname">昵称</string>
+    <string name="sex">性别</string>
+    <string name="man">男</string>
+    <string name="women">女</string>
+    <string name="city">城市</string>
+    <string name="age">年龄</string>
+    <string name="star_sign">星座</string>
+    <string name="professional">职业</string>
+    <string name="no_setting">未设置</string>
+    <string name="modify">更改</string>
+    <string name="my_order_title">我的订单</string>
+    <string name="my_order_item_pay_amount">合计:&#165;%s</string>
+    <string name="my_order_item_freight">(含运费&#165;%s)</string>
+
+    <string name="order_state_0">未支付</string>
+    <string name="order_state_1">待发货</string>
+    <string name="order_state_2">已退款</string>
+    <string name="order_state_4">已取消</string>
+    <string name="order_state_5">已发货</string>
+
+    <string name="order_type_0">全部订单</string>
+    <string name="order_type_1">视频集锦</string>
+    <string name="order_type_2">明星商品</string>
+    <string name="order_type_3">分析报告</string>
+
+    <string name="save">保存</string>
+    <string name="telphone_input_tip">输入手机号</string>
+    <string name="pwd_set_tip">设置密码</string>
+    <string name="code_input_tip">输入验证码</string>
+    <string name="code_star_input_tip">输入明星邀请码</string>
+    <string name="code_send">发送验证码</string>
+    <string name="get_code_again">重新获取</string>
+    <string name="register">注册</string>
+
+    <string name="password_check_tip">密码长度只能是6~32位</string>
+    <string name="telphone_check_tip">请输入正确的手机号</string>
+    <string name="telphone_empty_tip">手机号码不能为空</string>
+    <string name="password_empty_tip">密码不能为空</string>
+
+    <string name="settings_title">设置</string>
+    <string name="personal_info">个人信息</string>
+    <string name="change_password">修改密码</string>
+    <string name="my_ip">我的心愿</string>
+    <string name="launch_ip">发起心愿</string>
+    <string name="my_address">我的收货地址</string>
+    <string name="income_tips">我的账户</string>
+    <string name="my_auction">我的竞拍</string>
+    <string name="message_center">消息中心</string>
+    <string name="feedback">意见反馈</string>
+    <string name="update_app">升级更新</string>
+    <string name="law_terms">法律条款</string>
+    <string name="clear_cache">清理缓存</string>
+    <string name="about_app">关于APP</string>
+    <string name="recommended">推荐给朋友</string>
+    <string name="login">登录</string>
+    <string name="quit">退出登录</string>
+    <string name="message_num">%s条新消息</string>
+    <string name="clear_cache_title">是否清理缓存</string>
+    <string name="logout_title">是否退出登录</string>
+    <string name="update_pass_old">旧密码</string>
+    <string name="update_pass_old_hint">请输入旧密码(6&#8212;32位)</string>
+    <string name="update_pass_new">新密码</string>
+    <string name="update_pass_new_hint">请输入新密码(6&#8212;32位)</string>
+    <string name="update_pass_new2">确认密码</string>
+    <string name="update_pass_new2_hint">请确认密码(6&#8212;32位)</string>
+
+    <string name="forgot_pass_title">忘记密码</string>
+    <string name="web_terms_title">活动条款</string>
+
+    <string name="weixin_install_login_tips">您还没有安装微信，请选择其他登录方式</string>
+    <string name="qq_install_login_tips">您还没有安装QQ，请选择其他登录方式</string>
+
+    <string name="permission_read_phone_tips">在设置—应用—甜麦圈—权限中开启获取手机信息权限，以正常使用甜麦圈功能</string>
+
+    <string name="pay_success">支付成功</string>
+    <string name="pay_fail">支付失败</string>
+    <string name="pay_cancel">取消支付</string>
+    <string name="pay_result_success">微信支付成功</string>
+    <string name="pay_result_fail">微信支付失败</string>
+    <string name="pay_result_cancle">您取消了微信支付</string>
+
+    <string name="advice_q">意见与问题</string>
+    <string name="connect">联系电话/邮箱</string>
+    <string name="feedback_hint">请输入遇到的问题和建议&#8230;</string>
+    <string name="connect_hint">选填，便于我们联系您</string>
+    <string name="advice_empty_tips">请输入意见和问题</string>
+    <string name="feedback_success">感谢您的反馈，我们会尽快给您回复</string>
+
+    <string name="default_addr_set">设为默认地址</string>
+    <string name="edit">编辑</string>
+    <string name="add_new_address">添加新地址</string>
+    <string name="edit_address">编辑收货地址</string>
+
+    <string name="consignee">收货人</string>
+    <string name="consignee_empty_tips">填写收货人姓名</string>
+    <string name="consignee_check_tips">收货人姓名不能大于32</string>
+
+    <string name="phone">联系电话</string>
+    <string name="phone_empty_tips">填写收货人联系方式</string>
+    <string name="addr">所在地区</string>
+    <string name="addr_choice">请选择</string>
+    <string name="addr_choice_empty_tip">请选择所在地区</string>
+    <string name="addr_empty_tips">请填写详细地址</string>
+    <string name="addr_hint_tips">请填写详细地址，不少于5个字</string>
+    <string name="addr_max_check_tips">详细地址不能大于512</string>
+    <string name="addr_min_check_tips">详细地址不能小于5</string>
+    <string name="set_default">设为默认</string>
+
+    <string name="delete_addr_tip">确定要删除该地址吗？</string>
+
+    <string name="feedback_check_tips">反馈意见不能大于512</string>
+    <string name="connect_check_tips">联系方式不能大于64</string>
+
+    <string name="comment">评论</string>
+
+    <string name="cash_present_ing">提现待处理</string>
+    <string name="cash_present_ed">提现已处理</string>
+    <string name="reward_error_msg">请选择或输入打赏麦圈</string>
+    <string name="reward_balance_error_msg">您当前余额不足,请先充值</string>
+    <string name="vip_description">1、商品专享会员价格\n2、商品专享包邮服务\n3、部分视频及报告类商品免费观看\n4、拥有购买专享商品的特权</string>
+    <string name="vip_tip">甜麦圈VIP特权:</string>
+    <string name="vip_title_sign">开通会员</string>
+    <string name="vip_title_renewal">续费会员</string>
+
+
+    <string name="star_chosen">推荐</string>
+    <string name="star_chosen_cancle">取消推荐</string>
+    <string name="cancle_chosen_tip">确定要取消推荐吗？</string>
+
+    <string name="app_money">麦圈</string>
+    <string name="recharge">充值</string>
+
+    <string name="about_me">关于我</string>
+
+    <string name="alipay">支付宝支付</string>
+    <string name="weixinpay">微信支付</string>
+
+    <string name="recommand">推荐TA</string>
+    <string name="recommand_cancle">取消推荐</string>
+    <string name="present_add_choose_bank">选择银行卡类型</string>
+
+    <string name="str_recorder_normal">按住添加语音消息</string>
+    <string name="str_recorder_recording">松开 结束</string>
+    <string name="str_recorder_want_cancel">松开手指 取消发送</string>
+
+    <string name="star_recoder">大咖点评</string>
+
+    <string name="subject_search_no_mag">暂无相关搜索结果</string>
+    <string name="reward_income_no_mag">暂无账户流水记录</string>
+    <string name="cash_present_title">提现记录</string>
+    <string name="cash_present_no_mag">暂无提现记录</string>
+    <string name="challenge_no_msg">还没有人挑战，快来挑战</string>
+    <string name="challenge_title">挑战区</string>
+    <string name="search_more_msg">搜索更多内容</string>
+    <string name="star_moments_no_msg">还没有任何动态，敬请期待</string>
+    <string name="loading_msg"><![CDATA[o(>﹏<)o~]]>，拼命加载中&#8230;</string>
+
+    <string name="my_attention">我的关注</string>
+    <string name="cancle_attention_tip">确定要取消关注吗？</string>
+
+    <string name="new_telphone_input_tip">输入新手机号</string>
+    <string name="new_telphone_empty_tip">新手机号码不能为空</string>
+    <string name="new_telphone_check_tip">请输入正确的新手机号码</string>
+
+    <string name="present_ratio_tips">注：提现时平台会收取33%的手续费哦~</string>
+    <string name="upload_title">上传列表</string>
+
+    <string name="app_money_title">麦圈如何使用</string>
+    <string name="app_money_use">1、可用于专题、挑战、心愿以及终极PK进行打赏支付。\n2、可用于购买甜麦圈平台会员支付。\n3、可用于大咖点评的偷听支付。</string>
+
+    <string name="wish_fulfill_video_play_num">播放%s次</string>
+    <string name="wish_fulfill_audio_play_time">%s”</string>
+    <string name="wish_detail_bottom">———— 我是有底线的 ————</string>
+
+    <string name="follow">已关注</string>
+    <string name="follow_normal">+ 关注</string>
+
+    <string name="home_item_channel_name">— %s —</string>
+    <string name="home_item_subject_name">%1$s &#124; %2$s</string>
+    <string name="channel_search_item_period">第%d期</string>
+
+    <string name="comment_times">%d条</string>
+    <string name="send_msg">发送</string>
+    <string name="comment_no_tips">还没有人评论，来抢个沙发吧</string>
+
+    <string name="auction_type_0">全部竞拍</string>
+    <string name="auction_type_1">进行中</string>
+    <string name="auction_type_2">已结束</string>
+    <string name="auction_result_price_des">竞拍价格</string>
+    <string name="auction_result_price">&#165;%1$.2f</string>
+    <string name="auction_add_times">x%d</string>
+    <string name="auction_pay_amount">合计:&#165;%1$.2f</string>
+    <string name="auction_freight">(含运费&#165;%1$.2f)</string>
+    <string name="auction_pay_cancel">放弃竞拍</string>
+    <string name="challenge_audio_times">被偷听%d次</string>
+
+    <string name="monetary_unit">&#165;</string>
+    <string name="select">%1$s/%2$s</string>
+    <string name="audio">语音</string>
+    <string name="image">图片</string>
+    <string name="download_msg">下载到本地</string>
+    <string name="download_start">开始下载</string>
+    <string name="downloading">下载中(%1$d/%2$d)</string>
+    <string name="download_success">下载成功:%S</string>
+    <string name="download_fail">下载失败，请稍后再试</string>
+    <string name="download_finish">下载完成</string>
+    <string name="download_retry">重试</string>
+    <string name="goods_type_no">暂时\n无货</string>
+    <string name="goods_type_end">竞拍\n结束</string>
+    <string name="goods_type_start">即将\n开始</string>
+    <string name="register_title">注册账号</string>
+    <string name="register_star_title">注册明星账户</string>
+    <string name="telephone_star_input_tip">输入邮箱或手机号</string>
+    <string name="telephone_star_empty_tip">邮箱或手机号不能为空</string>
+    <string name="code_star_empty_tip">请输入明星邀请码</string>
+    <string name="home_search_subject_item_wish">达成了%s的心愿</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="index">首页</string>
+    <!--新增内容-->
+    <string name="tip_beauty_open">美颜开</string>
+    <string name="tip_beauty_close">美颜关</string>
+    <string name="tip_bg_music">背景音乐</string>
+    <string name="tip_turn_camera">旋转屏幕</string>
+    <string name="shakestar_new">最新</string>
+    <string name="shakestar_hot">最热</string>
+    <string name="shakestar_samescreen">同屏</string>
+    <string name="shakestar_splice">拼接</string>
+</resources>

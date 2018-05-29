@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:id="@+id/fragment_notice_hot_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_90"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/fragment_notice_hot_top_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginStart="@dimen/px_30"
+            android:drawableLeft="@drawable/ic_action"
+            android:drawablePadding="12dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingRight="@dimen/px_160"
+            android:text="注册有礼"
+            android:textColor="@color/text_gray3"
+            android:textSize="@dimen/text_first_font_size"/>
+
+        <TextView
+            android:id="@+id/fragment_notice_hot_top_state"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/px_15"
+            android:layout_marginRight="@dimen/px_15"
+            android:drawablePadding="@dimen/px_20"
+            android:drawableRight="@drawable/activity_notice_item_top_down_icon"
+            android:gravity="center"
+            android:text="已领取"
+            android:textColor="@color/text_grayC3"
+            android:textSize="@dimen/text_first_font_size"/>
+
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:id="@+id/fragment_notice_hot_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fragment_notice_hot_content_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:layout_marginTop="@dimen/px_35"
+            android:lineSpacingExtra="10dp"
+            android:text="活动介绍:活动内活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....活动内容....容....."
+            android:textColor="@color/text_gray6"
+            android:textSize="@dimen/text_second_font_size"/>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:layout_marginTop="@dimen/px_20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="活动时间："
+                android:textColor="@color/text_tiffany"
+                android:textSize="@dimen/text_second_font_size"/>
+
+            <TextView
+                android:id="@+id/fragment_notice_hot_content_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2016/08/09--2017/09/08"
+                android:textColor="@color/text_gray6"
+                android:textSize="@dimen/text_second_font_size"/>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:layout_marginTop="@dimen/px_20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="活动奖励："
+                android:textColor="@color/text_tiffany"
+                android:textSize="@dimen/text_second_font_size"/>
+
+            <TextView
+                android:id="@+id/fragment_notice_hot_content_pro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="以下商品任选其一"
+                android:textColor="@color/text_gray6"
+                android:textSize="@dimen/text_second_font_size"/>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/fragment_notice_hot_content_goods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:orientation="vertical">
+
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <Button
+            android:id="@+id/fragment_notice_hot_content_btn_commit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_80"
+            android:layout_marginBottom="@dimen/px_50"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:layout_marginTop="@dimen/px_30"
+            android:background="@drawable/btn_selector"
+            android:text="已领取"
+            android:textColor="@android:color/white"
+            android:textSize="32px"/>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+    <View
+        android:id="@+id/fragment_notice_hot_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_10"
+        android:visibility="gone"/>
+
+</com.bis.android.plug.autolayout.AutoLinearLayout>

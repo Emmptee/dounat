@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:id="@+id/activity_notice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:orientation="vertical"
+        tools:context="com.donut.app.activity.NoticeActivity">
+
+        <include layout="@layout/head_include_databinding"/>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_100"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/notice_top_iv_hot"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="热门活动"
+                android:textColor="@drawable/notice_top_text_selector"
+                android:textSize="@dimen/text_first_font_size"/>
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="40px"
+                android:layout_gravity="center"
+                android:background="@color/line_gray2"/>
+
+            <TextView
+                android:id="@+id/notice_top_iv_new"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="最新公告"
+                android:textColor="@drawable/notice_top_text_selector"
+                android:textSize="@dimen/text_first_font_size"/>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <FrameLayout
+            android:id="@+id/notice_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</layout>

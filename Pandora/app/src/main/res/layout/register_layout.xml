@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.register.RegisterActivity" />
+    </data>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.bis.android.plug.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="520px"
+            android:background="@drawable/register_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_20"
+                android:layout_marginTop="@dimen/px_40"
+                android:background="@drawable/icon_round_back"
+                android:onClick="@{()->handler.onBackPressed()}" />
+
+            <TextView
+                android:id="@+id/tv_register_title"
+                android:layout_width="wrap_content"
+                android:layout_height="100px"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/register_title"
+                android:textColor="@color/white"
+                android:textSize="34px" />
+        </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_80"
+            android:layout_marginRight="@dimen/px_80"
+            android:layout_marginTop="@dimen/px_50"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:id="@+id/account_linear"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_phone" />
+
+                <EditText
+                    android:id="@+id/register_account_edit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/telphone_input_tip"
+                    android:inputType="phone"
+                    android:textColor="@color/text_gray3"
+                    android:textColorHint="@color/text_gray9"
+                    android:textSize="28px" />
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/bg_img_gray" />
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:id="@+id/pwd_linear"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_pwd" />
+
+                <EditText
+                    android:id="@+id/register_pwd_edit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/pwd_set_tip"
+                    android:inputType="textPassword"
+                    android:textColor="@color/text_gray3"
+                    android:textColorHint="@color/text_gray9"
+                    android:textSize="28px" />
+
+                <LinearLayout
+                    android:id="@+id/see_pwd_linear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->handler.showPass()}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/px_20">
+
+                    <TextView
+                        android:id="@+id/see_pwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/icon_close" />
+                </LinearLayout>
+
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/bg_img_gray" />
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:id="@+id/code_linear"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_ver" />
+
+                <EditText
+                    android:id="@+id/register_code_edit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/code_input_tip"
+                    android:inputType="number"
+                    android:textColor="@color/text_gray3"
+                    android:textColorHint="@color/text_gray9"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/register_get_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/px_60"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/shape_half_round_gray"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:onClick="@{()->handler.phoneValidate()}"
+                    android:paddingLeft="@dimen/px_20"
+                    android:paddingRight="@dimen/px_20"
+                    android:text="@string/code_send"
+                    android:textColor="@android:color/white"
+                    android:textSize="24px" />
+
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:id="@+id/code_star_linear"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_ver" />
+
+                <EditText
+                    android:id="@+id/register_star_code_edit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/code_star_input_tip"
+                    android:inputType="text"
+                    android:textColor="@color/text_gray3"
+                    android:textColorHint="@color/text_gray9"
+                    android:textSize="28px" />
+
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/bg_img_gray" />
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_marginTop="@dimen/px_50"
+                android:background="@drawable/shape_round_half_rec_main_light"
+                android:clickable="false"
+                android:onClick="@{()->handler.registerRequest()}"
+                android:text="@string/confirm"
+                android:textColor="@android:color/white"
+                android:textSize="32px" />
+
+            <TextView
+                android:id="@+id/register_rule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px_25"
+                android:onClick="@{()->handler.readRule()}"
+                android:textSize="24px" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_change_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp"
+                android:onClick="@{()->handler.changeUser()}"
+                android:text="@string/register_star_title"
+                android:textColor="@color/gold"
+                android:textSize="28px" />
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</layout>

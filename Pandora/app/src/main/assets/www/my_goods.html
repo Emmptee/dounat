@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no"/>
+	<script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/cordova.js" ></script>	<!--解析页面内容在more_page.js文件中-->	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/idangerous.swiper-2.0.min.js"></script>
+	<script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.0.js"></script>
+	<script type="text/javascript" src="js/more_page.js" ></script>
+	<script type="text/javascript" src="js/pullToRefresh.js"></script>
+	<link rel="stylesheet" href="css/more_style.css" type="text/css" />
+	<link rel="stylesheet" href="css/common.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/loading.css">
+
+	<title>明星商品</title>
+	<script type="text/javascript">
+
+		document.addEventListener("deviceready", init, false);
+		function init()
+		{
+			getInfo(0);
+		}
+	</script>
+</head>
+<body class="ui-navbar-through" style="height:100%;overflow:hidden" >
+
+<!--拼命加载中-->
+<div class="infopage" id="loadingDiv" style="display:none;">
+	<section class="ui-notice">
+		<i><img src="images/load.gif"></i>
+		<p>o(>﹏<)o,拼命加载中</p>
+	</section>
+</div>
+
+<!--网络不太稳-->
+<div class="infopage" id="errorDiv" style="display:none;">
+	<section class="no_wifi">
+		<i><img src="images/no_wifi.png"></i>
+		<p>网络不太稳,稍后重试</p>
+	</section>
+</div>
+
+<!--商品正在努力上架中-->
+<div class="infopage" id="emptyDiv" style="display:none;">
+	<section class="nothing">
+		<i><img src="images/no_secah_Info.png"></i>
+		<p>商品正在努力上架中</p>
+	</section>
+</div>
+
+<!--header-->
+<div class="ui-page-navbar ui-hide" style="display: block;">
+	<div class="ui-page-inner">
+            <span class="ui-navbar-left ui-operate" onclick="back();">
+                <a href="#">
+					<i class="icon icon-back"></i>
+					<span></span>
+				</a>
+            </span>
+		<span class="ui-navbar-center ui-navbar-text">明星商品</span>
+	</div>
+</div>
+
+<!--header-->
+
+<div class="wrap"  id="id00">
+	<div class="swiper-pages swiper-container" id="wrapper">
+		<div class="swiper-wrapper">
+			<!--最新挑战start-->
+			<div class="swiper-slide">
+				<div class="swiper-container scroll-container">
+					<div class="swiper-scrollbar"></div>
+					<div class="swiper-wrapper">
+						<div class="load"><div class="tip"></div></div>
+						<div class="swiper-slide">
+							<div class="content-slide">
+								<ul id="spsw">
+								</ul>
+								<div class="clear"></div>
+								<div id="loadMore_0" class="more"><div class="tip" style="display: block;"></div></div>
+							</div>
+							<input type="hidden" name="pageIndex" value="0"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

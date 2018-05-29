@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_lighter_f2"
+    android:orientation="vertical">
+
+    <include layout="@layout/head_include" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:id="@+id/setting_top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.bis.android.plug.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/setting_tv_personal_info"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/px_88"
+                        android:layout_weight="1"
+                        android:background="@drawable/item_bg"
+                        android:clickable="true"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/px_20"
+                        android:text="@string/personal_info"
+                        android:textColor="@color/text_gray3"
+                        android:textSize="@dimen/text_first_font_size" />
+
+                    <ImageView
+                        android:id="@+id/dot_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/red_dot"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px_10"
+                        android:layout_marginRight="@dimen/px_20"
+                        android:background="@drawable/icon_next" />
+
+                </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:background="@color/gray_lighter_f2" />
+
+                <TextView
+                    android:id="@+id/setting_tv_update_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_88"
+                    android:background="@drawable/item_bg"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/icon_next"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/px_20"
+                    android:text="@string/change_password"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_first_font_size" />
+
+                <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1px"-->
+                <!--android:layout_marginLeft="@dimen/px_20"-->
+                <!--android:background="@color/gray_lighter_f2"/>-->
+
+                <!--<TextView-->
+                <!--android:id="@+id/setting_tv_my_ip"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/px_88"-->
+                <!--android:background="@drawable/item_bg"-->
+                <!--android:clickable="true"-->
+                <!--android:drawableRight="@drawable/icon_next"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:padding="@dimen/px_20"-->
+                <!--android:text="@string/my_ip"-->
+                <!--android:textColor="@color/text_gray3"-->
+                <!--android:textSize="@dimen/text_first_font_size"/>-->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:background="@color/gray_lighter_f2" />
+
+                <TextView
+                    android:id="@+id/setting_tv_my_attention"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_88"
+                    android:background="@drawable/item_bg"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/icon_next"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/px_20"
+                    android:text="@string/my_attention"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_first_font_size" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:background="@color/gray_lighter_f2" />
+
+                <TextView
+                    android:id="@+id/setting_tv_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_88"
+                    android:background="@drawable/item_bg"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/icon_next"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/px_20"
+                    android:text="@string/my_address"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_first_font_size" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:background="@color/gray_lighter_f2" />
+
+                <TextView
+                    android:id="@+id/setting_tv_income"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_88"
+                    android:background="@drawable/item_bg"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/icon_next"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/px_20"
+                    android:text="@string/income_tips"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_first_font_size" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:background="@color/gray_lighter_f2" />
+
+                <TextView
+                    android:id="@+id/setting_tv_auction"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_88"
+                    android:background="@drawable/item_bg"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/icon_next"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/px_20"
+                    android:text="@string/my_auction"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_first_font_size" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray_lighter_f2" />
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+
+            <TextView
+                android:id="@+id/setting_tv_recommended"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_88"
+                android:layout_marginTop="@dimen/px_20"
+                android:background="@drawable/item_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_next"
+                android:gravity="center_vertical"
+                android:padding="@dimen/px_20"
+                android:text="@string/recommended"
+                android:textColor="@color/text_gray3"
+                android:textSize="@dimen/text_first_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/px_20"
+                android:background="@color/gray_lighter_f2" />
+
+            <com.bis.android.plug.autolayout.AutoRelativeLayout
+                android:id="@+id/setting_tv_message"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_88"
+                android:background="@drawable/item_bg"
+                android:clickable="true"
+                android:padding="@dimen/px_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/message_center"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_first_font_size" />
+
+                <TextView
+                    android:id="@+id/setting_tv_message_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="8dp"
+                    android:drawableRight="@drawable/icon_next"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/text_second_font_size" />
+
+                <ImageView
+                    android:id="@+id/setting_message_dot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/setting_tv_message_num"
+                    android:layout_toStartOf="@id/setting_tv_message_num"
+                    android:background="@drawable/red_dot"
+                    android:visibility="gone" />
+
+            </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/px_20"
+                android:background="@color/gray_lighter_f2" />
+
+            <TextView
+                android:id="@+id/setting_tv_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_88"
+                android:background="@drawable/item_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_next"
+                android:gravity="center_vertical"
+                android:padding="@dimen/px_20"
+                android:text="@string/feedback"
+                android:textColor="@color/text_gray3"
+                android:textSize="@dimen/text_first_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/px_20"
+                android:background="@color/gray_lighter_f2" />
+
+            <TextView
+                android:id="@+id/setting_tv_law"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_88"
+                android:background="@drawable/item_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_next"
+                android:gravity="center_vertical"
+                android:padding="@dimen/px_20"
+                android:text="@string/law_terms"
+                android:textColor="@color/text_gray3"
+                android:textSize="@dimen/text_first_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/px_20"
+                android:background="@color/gray_lighter_f2" />
+
+            <TextView
+                android:id="@+id/setting_tv_update"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_88"
+                android:background="@drawable/item_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_next"
+                android:gravity="center_vertical"
+                android:padding="@dimen/px_20"
+                android:text="@string/update_app"
+                android:textColor="@color/text_gray3"
+                android:textSize="@dimen/text_first_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_lighter_f2" />
+
+            <com.bis.android.plug.autolayout.AutoRelativeLayout
+                android:id="@+id/setting_cache"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_88"
+                android:background="@drawable/item_bg"
+                android:clickable="true"
+                android:padding="@dimen/px_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/clear_cache"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_first_font_size" />
+
+                <TextView
+                    android:id="@+id/setting_tv_cache_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="8dp"
+                    android:drawableRight="@drawable/icon_next"
+                    android:text="20.3MB"
+                    android:textColor="@color/text_gray9"
+                    android:textSize="@dimen/text_second_font_size" />
+
+            </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_lighter_f2" />
+
+            <TextView
+                android:id="@+id/setting_tv_about"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_88"
+                android:background="@drawable/item_bg"
+                android:clickable="true"
+                android:drawableRight="@drawable/icon_next"
+                android:gravity="center_vertical"
+                android:padding="@dimen/px_20"
+                android:text="@string/about_app"
+                android:textColor="@color/text_gray3"
+                android:textSize="@dimen/text_first_font_size" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_img_gray" />
+
+            <Button
+                android:id="@+id/setting_btn_login"
+                android:layout_width="540px"
+                android:layout_height="@dimen/px_88"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/text_first_font_size"
+                android:layout_marginTop="@dimen/px_40"
+                android:background="@drawable/shape_login_btn_main"
+                android:text="@string/login"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_first_font_size" />
+
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

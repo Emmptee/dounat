@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="detail"
+            type="com.donut.app.http.message.SubjectListDetail"/>
+
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.channel.list.ChannelListItemFragment"/>
+
+        <variable
+            name="channelType"
+            type="Integer"/>
+    </data>
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.bis.android.plug.autolayout.AutoRelativeLayout
+            android:id="@+id/channel_list_item_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_bg"
+            android:onClick="@{()->handler.gotoDetail()}"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/px_40"
+            android:paddingLeft="@dimen/px_30"
+            android:paddingRight="@dimen/px_30"
+            android:paddingTop="@dimen/px_30">
+
+            <ImageView
+                android:id="@+id/channel_list_item_playbill"
+                android:layout_width="match_parent"
+                android:layout_height="620px"
+                android:scaleType="centerCrop"
+                android:src="@color/bg_color_tiffany"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/channel_list_item_playbill"
+                android:background="@drawable/home_item_foreground"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:lineSpacingExtra="3dp"
+                android:maxLines="2"
+                android:minLines="2"
+                android:padding="@dimen/px_25"
+                android:text="@{detail.description}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_third_font_size"
+                android:visibility="@{channelType==0?View.VISIBLE:View.GONE}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/channel_list_item_playbill"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px_40"
+                android:text="@{String.format(@string/home_item_subject_name, detail.starName, detail.name)}"
+                android:textColor="@color/text_gray3"
+                android:textSize="18sp"/>
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/channel_list_item_playbill"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/px_105"
+                android:orientation="horizontal"
+                android:visibility="@{detail.period > 0 ? View.VISIBLE: View.INVISIBLE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="@{String.valueOf(detail.period)}"
+                    android:textColor="@color/text_grayB"
+                    android:textSize="@dimen/px_50"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="/期"
+                    android:textColor="@color/text_grayB"
+                    android:textSize="24px"/>
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+        <ImageView
+            android:id="@+id/channel_list_item_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/channel_list_item_card"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="@dimen/px_25"
+            android:onClick="@{()->handler.toShare()}"
+            android:src="@drawable/ic_channel_list_item_bottom_share"/>
+
+        <ImageView
+            android:id="@+id/channel_list_item_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/channel_list_item_card"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="@dimen/px_25"
+            android:layout_toLeftOf="@id/channel_list_item_share"
+            android:onClick="@{()->handler.toCollect()}"
+            android:src="@{detail.collectionStatus == 1 ? @drawable/ic_channel_list_item_bottom_collect:@drawable/ic_channel_list_item_bottom_collect_normal}"/>
+
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+</layout>

@@ -1,0 +1,94 @@
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="680px"
+    android:paddingBottom="40px"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.bis.android.plug.autolayout.widget.AutoCardView
+        android:id="@+id/subject_item"
+        android:layout_width="670px"
+        android:layout_margin="5px"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="5dp"
+        app:elevation="10dp">
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="650px"
+            android:layout_gravity="center"
+            android:layout_marginTop="10px"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/subject_item_playbill"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/subject_item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:gravity="center"
+                android:textColor="@color/text_gray1"
+                android:textSize="40px" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40px"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/subject_item_period"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/text_tiffany"
+                    android:textSize="60px" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/期"
+                    android:textColor="@color/text_tiffany"
+                    android:textSize="24px" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/subject_item_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginTop="30px"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:minLines="3"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_gray6"
+                android:textSize="26px" />
+
+            <TextView
+                android:id="@+id/subject_item_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="20px"
+                android:layout_marginRight="10px"
+                android:layout_marginTop="35px"
+                android:textColor="@color/text_gray9"
+                android:textSize="24px" />
+
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+    </com.bis.android.plug.autolayout.widget.AutoCardView>
+
+</com.bis.android.plug.autolayout.AutoLinearLayout>

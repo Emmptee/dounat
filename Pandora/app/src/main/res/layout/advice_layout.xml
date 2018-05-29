@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/head_include" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/advice_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/feedback_hint"
+                android:maxLength="513"
+                android:minHeight="@dimen/px_300"
+                android:padding="@dimen/px_20"
+                android:background="@android:color/white"
+                android:textSize="28px"
+                android:textColorHint="@color/text_gray9"
+                android:textColor="@color/text_gray3" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_20"/>
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:paddingLeft="@dimen/px_20"
+                android:paddingRight="@dimen/px_20"
+                android:background="@android:color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="28px"
+                    android:text="@string/connect"/>
+              <EditText
+                android:id="@+id/connect_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="@string/connect_hint"
+                android:gravity="right|center_vertical"
+                android:maxLength="65"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/px_20"
+                android:textSize="28px"
+                android:textColorHint="@color/text_gray9"
+                android:textColor="@color/text_gray3"/>
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_marginTop="@dimen/px_50"
+                android:background="@drawable/shape_round_half_rec_main_light"
+                android:text="@string/submit"
+                android:layout_marginLeft="@dimen/px_30"
+                android:layout_marginRight="@dimen/px_30"
+                android:textColor="@android:color/white"
+                android:textSize="32px"/>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+    </ScrollView>
+    </com.bis.android.plug.autolayout.AutoLinearLayout>

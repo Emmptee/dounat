@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no"/>
+  <title>商品详情</title>
+  <link rel="stylesheet" type="text/css" href="css/shop.css">
+  <link rel="stylesheet" type="text/css" href="css/loading.css">
+
+  <script type="text/javascript" src="js/common.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="layer/layer.js"></script>
+  <script type="text/javascript" src="js/cordova.js" ></script>
+  <script src="js/swipe.js"></script>
+  <script src="js/goodsDetails.js"></script>
+  <script type="text/javascript">
+	 localStorage.setItem("refer","goods-details.html?fromHtml=true");
+  </script>
+
+</head>
+<body id="goods-details" onload="onLoad()">
+
+<!--拼命加载中-->
+<div class="infopage" id="loadingDiv" style="display:none;">
+  <section class="ui-notice">
+    <i><img src="images/load.gif"></i>
+    <p>o(>﹏<)o,拼命加载中</p>
+  </section>
+</div>
+
+<!--网络不太稳-->
+<div class="infopage" id="errorDiv" style="display:none;">
+	<section class="no_wifi">
+	<i><img src="images/no_wifi.png"></i>
+	<p>网络不太稳,稍后重试</p>
+	</section>
+</div>
+
+<!--商品正在努力上架中-->
+<div class="infopage" id="emptyDiv" style="display:none;">
+	<section class="nothing">
+	<i><img src="images/no_secah_Info.png"></i>
+	<p>商品正在努力上架中</p>
+	</section>
+</div>
+
+<div id="slider" class="swipe">
+  <!--<div class="swipe-wrap">
+    <figure>
+      <div> <img src="images/02.jpg" width="100%" height="100%" alt="" draggable="false" /> </div>
+    </figure>
+    <figure>
+      <div> <img src="images/03.jpg" width="100%" height="100%" alt="" draggable="false" /> </div>
+    </figure>
+    <figure>
+      <div> <img src="images/01.jpg" width="100%" height="100%" alt="" draggable="false" /> </div>
+    </figure>
+  </div>
+  <nav>
+    <ul id="banner-nav">
+      <li class="on"></li>
+      <li class=""></li>
+      <li class=""></li>
+    </ul>
+  </nav>-->
+</div>
+<div class="container">
+  <div class="goods-info-box goods-header">
+    <h3 class="title"></h3>
+    <span class="xiao_type"></span>
+    <span class="xiao_img"></span>
+    <span class="xiao_sub"></span>
+    <span class="xiao_goodId"></span>
+    <div class="goods-price">
+      <!--<span>¥<i class="price_p"></i></span>
+      <span>会员价：<i class="price_h"></i></span>-->
+    </div>
+  </div>
+  <div class="goods-info-box1 goods-standard">
+    <dl>
+      <dd class="no_vipli">快递：<em class="cost_money"></em></dd>
+      <dd style="text-align: left"><em class="buy_times"></em>次购买</dd>
+      <dd style="text-align: left">剩余：<em class="surplus"></em>件</dd>
+    </dl>
+    <div style="clear: both;"></div>
+    <p><!--<em>物流：</em>--><span class="logistics"></span></p>
+  </div>
+</div>
+<!--折扣活动-->
+<div class="goods_discount">
+  <div style="height: 5px; border-bottom: 1px solid #DADADA;border-top: 1px solid #DADADA;"></div>
+  <div class="discount_minus">
+    <span class="discount_span">促销</span>
+    <ul class="list_discount">
+
+    </ul>
+  </div>
+
+</div>
+<div style="height: 10px; border-bottom: 1px solid #DADADA;border-top: 1px solid #DADADA;"></div>
+<!--商品详情-->
+<p class="container_title">商品详情</p>
+<div class="container detail-container">
+  <!--<section class="detail-container-content">
+    <p>我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介。</p>
+    <p><img src="images/00.png" alt="" draggable="false" /></p>
+  </section>-->
+
+</div>
+
+<!--底部-->
+<footer class="goods-details-footer">
+  <ul>
+    <li><a href="javascript:void(0);" class="addToCart" onclick="addToCart();">加入购物车</a></li>
+    <li class="buy-response-btn"><a href="javascript:;">立即购买</a></li>
+  </ul>
+</footer>
+
+<!--暂时无货-->
+<footer class="goods-no">
+  <p class="goods_sorry"><span>暂时无货，非常抱歉。</span></p>
+  <ul>
+    <li class="goods_no_one"><i>加入购物车</i></li>
+    <li class="goods_no_two"><i>立即购买</i></li>
+  </ul>
+</footer>
+
+<!--loading-->
+<!-- <div class="loading" style="text-align:center;"><img src="images/loading.gif" alt="" draggable="false" style="margin-top:15px;" /></div>-->
+<!--尾部-->
+<!--返回上一级-->
+<div class="fack_back" data-link=""></div>
+<!--购物车-->
+<div class="shopping" data-link=""><span class="shopping-goods-num ellipsis gdd_priceSum">¥<i class="gdd_priceSum">0</i></span> </div>
+<!--弹出选择规格购买或加入购物车-->
+<div class="cd-popup" role="alert">
+  <div class="cd-popup-container">
+    <div class="popup-title">
+      <div class="popup-thumb"><img class="popup-goods-thumb" src=""alt="" draggable="false" /></div>
+      <div class="popup-goods-info">
+        <p class="popup-goods-title"></p>
+        <p class="popup-goods-price"></p>
+      </div>
+    </div>
+    <div class="borderD"></div>
+    <div class="popup-standard">
+      <dl class="clearfix purchase-number">
+        <dt class="model-title" style="margin-top: 6px;">
+          <label>购买数量：<i>(剩余:<em class="img_num"></em>)</i></label>
+        </dt>
+        <dd>
+          <div class="quantity">
+            <span class="amy_one minus disabled">&#8722;</span><span class="add_num">1</span><span class="amy_two plus">&#43;</span>
+            <input type="hidden" class="number" name="number" value="1">
+          </div>
+        </dd>
+      </dl>
+      <input type="hidden" value="" name="alias" />
+      <input type="hidden" value="" name="goodsid" />
+    </div>
+    <a href="javascript:void(0);"><div class="popup-button">确定</div></a>
+  </div>
+</div>
+<!--弹出浮层-->
+<!--<div id="alertFloat" class="alertFloat">
+  <div class="alert_mask"></div>
+  <div class="alert_confirm">
+    <div class="alert_confirm_inner" id="alert_confirm_float">
+      <div class="alert_confirm_hd">
+        <div class="alert_confirm_tit" id="show_mes">出错了，请稍后再试！</div>
+      </div>
+    </div>
+  </div>
+</div>-->
+</body>
+</html>

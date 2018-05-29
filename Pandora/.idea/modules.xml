@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidAutoLayout/AndroidAutoLayout.iml" filepath="$PROJECT_DIR$/AndroidAutoLayout/AndroidAutoLayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CameraLibrary/CameraLibrary.iml" filepath="$PROJECT_DIR$/CameraLibrary/CameraLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CordovaLib/CordovaLib.iml" filepath="$PROJECT_DIR$/CordovaLib/CordovaLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pandora.iml" filepath="$PROJECT_DIR$/Pandora.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RefreshRecyclerLibrary/RefreshRecyclerLibrary.iml" filepath="$PROJECT_DIR$/RefreshRecyclerLibrary/RefreshRecyclerLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UmengShareLibrary/UmengShareLibrary.iml" filepath="$PROJECT_DIR$/UmengShareLibrary/UmengShareLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addresslibrary/addresslibrary.iml" filepath="$PROJECT_DIR$/addresslibrary/addresslibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/guideview/guideview.iml" filepath="$PROJECT_DIR$/guideview/guideview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imagecyclelibrary/imagecyclelibrary.iml" filepath="$PROJECT_DIR$/imagecyclelibrary/imagecyclelibrary.iml" />
+    </modules>
+  </component>
+</project>

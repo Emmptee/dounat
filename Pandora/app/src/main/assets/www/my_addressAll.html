@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	    <meta name="format-detection" content="telephone=no"/>
+		<title>我的收货地址</title>
+		<link rel="stylesheet" type="text/css" href="css/shop.css">
+		<link rel="stylesheet" type="text/css" href="css/loading.css">
+
+		<script type="text/javascript" src="js/common.js"></script>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/cordova.js" ></script>
+		<script src="js/buyAddress.js"></script>
+		<script type="text/javascript">
+		    document.addEventListener("deviceready", onReadyAddress, true);
+			$(function(){
+				// dressList();
+			})
+	    </script>
+	</head>
+	<body>
+
+	<!--拼命加载中-->
+	<div class="infopage" id="loadingDiv" style="display:none;">
+		<section class="ui-notice">
+			<i><img src="images/load.gif"></i>
+			<p>o(>﹏<)o,拼命加载中</p>
+		</section>
+	</div>
+
+	<!--网络不太稳-->
+	<div class="infopage" id="errorDiv" style="display:none;">
+		<section class="no_wifi">
+			<i><img src="images/no_wifi.png"></i>
+			<p>网络不太稳,稍后重试</p>
+		</section>
+	</div>
+
+		<div class="ui-page-navbar ui-hide" style="display: block;">
+        <div class="ui-page-inner">
+            <span class="ui-navbar-left ui-operate">
+				<a href="javascript:void(0);" onclick="back_adress();"><i class="icon icon-back back_adress"></i></a>
+				<span></span>
+            </span>
+            <span class="ui-navbar-center ui-navbar-text">选择收货地址</span>
+        </div>
+    </div>
+		<div class="my_addr_warp">
+		<!--<div class="my_address">
+	    <div class="address-get">
+		    <span class="">收货人:<em>王雨</em></span>
+		    <span class="add_peo">18538078281</span>
+		    <div class="clear"></div>
+		    <div class="address_detail"><em></em>收货地址:<span>北京软件开发商国际集团北京软件开发商国际集团</span>
+		    </div>
+		   </div>
+		    <div class="address-get_btn">
+            <span class="get_btn"></span>
+            
+          </div>
+ 		</div>
+ 		 -->
+		</div>
+		<a href="javascript:void(0);" onclick="toAddAddress()"><div class="new_adress">添加新地址</div></a>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/pop_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/shape_ring_half_rec_gray_top"
+            android:gravity="center"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            android:text="请选择"/>
+
+        <Button
+            android:id="@+id/btn_click_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:background="@android:color/white"
+            android:paddingTop="5dip"
+            android:text="拍照"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/btn_click_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/shape_rec_gray"
+            android:paddingTop="5dip"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btn_click_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/shape_ring_half_rec_gray_bottom"
+            android:paddingTop="5dip"
+            android:text="相册"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/shape_ring_half_rec_gray"
+            android:text="取消"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+</RelativeLayout>  

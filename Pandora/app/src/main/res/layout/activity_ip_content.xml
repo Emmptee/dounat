@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/head_include" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.bis.android.plug.autolayout.widget.AutoCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/px_20">
+
+                <com.bis.android.plug.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@android:color/white"
+                    android:padding="@dimen/px_10">
+
+                    <ImageView
+                        android:id="@+id/ip_content_iv_playbill"
+                        android:layout_width="match_parent"
+                        android:layout_height="400px"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:id="@+id/ip_content_tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="40px"
+                        android:textColor="@color/text_gray3"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:id="@+id/ip_content_tv_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40px"
+                        android:lineSpacingMultiplier="1.5"
+                        android:textColor="@color/text_gray6"
+                        android:textSize="26px" />
+
+                    <com.bis.android.plug.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40px"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ip_content_left_line" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10px"
+                            android:layout_marginRight="10px"
+                            android:text="邀请明星"
+                            android:textColor="@color/text_gray3"
+                            android:textSize="30px" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ip_content_right_line" />
+
+                    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+                    <com.bis.android.plug.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="30px"
+                        android:layout_marginTop="35px"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.bis.android.plug.autolayout.AutoFrameLayout
+                            android:id="@+id/ip_content_layout_star1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:visibility="gone" >
+
+                            <com.bis.android.plug.autolayout.AutoRelativeLayout
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:layout_gravity="center|top"
+                                android:background="@drawable/icon_star_bg">
+
+                            <ImageView
+                                android:id="@+id/ip_content_iv_head1"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/default_header" />
+                            </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+                            <TextView
+                                android:id="@+id/ip_content_tv_name1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|center"
+                                android:layout_marginTop="60dp"
+                                android:gravity="bottom"
+                                android:textColor="@color/text_gray3"
+                                android:textSize="26px" />
+
+                        </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                        <com.bis.android.plug.autolayout.AutoFrameLayout
+                            android:id="@+id/ip_content_layout_star2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:visibility="gone">
+
+                            <com.bis.android.plug.autolayout.AutoRelativeLayout
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:layout_gravity="center|top"
+                                android:background="@drawable/icon_star_bg">
+
+                            <ImageView
+                                android:id="@+id/ip_content_iv_head2"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/default_header" />
+
+                            </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+                            <TextView
+                                android:id="@+id/ip_content_tv_name2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|center"
+                                android:layout_marginTop="60dp"
+                                android:gravity="bottom"
+                                android:textColor="@color/text_gray3"
+                                android:textSize="26px" />
+
+                        </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                        <com.bis.android.plug.autolayout.AutoFrameLayout
+                            android:id="@+id/ip_content_layout_star3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:visibility="gone">
+
+                            <com.bis.android.plug.autolayout.AutoRelativeLayout
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:layout_gravity="center|top"
+                                android:background="@drawable/icon_star_bg">
+
+                            <ImageView
+                                android:id="@+id/ip_content_iv_head3"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp"
+                                android:layout_marginTop="2dp"
+                               android:layout_centerInParent="true"
+                                android:src="@drawable/default_header" />
+                            </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+                            <TextView
+                                android:id="@+id/ip_content_tv_name3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|center"
+                                android:layout_marginTop="60dp"
+                                android:gravity="bottom"
+                                android:textColor="@color/text_gray3"
+                                android:textSize="26px" />
+
+                        </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+
+                    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+                </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+
+            </com.bis.android.plug.autolayout.widget.AutoCardView>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+    </ScrollView>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

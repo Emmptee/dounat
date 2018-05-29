@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="detail"
+            type="com.donut.app.http.message.StarListDetail"/>
+    </data>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/px_20"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/default_header"
+            app:roundImageUrl="@{detail.headPic}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/px_10"
+            android:layout_marginTop="@dimen/px_20"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:maxWidth="80dp"
+            android:text="@{detail.starName}"
+            android:textColor="@color/text_gray3"
+            android:textSize="@dimen/text_second_font_size"/>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+</layout>

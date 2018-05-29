@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+    <import type="android.view.View" />
+    <variable
+        name="handler"
+        type="com.donut.app.mvp.shakestar.commend.ShakeStarSelectActivity" />
+</data>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="128px"
+        android:background="@color/head_title_color"
+        >
+       <ImageView
+           android:id="@+id/back_select"
+           android:layout_width="70px"
+           android:layout_height="match_parent"
+           android:src="@drawable/back"
+           android:scaleType="centerInside"
+           android:layout_centerVertical="true"
+           />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择素材"
+            android:textSize="17dp"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+        <ImageView
+            android:id="@+id/user_message"
+            android:layout_width="80px"
+            android:layout_height="match_parent"
+            android:src="@drawable/user_message"
+            android:scaleType="centerInside"
+            android:layout_alignParentRight="true"
+            />
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="111px"
+        >
+        <View
+            android:id="@+id/edclick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="18px"
+            android:layout_marginBottom="22px"
+            android:layout_marginRight="30px"
+            android:drawablePadding="20px"
+            />
+        <EditText
+            android:id="@+id/shake_search_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_shake_rec_gray"
+            android:drawableLeft="@drawable/sousuo"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="18px"
+            android:layout_marginBottom="22px"
+            android:layout_marginRight="30px"
+            android:drawablePadding="20px"
+            android:hint="搜索明星或视频名称"
+            android:focusableInTouchMode="true"
+            android:layout_centerHorizontal="true"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:paddingLeft="40px"
+            android:paddingRight="@dimen/px_20"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:textColor="@color/text_gray3"
+            android:textColorHint="@color/text_gray9"
+            android:textSize="30px" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#F4F4F4"
+            />
+
+        <ImageView
+            android:id="@+id/shake_search_iv_etClean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/shake_search_et"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15px"
+            android:padding="@dimen/px_5"
+            android:scaleType="center"
+            android:src="@drawable/edit_close_icon"
+            android:visibility="gone" />
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_180"
+        android:background="@color/white"
+        android:orientation="horizontal">
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/shake_ll_new"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_shake_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shakestar_new_selector"
+                android:paddingTop="26px"/>
+
+            <TextView
+                android:id="@+id/tv_shake_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px_5"
+                android:text="@string/shakestar_new"
+                android:textColor="@color/gray_text9"
+                android:paddingTop="@dimen/px_5"
+                android:textSize="12sp"/>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/shake_ll_hot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_shake_hot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shakestar_hot_selector"
+                android:paddingTop="26px"/>
+
+            <TextView
+                android:id="@+id/tv_shake_hot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px_5"
+                android:text="@string/shakestar_hot"
+                android:textColor="@color/gray_text9"
+                android:paddingTop="@dimen/px_5"
+                android:textSize="12sp"/>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/shake_ll_samescreen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_shake_samescreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shakestar_samescreen_selector"
+                android:paddingTop="26px"/>
+
+            <TextView
+                android:id="@+id/tv_shake_samescreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px_5"
+                android:text="@string/shakestar_samescreen"
+                android:textColor="@color/gray_text9"
+                android:paddingTop="@dimen/px_5"
+                android:textSize="12sp"/>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/shake_ll_splice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_shake_splice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shakestar_splice_selector"
+                android:paddingTop="26px"/>
+
+            <TextView
+                android:id="@+id/tv_shake_splice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px_5"
+                android:text="@string/shakestar_splice"
+                android:textColor="@color/gray_text9"
+                android:paddingTop="@dimen/px_5"
+                android:textSize="12sp"/>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_20"
+        android:shadowColor="@color/item_line">
+
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+    <com.bis.android.plug.autolayout.AutoFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/subject_search_tv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/px_250"
+            android:drawablePadding="15dp"
+            android:drawableTop="@drawable/subject_search_default_icon"
+            android:text="@string/search_more_msg"
+            android:textColor="@color/text_gray9"
+            android:visibility="gone"
+            android:textSize="@dimen/text_second_font_size" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/select_swip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/select_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </com.bis.android.plug.autolayout.AutoFrameLayout>
+</com.bis.android.plug.autolayout.AutoLinearLayout>
+</layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.bis.android.plug.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/wish_fulfill_list_srl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/wish_fulfill_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/fragment_wish_fulfill"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableTop="@drawable/icon_cry"
+        android:drawablePadding="@dimen/px_20"
+        android:textColor="@color/text_gray9"
+        android:textSize="13sp"
+        android:visibility="gone"/>
+</com.bis.android.plug.autolayout.AutoRelativeLayout>

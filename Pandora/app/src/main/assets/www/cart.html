@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      <meta name="format-detection" content="telephone=no"/>
+      <script type="text/javascript" src="js/cordova.js" ></script>
+      <script type="text/javascript" src="js/common.js"></script>
+      <script src="layer/layer.js"></script>
+      <script type="text/javascript" src="js/cart.js"></script>
+
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/idangerous.swiper-2.0.min.js"></script>
+      <script type="text/javascript" src="js/idangerous.swiper.scrollbar-2.0.js"></script>
+
+      <link rel="stylesheet" href="css/more_style.css" type="text/css" />
+      <link rel="stylesheet" href="css/cart.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="css/loading.css">
+
+      <title>购物车</title>
+
+    <style>
+         .cart_bj {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-right: 10px;
+            color: #FFFFFF;
+            font-size: .3rem;
+        }
+
+        .cart_complete {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-right: 10px;
+            color: #FFFFFF;
+            font-size: .3rem;
+        }
+
+        .swiper-container {
+            margin: 0 0 50px 0;
+        }
+
+        .goodsPic img {
+            width: 1.3rem;
+            height: 1.3rem;
+            float: left;
+            display: inline-block;
+        }
+
+        .title_cart em {
+            font-style: normal;
+        }
+
+        .if_vip {
+            font-size: 13px;
+            color: #FFFFFF;
+            background: #81d8d0;
+            border-radius: 4px;
+            display: inline-block;
+            height: 24px;
+            line-height: 24px;
+            padding: 0 8px;
+        }
+
+        .zhek {
+            font-size: 10px;
+            color: #FFFFFF;
+            border: 1px solid #FF6565;
+            background: #FF6565;
+            border-radius: 2px;
+            padding: 2px 2px 0px 2px;
+            margin-right: 8px;
+        }
+
+        .zhe_li {
+            margin-left: 30px;
+            background: #FFF4F2;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #E8E8E8;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .zhe_pink {
+            background: #FFF4F2;
+        }
+
+        .tip {
+            font-size: 0.25rem;
+        }
+
+        .swiper-container {
+            overflow-x:hidden;
+            overflow-y:hidden;
+        }
+    </style>
+  </head>
+
+<body onload="onLoad()">
+
+<!--商品正在努力上架中-->
+<div class="infopage" id="emptyDiv" style="display:none;">
+    <section class="nothing">
+        <i><img src="images/no_secah_Info.png"></i>
+        <p>您购物车中没有商品</p>
+    </section>
+</div>
+<!--拼命加载中-->
+<div class="infopage" id="loadingDiv" style="display:none;">
+    <section class="ui-notice">
+        <i><img src="images/load.gif"></i>
+        <p>o(>﹏<)o,拼命加载中</p>
+    </section>
+</div>
+
+<!--网络不太稳-->
+<div class="infopage" id="errorDiv" style="display:none;">
+    <section class="no_wifi">
+        <i><img src="images/no_wifi.png"></i>
+        <p>网络不太稳,稍后重试</p>
+    </section>
+</div>
+
+
+  <header>
+      <a href="javascript:void(0)" id="cartBack" class="iconfont backIcon" onclick="backIcon();">&lt;</a>
+      <h1>购物车</h1>
+      <a class="cart_bj">编辑</a>
+      <a class="cart_complete" style="display:none">完成</a>
+  </header>
+
+  <div class="wrap"  id="id00">
+      <div class="swiper-pages swiper-container" id="wrapper">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                  <div style="height:100%" class="swiper-container scroll-container">
+                      <div class="swiper-scrollbar"></div>
+                      <div class="swiper-wrapper">
+                          <div class="load"><div class="tip"></div></div>
+                          <div class="swiper-slide">
+                              <div class="content-slide">
+                                  <div id="spsw" class="cart_swarp">
+
+                                  </div>
+                                  <div class="clear"></div>
+                                  <div id="loadMore_0" class="more"><div class="tip" style="display: block;"></div></div>
+                              </div>
+                              <input type="hidden" name="pageIndex" value="0"/>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <footer class="cart_footer">
+      <table width="100%" cellpadding="0" cellspacing="0" class="footerTable1">
+          <tbody>
+          <tr>
+              <td style="width:65px"><span class="cart_icon_select_all cart_all" onclick="cartAllB(this);"></span><input type="hidden" /><em class="all_quan">全选</em></td>
+              <td align="left" class="cart_two"> <span style="font-size: 16px;font-weight: 500;">合计：<em style="font-style: normal;color: #FF6565;font-size: 16px;">¥</em><em class="txtred">0</em></span> <span class="txtfont">不含运费</span> </td>
+              <td align="right" onclick="closeAnAccount();">结算</td>
+          </tr>
+          </tbody>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" style="display:none" class="footerTable2">
+          <tbody>
+          <tr>
+              <td><span class="cart_icon_select_all cart_all" onclick="cartAllB(this);"></span><input type="hidden" /><em class="all_quan">全选</em></td>
+              <td align="right" class="multiSelectDelete" onclick="deleteAll();">删除</td>
+          </tr>
+          </tbody>
+      </table>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="hpSubject"
+            type="com.donut.app.http.message.SubjectHomePageResponse.HpSubject"/>
+    </data>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/card_bg"
+        android:orientation="vertical"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp">
+
+        <com.bis.android.plug.autolayout.AutoFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/subject_item_playbill"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@color/bg_color_tiffany"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:background="@drawable/home_item_foreground"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:lineSpacingExtra="3dp"
+                android:maxLines="2"
+                android:padding="@dimen/px_25"
+                android:text="@{hpSubject.content}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_third_font_size"/>
+        </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+        <com.bis.android.plug.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_160"
+            android:layout_below="@id/subject_item_playbill">
+
+            <TextView
+                android:id="@+id/tv_home_item_channel_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/px_20"
+                android:gravity="center"
+                android:text="@{String.format(@string/home_item_channel_name, hpSubject.channelName)}"
+                android:textColor="@color/text_grayB"
+                android:textSize="@dimen/text_third_font_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_home_item_channel_name"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@{hpSubject.channelType==2?hpSubject.starName:String.format(@string/home_item_subject_name, hpSubject.starName, hpSubject.title)}"
+                android:textColor="@color/text_gray3"
+                android:textSize="16sp"/>
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="@{hpSubject.period > 0 ? View.VISIBLE: View.INVISIBLE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:text="@{String.valueOf(hpSubject.period)}"
+                    android:textColor="@color/text_grayB"
+                    android:textSize="@dimen/px_50"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:text="/期"
+                    android:textColor="@color/text_grayB"
+                    android:textSize="@dimen/text_fourth_font_size"/>
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+        </com.bis.android.plug.autolayout.AutoRelativeLayout>
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</layout>

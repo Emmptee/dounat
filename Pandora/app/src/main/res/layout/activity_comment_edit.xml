@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_lighter_f2">
+    <include
+        layout="@layout/head_include"/>
+   <EditText
+       android:id="@+id/comment_edit"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:minHeight="400px"
+       android:maxLength="513"
+       android:textColor="@color/text_gray3"
+       android:textColorHint="@color/text_gray9"
+       android:hint="请输入评论..."
+       android:gravity="top"
+       android:textSize="@dimen/text_first_font_size"
+       android:padding="@dimen/px_20"
+       android:background="@color/white"/>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

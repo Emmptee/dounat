@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/black">
+
+        <FrameLayout
+            android:id="@+id/welcome_img_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/iv_welcome_main"/>
+
+            <ViewFlipper
+                android:id="@+id/welcome_img_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/tv_welcome_goto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="20dp"
+                android:padding="10dp"
+                android:text="跳过"
+                android:textColor="@color/text_gray6"
+                android:textSize="13sp"
+                android:visibility="gone"/>
+        </FrameLayout>
+
+        <View
+            android:id="@+id/welcome_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</layout>

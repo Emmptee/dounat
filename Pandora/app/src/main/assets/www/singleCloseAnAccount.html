@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	    <meta name="format-detection" content="telephone=no"/>
+		<title>确认订单</title>
+		<link rel="stylesheet" type="text/css" href="css/shop.css">
+		<link rel="stylesheet" type="text/css" href="css/loading.css">
+
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/cordova.js" ></script>
+		<script src="js/jquery.js"></script>
+		<script src="layer/layer.js"></script>
+		<script src="js/closeAnAccount.js"></script>
+		<script type="text/javascript">
+			document.addEventListener("deviceready", singleGoods, false);
+		</script>
+</head>
+<body id="buy" onload="onLoad()">
+
+	<!--拼命加载中-->
+	<div class="infopage" id="loadingDiv" style="display:none;">
+		<section class="ui-notice" style="display: inline;">
+			<i><img src="images/load.gif"></i>
+			<p>o(>﹏<)o,拼命加载中</p>
+		</section>
+	</div>
+
+	<!--网络不太稳-->
+	<div class="infopage" id="errorDiv" style="display:none;">
+		<section class="no_wifi" style="display: inline;">
+			<i><img src="images/no_wifi.png"></i>
+			<p>网络不太稳,稍后重试</p>
+		</section>
+	</div>
+
+	   <div class="ui-page-navbar ui-hide" style="display: block;">
+        <div class="ui-page-inner">
+            <span class="ui-navbar-left ui-operate buy_back" onclick="backBSingle();">
+                  <a id="backBSingle" href="javascript:void(0)" ><i class="icon icon-back"></i></a>
+              		<span></span>
+            </span>
+            <span class="ui-navbar-center ui-navbar-text">购买商品</span>
+        </div>
+    </div>
+<div class="wrap_index">
+<div class="buy_address">
+</div>
+  <!--产品开始-->
+  <ul class="goods-order">
+  </ul>
+  <!--产品结束-->
+  <!--支付方式-->
+    <div class="pay_for">
+    	<span class="pay_for_yes">支付方式</span>
+        <div class="pay_wei">
+        	<span><img src="images/weixin.png"/><i>微信</i></span>
+          <div class="pay_wei_btn">
+            <input type="radio" name="gender" checked="checked" class="gender" required="required" value="1">
+          </div>
+        </div>
+        <div class="pay_zhi"> 
+        	<span><img src="images/zhifu.png"/><i>支付宝</i></span>
+          <div class="pay_zhi_btn">
+            <input type="radio" name="gender" class="gender" required="required" value="0">
+          </div>
+        </div>
+      </div>
+</div>
+  <div class="total">
+  	<div class="total_left">
+  		<span class="">合计：<i>¥<em class="sum_money"></em></i></span>
+  	</div>
+  	<a href="javascript:void(0)"><div class="pafor" onclick="confirmPay('0');">确认付款</div></a>
+  </div>
+  <!--弹出框-->
+  <!--弹出框start-->
+    <div class="box">
+        		<div class="dialog-bd">
+        			<h2>提示</h2>
+					<div class="dialog-more">你还没有设置收款地址,请点击这里设置！</div>
+					<div class="ui-dialog-ft ui-btn-group"><a id="down_close">取消</a><a href="add_address.html" >确定</a>
+					</div>
+			</div>	
+    </div>
+    
+    <div class="layer-warp">  
+        		<div class="dialog-bg">
+        			<div class="layer_tap">
+					<span class="layer_title">恭喜你付款成功</span>
+					<div class="pafor_list">进入订单列表</div>
+					<div class="pafor_go">继续购买</div>
+					</div>
+        			</div>
+			</div>
+			
+			
+			  <div class="layer-warp_no">  
+        		<div class="dialog-bg_no">
+        			<div class="layer_tap_no">
+					<span class="layer_title_no">商品未支付成功，请重新支付！</span>
+					<div class="pafor_list_no">确认离开</div>
+					<div class="pafor_go_no">继续支付</div>
+					</div>
+        			</div>
+			</div>
+			
+			
+			  <div class="layer-warp_fail">  
+        		<div class="dialog-bg_fail">
+        			<div class="layer_tap_fail">
+					<span class="layer_title_fail">对不起，付款失败， 请重新支付！</span>
+					<div class="fail_reason">失败原因：<span>没钱了！</span></div>
+					<div class="pafor_list_fail">进入订单列表</div>
+					<div class="pafor_go_fail">继续购买</div>
+					</div>
+        			</div>
+			</div>
+<!--弹出框结束-->
+</body>
+</html>

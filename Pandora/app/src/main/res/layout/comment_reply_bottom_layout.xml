@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/comment_reply_bottom_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/text_gray9"/>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fafafa"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/px_100"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/px_20"
+        android:paddingRight="@dimen/px_20">
+
+        <EditText
+            android:id="@+id/comment_reply_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_20"
+            android:layout_weight="1"
+            android:background="@drawable/shape_half_rec_gray_comment_reply"
+            android:hint="添加回复..."
+            android:imeOptions="actionSend"
+            android:maxLength="513"
+            android:maxLines="5"
+            android:minHeight="30dp"
+            android:paddingBottom="@dimen/px_10"
+            android:paddingLeft="@dimen/px_15"
+            android:paddingRight="@dimen/px_15"
+            android:paddingTop="@dimen/px_10"
+            android:textColor="@color/text_gray6"
+            android:textColorHint="@color/gray_lighter_b"
+            android:textSize="26px"/>
+
+        <TextView
+            android:id="@+id/comment_reply_btn_send"
+            android:layout_width="@dimen/px_120"
+            android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/px_10"
+            android:background="@drawable/shape_half_rec_main_comment_reply"
+            android:gravity="center"
+            android:paddingBottom="8px"
+            android:paddingLeft="@dimen/px_5"
+            android:paddingRight="@dimen/px_5"
+            android:paddingTop="8px"
+            android:text="发送"
+            android:textColor="@android:color/white"
+            android:textSize="26px"/>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

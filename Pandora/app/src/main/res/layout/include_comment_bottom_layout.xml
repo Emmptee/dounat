@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="userInfo"
+            type="com.donut.app.entity.UserInfo"/>
+        <variable
+            name="commentTimes"
+            type="Integer"/>
+    </data>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:id="@+id/include_bottom_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:baselineAligned="false"
+        android:minHeight="49dp"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/px_20"
+        android:paddingLeft="@dimen/px_20"
+        android:paddingRight="@dimen/px_20"
+        android:paddingTop="@dimen/px_10">
+
+        <com.bis.android.plug.autolayout.AutoFrameLayout
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="@dimen/px_5"
+                android:background="@{userInfo.userType == 0 ? @drawable/shape_ring_round_main:@drawable/shape_ring_round_gold }"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/icon_star"
+                android:visibility="@{userInfo.userType == 0 ? View.GONE:View.VISIBLE}"/>
+
+            <ImageView
+                android:id="@+id/include_bottom_user_header"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="1.5dp"
+                android:layout_marginTop="4dp"
+                app:roundImageUrl="@{userInfo.imgUrl}"/>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/icon_vip"
+                android:visibility="@{userInfo.memberStatus == 0 ? View.GONE:View.VISIBLE}"/>
+
+        </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+        <!-- @dimen/px_65 -->
+        <EditText
+            android:id="@+id/include_comment_et"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/px_10"
+            android:layout_weight="1"
+            android:background="@drawable/shape_half_rec_gray_comment"
+            android:hint="@string/comment_submit_hint"
+            android:imeOptions="actionSend"
+            android:maxLength="513"
+            android:maxLines="5"
+            android:minHeight="30dp"
+            android:paddingBottom="@dimen/px_10"
+            android:paddingLeft="@dimen/px_15"
+            android:paddingRight="@dimen/px_15"
+            android:paddingTop="@dimen/px_10"
+            android:textColor="@color/text_gray3"
+            android:textColorHint="@color/gray_lighter_b"
+            android:textSize="26px"/>
+
+        <TextView
+            android:id="@+id/include_comment_btn_send"
+            android:layout_width="@dimen/px_120"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/px_10"
+            android:background="@drawable/shape_half_rec_main_comment_reply"
+            android:gravity="center"
+            android:paddingBottom="8px"
+            android:paddingLeft="@dimen/px_5"
+            android:paddingRight="@dimen/px_5"
+            android:paddingTop="8px"
+            android:text="@{String.format(@string/comment_times, commentTimes)}"
+            android:textColor="@android:color/white"
+            android:textSize="26px"/>
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</layout>

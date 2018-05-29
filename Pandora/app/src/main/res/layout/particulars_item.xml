@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/xq_img"
+        android:layout_width="246px"
+        android:layout_height="246px"
+        android:scaleType="fitXY"
+        android:layout_marginTop="6px"
+        android:layout_marginLeft="6px"
+
+        />
+
+</com.bis.android.plug.autolayout.AutoRelativeLayout>

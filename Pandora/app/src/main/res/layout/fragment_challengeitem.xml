@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.bis.android.plug.autolayout.widget.AutoCardView
+        android:layout_width="match_parent"
+        android:layout_height="530px"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="5px"
+        android:layout_marginRight="5px"
+        android:layout_marginTop="10px"
+        app:cardCornerRadius="5dp"
+        app:elevation="10dp">
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10px"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/challenge_item_iv_playbill"
+                android:layout_width="match_parent"
+                android:layout_height="328px"
+                android:scaleType="centerCrop" />
+
+            <com.bis.android.plug.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15px">
+
+                <FrameLayout
+                    android:id="@+id/challenge_item_iv_head_linear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/challenge_item_iv_head_bg"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/shape_ring_round_main"/>
+
+                    <ImageView
+                        android:id="@+id/challenge_item_iv_head"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:scaleType="centerCrop"
+                        android:layout_gravity="center"
+                        android:src="@drawable/default_header" />
+
+                    <ImageView
+                        android:id="@+id/challenge_item_iv_head_v"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="bottom|end"
+                        android:src="@drawable/icon_vip"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+
+                <TextView
+                    android:id="@+id/challenge_item_tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10px"
+                    android:layout_toRightOf="@id/challenge_item_iv_head_linear"
+                    android:paddingRight="@dimen/px_100"
+                    android:singleLine="true"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/challenge_item_tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10px"
+                    android:textColor="@color/text_gray9"
+                    android:textSize="24px" />
+
+            </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+            <TextView
+                android:id="@+id/challenge_item_tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15px"
+                android:ellipsize="end"
+                android:maxLines="3" />
+
+
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+    </com.bis.android.plug.autolayout.widget.AutoCardView>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

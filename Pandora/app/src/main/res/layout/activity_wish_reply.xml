@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.wish.reply.WishReplyActivity"/>
+
+        <variable
+            name="userInfo"
+            type="com.donut.app.entity.UserInfo"/>
+
+        <variable
+            name="wish"
+            type="com.donut.app.http.message.wish.WishDetailsResponse"/>
+
+    </data>
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_lighter_f2"
+        android:orientation="vertical">
+
+        <include layout="@layout/head_include_databinding"/>
+
+        <include
+            android:id="@+id/comment_bottom_layout"
+            layout="@layout/include_comment_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:commentTimes="@{wish.commentTimes}"
+            app:userInfo="@{userInfo}"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/comment_bottom_layout"
+            android:layout_marginTop="@dimen/px_88">
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.bis.android.plug.autolayout.AutoRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="422px">
+
+                    <ImageView
+                        android:id="@+id/iv_wish_reply_show_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/shape_wish_foreground"/>
+
+                    <ImageView
+                        android:id="@+id/iv_wish_reply_star_head_img"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="@dimen/px_30"
+                        android:layout_marginTop="@dimen/px_20"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:id="@+id/tv_wish_reply_star_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px_20"
+                        android:layout_marginRight="@dimen/px_20"
+                        android:layout_marginTop="@dimen/px_20"
+                        android:layout_toRightOf="@id/iv_wish_reply_star_head_img"
+                        android:text="@{wish.wishType==0? wish.starName:@string/app_name}"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px_20"
+                        android:layout_toRightOf="@id/tv_wish_reply_star_name"
+                        android:text="@{wish.achieveTime}"
+                        android:textColor="#80ffffff"/>
+
+                    <TextView
+                        android:id="@+id/wish_fulfill_collect_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_wish_reply_star_name"
+                        android:layout_marginLeft="@dimen/px_20"
+                        android:layout_marginRight="@dimen/px_20"
+                        android:layout_marginTop="@dimen/px_15"
+                        android:layout_toRightOf="@id/iv_wish_reply_star_head_img"
+                        android:drawableLeft="@drawable/wish_fulfill_collect_icon"
+                        android:drawablePadding="5dp"
+                        android:text="@{String.valueOf(wish.collectTimes)}"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/wish_fulfill_like_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_wish_reply_star_name"
+                        android:layout_marginTop="@dimen/px_15"
+                        android:layout_toRightOf="@id/wish_fulfill_collect_num"
+                        android:drawableLeft="@drawable/wish_fulfill_like_icon"
+                        android:drawablePadding="5dp"
+                        android:text="@{String.valueOf(wish.praiseTimes)}"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/wish_fulfill_share_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_wish_reply_star_name"
+                        android:layout_marginLeft="@dimen/px_20"
+                        android:layout_marginTop="@dimen/px_15"
+                        android:layout_toRightOf="@id/wish_fulfill_like_num"
+                        android:drawableLeft="@drawable/wish_fulfill_share_icon"
+                        android:drawablePadding="5dp"
+                        android:text="@{String.valueOf(wish.shareTimes)}"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/px_15"
+                        android:drawableTop="@drawable/play_icon"
+                        android:onClick="@{()->handler.onPlayVideo(wish)}"
+                        android:text='@{wish.videoPlayTimes > 0 ? String.format(@string/wish_fulfill_video_play_num, wish.videoPlayTimes):""}'
+                        android:textColor="@android:color/white"
+                        android:visibility="@{wish.achieveVideoUrl.length()>0 ? View.VISIBLE : View.GONE}"/>
+
+                </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+                <com.bis.android.plug.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_100"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px_20"
+                        android:layout_marginStart="@dimen/px_20"
+                        android:background="@null"
+                        android:onClick="@{()->handler.onCollect(wish)}"
+                        android:padding="@dimen/px_10"
+                        android:src="@{wish.collectionStatus == 1 ? @drawable/icon_collect_pre : @drawable/icon_collect}"/>
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px_30"
+                        android:layout_marginStart="@dimen/px_30"
+                        android:background="@null"
+                        android:onClick="@{()->handler.onLike(wish)}"
+                        android:padding="@dimen/px_10"
+                        android:src="@{wish.praiseStatus == 1 ? @drawable/icon_parise_pre : @drawable/icon_parise}"/>
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px_30"
+                        android:layout_marginStart="@dimen/px_30"
+                        android:background="@null"
+                        android:onClick="@{()->handler.onToShare(wish)}"
+                        android:padding="@dimen/px_10"
+                        android:src="@drawable/icon_share"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/px_20"
+                        android:layout_marginRight="@dimen/px_20"
+                        android:drawableEnd="@drawable/wish_comment_icon"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@drawable/wish_comment_icon"
+                        android:gravity="end"
+                        android:onClick="@{()->handler.onToComment()}"
+                        android:padding="@dimen/px_10"
+                        android:text="@{String.valueOf(wish.commentTimes)}"
+                        android:textColor="@color/text_tiffany"/>
+
+                </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#4D81D8D0"/>
+
+                <com.bis.android.plug.autolayout.AutoFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:paddingBottom="@dimen/px_20"
+                    android:paddingLeft="@dimen/px_30"
+                    android:paddingTop="@dimen/px_15">
+
+                    <View
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginTop="@dimen/px_5"
+                        android:background="@drawable/shape_ring_round_gold"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="1.5dp"
+                        android:src="@drawable/icon_star"
+                        android:visibility="@{wish.wishType == 0 ? View.VISIBLE:View.GONE}"/>
+
+                    <ImageView
+                        android:id="@+id/iv_wish_reply_star_head_img2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="2px"
+                        android:layout_marginTop="7px"/>
+
+                    <ImageView
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginLeft="19dp"
+                        android:layout_marginStart="19dp"
+                        android:src="@drawable/icon_vip"
+                        android:visibility="@{wish.starIsMember == 1 ? View.VISIBLE:View.GONE}"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="@dimen/px_20"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:maxWidth="280dp"
+                        android:text="@{wish.wishType==0? wish.starName:@string/app_name}"
+                        android:textColor="@color/gold"
+                        android:textSize="@dimen/text_second_font_size"/>
+                </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                <com.bis.android.plug.autolayout.AutoFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+
+                    <com.bis.android.plug.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/px_30"
+                        android:layout_marginLeft="@dimen/px_30"
+                        android:layout_marginRight="@dimen/px_30"
+                        android:background="@drawable/wish_fulfill_listen_bg"
+                        android:gravity="center_vertical"
+                        android:onClick="@{(v)->handler.onPlayAudio(v, wish)}"
+                        android:orientation="horizontal"
+                        android:visibility="@{wish.achieveVoiceList.size()>0 ? View.VISIBLE : View.GONE}">
+
+                        <ImageView
+                            android:id="@+id/iv_wish_reply_audio_play_anim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/px_25"
+                            android:background="@drawable/voice_gray"/>
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px_15"
+                            android:layout_weight="1"
+                            android:text="@{String.format(@string/wish_fulfill_audio_play_time, wish.achieveVoiceList[0].lastTime)}"
+                            android:textColor="@color/gray_lighter_b"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{String.valueOf(wish.achieveVoiceList[0].listenTimes)}'
+                            android:textColor="@color/text_tiffany"
+                            android:textSize="24px"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/px_25"
+                            android:text="次"
+                            android:textColor="@color/gray_lighter_b"
+                            android:textSize="24px"/>
+                    </com.bis.android.plug.autolayout.AutoLinearLayout>
+                </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:lineSpacingExtra="5dp"
+                    android:paddingBottom="@dimen/px_25"
+                    android:paddingLeft="@dimen/px_30"
+                    android:paddingRight="@dimen/px_30"
+                    android:text="@{wish.achieveText}"
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_second_font_size"
+                    android:visibility="@{wish.achieveText.length()>0 ? View.VISIBLE : View.GONE}"/>
+
+                <com.bis.android.plug.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:onClick="@{()->handler.onToComment()}"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/px_25"
+                    android:paddingBottom="@dimen/px_20"
+                    android:paddingLeft="@dimen/px_30"
+                    android:paddingRight="@dimen/px_30"
+                    android:paddingTop="@dimen/px_20">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/comment"
+                        android:textColor="@color/text_gray3"
+                        android:textSize="@dimen/text_second_font_size"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@drawable/ic_comment_more"
+                        android:text="@string/more"
+                        android:textColor="@color/text_gray9"
+                        android:textSize="@dimen/text_fourth_font_size"/>
+                </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line_gray2"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/wish_reply_comment_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    tools:listitem="@layout/detail_comment_recycle_view_item">
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_130"
+                    android:layout_marginBottom="@dimen/px_20"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:layout_marginRight="@dimen/px_20"
+                    android:layout_marginTop="@dimen/px_20"
+                    android:background="@color/gray_lighter"
+                    android:gravity="center"
+                    android:onClick="@{()->handler.onToComment()}"
+                    android:text="@string/comment_no_tips"
+                    android:textColor="@color/text_gray9"
+                    android:textSize="@dimen/text_third_font_size"
+                    android:visibility="@{wish.currentComments.size()>0?View.GONE:View.VISIBLE}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/px_110"
+                    android:paddingTop="@dimen/px_60"
+                    android:text="@string/wish_detail_bottom"
+                    android:textColor="@color/text_grayA"
+                    android:textSize="@dimen/text_six_font_size"/>
+
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+</layout>

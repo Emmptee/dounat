@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="13px"
+    android:paddingLeft="13px"
+    android:orientation="horizontal">
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:id="@+id/praise_header_bg"
+        android:layout_width="@dimen/px_80"
+        android:layout_height="@dimen/px_80"
+        android:background="@drawable/icon_head_bg">
+
+        <ImageView
+            android:id="@+id/praise_header"
+            android:layout_width="@dimen/px_65"
+            android:layout_height="@dimen/px_65"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:id="@+id/praise_header_vip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_vip"/>
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_120"
+        android:layout_marginLeft="13px"
+        android:orientation="vertical">
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            android:gravity="center_vertical"
+            android:paddingRight="@dimen/px_20"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/praise_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_gray6"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="30px"
+                android:text="武娇娇"/>
+            <TextView
+                android:id="@+id/praise_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_gray9"
+                android:textSize="24px"
+                android:text="2016-06-05"/>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/bg_img_gray"/>
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

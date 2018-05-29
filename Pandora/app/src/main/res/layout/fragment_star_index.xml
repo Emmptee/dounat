@@ -1,0 +1,115 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.donut.app.fragment.StarIndexFragment">
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_60"
+            android:background="@android:color/white"
+            android:drawableLeft="@drawable/star_title_left_icon"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/px_20"
+            android:text="人物简介"
+            android:textColor="@color/text_tiffany"
+            android:textSize="@dimen/text_second_font_size" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1px"
+            android:paddingTop="@dimen/px_20"
+            android:paddingStart="@dimen/px_20"
+            android:paddingLeft="@dimen/px_20"
+            android:paddingEnd="@dimen/px_20"
+            android:paddingRight="@dimen/px_20"
+            android:background="@android:color/white">
+
+            <com.donut.app.customview.EllipsizingTextView
+                android:id="@+id/star_detail_tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_gray3"
+                android:textSize="13sp" />
+        </FrameLayout>
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/star_detail_layout_moments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_60"
+                android:layout_marginTop="@dimen/px_10"
+                android:background="@android:color/white"
+                android:drawableLeft="@drawable/star_title_left_icon"
+                android:drawablePadding="@dimen/dp_5"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/px_20"
+                android:text="近期计划"
+                android:textColor="@color/text_tiffany"
+                android:textSize="@dimen/text_second_font_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_15"
+                android:layout_marginTop="1px"
+                android:background="@android:color/white" />
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:id="@+id/star_detail_list_moments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/px_20"
+                android:paddingRight="@dimen/px_20" />
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_15"
+            android:background="@android:color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_60"
+            android:layout_marginTop="@dimen/px_10"
+            android:background="@android:color/white"
+            android:drawableLeft="@drawable/star_title_left_icon"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/px_20"
+            android:text="代表作品"
+            android:textColor="@color/text_tiffany"
+            android:textSize="@dimen/text_second_font_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_15"
+            android:layout_marginTop="1px"
+            android:background="@android:color/white" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/star_detail_list_works"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingLeft="@dimen/px_15"
+            android:paddingRight="@dimen/px_15" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_15"
+            android:background="@android:color/white" />
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+</ScrollView>

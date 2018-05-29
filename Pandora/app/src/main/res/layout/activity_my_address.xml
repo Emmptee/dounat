@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_lighter_f2"
+    android:orientation="vertical">
+
+    <include layout="@layout/head_include" />
+
+    <com.bis.android.plug.autolayout.AutoFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/no_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/px_300"
+            android:drawablePadding="@dimen/px_20"
+            android:drawableTop="@drawable/icon_cry"
+            android:text="暂无收货地址,请添加新地址"
+            android:textColor="@color/text_gray9"
+            android:textSize="28px"
+            android:visibility="gone" />
+    </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+
+    <TextView
+        android:id="@+id/to_add_address"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/add_new_address"
+        android:textColor="@color/white"
+        android:textSize="36px" />
+</com.bis.android.plug.autolayout.AutoLinearLayout>

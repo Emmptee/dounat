@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_gray3">
+
+    <FrameLayout
+        android:id="@+id/surface_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="25px"
+        android:layout_height="25px"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/pb_loading"
+        android:indeterminateDuration="2000"/>
+
+    <TextView
+        android:id="@+id/player_btn_restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawablePadding="5dp"
+        android:drawableTop="@drawable/video_btn_down"
+        android:padding="5dp"
+        android:text="重播"
+        android:textColor="@android:color/white"
+        android:visibility="gone"/>
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/top_shadow_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/px_20"
+            android:paddingLeft="@dimen/px_20"
+            android:paddingRight="@dimen/px_40"
+            android:paddingTop="@dimen/px_20"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_back"/>
+
+        <com.donut.app.customview.ScrollAlwaysTextView
+            android:id="@+id/video_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/back"
+            android:layout_marginBottom="@dimen/px_20"
+            android:layout_marginLeft="@dimen/px_10"
+            android:layout_marginRight="@dimen/px_120"
+            android:layout_toRightOf="@id/back"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="36px"
+            />
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_90"
+        android:layout_alignParentBottom="true"
+        android:background="#50000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/start"
+            android:layout_width="@dimen/px_50"
+            android:layout_height="@dimen/px_50"
+            android:layout_marginLeft="@dimen/px_20"
+            android:scaleType="center"
+            android:src="@drawable/video_btn_down"/>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <SeekBar
+                android:id="@+id/bottom_seek_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:maxHeight="5px"
+                android:minHeight="5px"
+                android:progressDrawable="@drawable/seekbar_define_style"
+                android:thumb="@drawable/icon_thumb"
+                />
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_30"
+                android:layout_marginTop="10px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/current"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="00:00:00"
+                    android:textColor="@color/gray_lighter"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:textColor="@color/gray_lighter_b"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10px"
+                    android:gravity="center_vertical"
+                    android:text="00:00:00"
+                    android:textColor="@color/gray_lighter_b"
+                    android:textSize="20px"/>
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <ImageView
+            android:id="@+id/fullscreen"
+            android:layout_width="@dimen/px_50"
+            android:layout_height="@dimen/px_50"
+            android:layout_marginRight="@dimen/px_20"
+            android:scaleType="center"
+            android:src="@drawable/icon_full_screen"/>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+    <ProgressBar
+        android:id="@+id/bottom_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_alignParentBottom="true"
+        android:max="100"
+        android:progressDrawable="@drawable/seekbar_define_style"/>
+
+    <TextView
+        android:id="@+id/play_num_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/layout_bottom"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/half_round_rect_bg"
+        android:drawableLeft="@drawable/icon_play_small"
+        android:drawablePadding="@dimen/px_10"
+        android:gravity="center"
+        android:padding="@dimen/px_10"
+        android:textColor="@android:color/white"
+        android:textSize="23px"/>
+</com.bis.android.plug.autolayout.AutoRelativeLayout>
+

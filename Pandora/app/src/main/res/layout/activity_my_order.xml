@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/head_include" />
+
+    <com.bis.android.plug.autolayout.AutoFrameLayout
+        android:id="@+id/my_order_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="88px">
+
+        <TextView
+            android:id="@+id/my_order_tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/order_type_down"
+            android:text="@string/order_type_0"
+            android:textColor="@color/text_gray3"
+            android:textSize="28px" />
+
+    </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+    <View
+        android:id="@+id/my_order_top_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_lighter_f2" />
+
+    <com.bis.android.plug.autolayout.AutoFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/my_order_tv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/px_280"
+            android:drawablePadding="15dp"
+            android:drawableTop="@drawable/no_msg_icon"
+            android:textColor="@color/text_gray9"
+            android:visibility="gone"
+            android:textSize="@dimen/text_second_font_size"  />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/my_order_srl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_color_gray">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/my_order_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                tools:listitem="@layout/my_order_item" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </com.bis.android.plug.autolayout.AutoFrameLayout>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

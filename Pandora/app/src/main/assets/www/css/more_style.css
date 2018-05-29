@@ -1,0 +1,395 @@
+
+/*-----------------------------------【更多】样式------------------------------*/
+
+/*-----------------tab滑屏效果-------------*/
+/*
+ * Swiper 2.7.0
+*/
+.scroll-container {
+	height: 100%;
+	width: 100%;
+}
+.swiper-container {
+	margin:0 auto;
+	position:relative;
+	overflow-x:hidden;
+	/* -webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	Fix of Webkit flickering */
+	z-index:1;
+}
+.swiper-wrapper {
+	position:relative;
+	/*width:100%;
+	-webkit-transition-property:-webkit-transform, left, top;
+	-webkit-transition-duration:0s;
+	-webkit-transform:translate3d(0px,0,0);
+	-webkit-transition-timing-function:ease;
+
+	-moz-transition-property:-moz-transform, left, top;
+	-moz-transition-duration:0s;
+	-moz-transform:translate3d(0px,0,0);
+	-moz-transition-timing-function:ease;
+
+	-o-transition-property:-o-transform, left, top;
+	-o-transition-duration:0s;
+	-o-transform:translate3d(0px,0,0);
+	-o-transition-timing-function:ease;
+	-o-transform:translate(0px,0px);
+
+	-ms-transition-property:-ms-transform, left, top;
+	-ms-transition-duration:0s;
+	-ms-transform:translate3d(0px,0,0);
+	-ms-transition-timing-function:ease;
+
+	transition-property:transform, left, top;
+	transition-duration:0s;
+	transform:translate3d(0px,0,0);
+	transition-timing-function:ease;
+
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;*/
+}
+.swiper-free-mode > .swiper-wrapper {
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-ms-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	margin: 0 auto;
+}
+.swiper-slide {
+	float: left;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+	-ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+	-ms-touch-action: pan-x;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+	/* Specify Swiper's Size: */
+
+	/*width:200px;
+	height: 100px;*/
+}
+.swiper-slide {
+	/* Specify Slides's Size: */
+
+	/*width: 100%;
+	height: 100%;*/
+}
+.swiper-slide-active {
+	/* Specific active slide styling: */
+
+}
+.swiper-slide-visible {
+	/* Specific visible slide styling: */
+
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+	/* Stylize pagination button: */
+
+}
+.swiper-active-switch {
+	/* Specific active button style: */
+
+}
+.swiper-visible-switch {
+	/* Specific visible button style: */
+
+}
+
+
+.swiper-scrollbar {
+	border-radius: 10px;
+	position: relative;
+	-ms-touch-action: none;
+	background: rgba(0,0,0,0.1)
+}
+.swiper-scrollbar-drag {
+/*	height: 100%;*/
+	width: 100%;
+	position: relative;
+	background: rgba(0,0,0,0.5);
+	border-radius: 10px;
+}
+.swiper-scrollbar-cursor-drag {
+	cursor: move;
+}
+#wrapper {
+}
+
+.tabs {
+	height: 40px;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+.tabs a {
+	display: block;
+	float: left;
+	width: 50%;
+	color: #949494;
+	text-align: center;
+	background: #FFFFFF;
+	line-height: 40px;
+	font-size: 1.6rem;
+	text-decoration: none;
+}
+.tabs a.active {
+	color: #A1E1DB;
+	background: #FFFFFF;
+	/*border-radius: 5px 5px 0px 0px;*/
+}
+.swiper-container {
+	background: none;
+	border-radius: 0 0 5px 5px;
+	width: 100%;
+	border-top: 0;
+}
+.swiper-slide {
+	width: 100%;
+	background: none;
+}
+.content-slide {
+/*	padding: 40px;*/
+}
+.content-slide p {
+	text-indent: 2em;
+	line-height: 1.9;
+	text-align: center;
+}
+.content-slide ul{
+	/*padding: 1rem;*/
+	width: 100%;
+}
+.content-slide ul li{
+	float: left;
+	width: 50%;
+	display: inline-block;
+  width: -webkit-calc( (100% -1px*1) / 2);
+  width: calc( (100% - 1px*1) / 2);
+  border-bottom: 1px solid #EEEEEE;
+  border-right: 1px solid #EEEEEE;
+  height: 200px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
+.content-slide ul li:nth-child(2n){
+	  border-right:none;
+}
+.content-slide ul li h4{
+	padding: 1rem 0;
+	font-size: 1.4rem;
+}
+.content-slide ul li h4 span{
+	padding: 1rem 0;
+		color: #A1E1DB;
+}
+.content-slide ul li h4 i{
+	color: #333333;
+}
+.content-slide ul li h4 em{
+	color: #999999;
+}
+.content-slide_img{
+	display: block;
+	text-align: center;
+	height: 80px;
+}
+.content-slide_img img{
+	width: 80px;
+	height: 80px;
+	border: 1px solid #F5F5F5;
+	margin: 0 auto;
+	border: 0;
+/*	position: relative;*/
+}
+/*---------------------*/
+.mui-table-view-cell h4{
+	padding: 1rem 0;
+}
+.mui-table-view-cell h4 span{
+	padding: 1rem 0;
+		color: #A1E1DB;
+}
+.mui-table-view-cell h4 i{
+	color: #333333;
+}
+.mui-table-view-cell h4 em{
+	color: #999999;
+}
+.content-slide_img{
+	display: block;
+	text-align: center;
+}
+/*.page_f{
+	margin-bottom:-20px ;
+}*/
+.content-slide_img img{
+	width: 80px;
+	height: 80px;
+	border: 1px solid #F5F5F5;
+	margin: 0 auto;
+	border: 0;
+/*	position: relative;*/
+}
+.more_v{
+ width: 22px;
+    height: 22px;
+    display:block;
+      right:-65%;
+    top: -89px;
+    z-index: 5;
+    position: relative;
+}
+.more_v img{
+    width:100%;
+    height: 22px;
+    display: block;
+    /*right:20px;
+    top: -66px;*/
+    z-index: 5;
+    position: relative;
+    border: 0;
+}
+.content-slide_mon i{
+		font-size: 1.4rem;
+	/*	padding-right: 5px;*/
+	display: inline-block;
+	position: relative;
+}
+.content-slide_mon{
+    color: #333;
+    font-size: 1.8rem;
+    position: relative;
+    padding: 5px 0;
+/*    left: -10px;*/
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+}
+
+.content-slide_mon i{
+		 position: relative;
+		 left: 2px;
+}
+.content-slide p{
+	text-align: left;
+	font-size: 1.2rem;
+	color: #333333;
+	padding: 0 12px;
+	text-indent:0px ;
+	text-align: center;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: box;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.loadMore_{
+	margin: 0 auto;
+	width: 100%;
+}
+.more_load,.loadMore_2,.loadMore_1,.loadMore_0{
+	height: 35px;
+	line-height: 35px;
+	width: 60%;
+	border-bottom: 1px solid #EEEEEE;
+	text-align: center;
+	margin: 10px auto;
+	display: inline-block;
+	background: #EEEEEE;
+	border-radius: 5px;
+	font-size: 1.2rem;
+}
+#loadMore_0,#loadMore_1,#loadMore_2{
+	margin: 0 auto;
+	text-align: center;
+}
+   /*竞拍商品标志*/
+.auction_icon{
+	position: relative;
+	top:0;
+	left: -60px; 
+	width:30px; 
+	height: 35px; 
+	display: inline-block;
+}
+.auction_icon img{
+	width:30px; 
+	height: 35px; 
+	position: relative;
+}
+/*----下拉刷新上拉加载样式-----*/
+.load{position:relative;left:0px;width:100%;margin-top:-40px;height:40px;line-height:40px;display: none;}
+.tip{color:#404040;font-size:1.4rem;text-align:center;margin:0px auto; width:200px;display: block;}
+.more{position:relative;bottom:0px;left:0px;margin:0 auto;width:200px;height:40px;line-height:40px; text-align: center;clear:both;}
+.front_bg{
+	width: 100%;
+    height: 200px;
+    /*display: none;*/
+    background:#FFFFFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.5; /*Firefox私有，透明度50%*/
+	opacity:0.5;/
+}
+
+.front_bg span{
+	width:50px;
+	height:50px;
+	border-radius: 50%;
+	display: inline-block;
+  background-color: rgba(0,0,0,0.7);/* IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
+ position: relative;
+ top:56px;
+ left:0;
+}
+.front_bg span i{
+  color: #FFFFFF;
+ font-size: 12px;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  padding-top:11px;
+}
+@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+	.front_bg span{
+	display: inline-block;
+	width: 50px;
+	height:50px;
+    background-color:#000000;
+    filter:Alpha(opacity=70);
+    position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+    *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+}
+.front_bg span i{
+	width: 25px;
+ 	 height: 25px;
+ 	 color: #FFFFFF;
+ 	 font-size: 12px;
+    position: relative;/* 设置子元素为相对定位，可让子元素不继承Alpha值 */
+}

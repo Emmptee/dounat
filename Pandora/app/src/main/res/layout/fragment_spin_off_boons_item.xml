@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.spinOff.boons.SpinOffBoonsListAdapter" />
+
+        <variable
+            name="detail"
+            type="com.donut.app.http.message.spinOff.WelfareZone" />
+
+        <variable
+            name="position"
+            type="Integer"/>
+
+    </data>
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <com.bis.android.plug.autolayout.AutoFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/px_20">
+
+            <View
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="@dimen/px_5"
+                android:background="@drawable/icon_star_bg" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="4.5dp"
+                android:layout_marginRight="4.5dp"
+                android:layout_marginTop="7.2dp"
+                android:onClick="@{()->handler.onStarDetailClick(detail)}"
+                android:src="@drawable/default_header"
+                app:roundImageUrl="@{detail.headPic}" />
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginStart="33dp"
+                android:src="@drawable/icon_vip"
+                android:visibility="gone" />
+
+            <com.bis.android.plug.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:maxWidth="222dp"
+                    android:text="@{detail.actorName.length()>0?detail.actorName:@string/default_name}"
+                    android:textColor="@color/gold"
+                    android:textSize="@dimen/text_second_font_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{detail.name}'
+                    android:textColor="@color/text_gray3"
+                    android:textSize="@dimen/text_second_font_size" />
+            </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:id="@+id/tv_boons_item_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_margin="@dimen/px_10"
+                android:onClick="@{()->handler.onDownloadClick(detail, position)}"
+                android:paddingBottom="@dimen/px_20"
+                android:paddingTop="@dimen/px_20"
+                android:text="@string/download_msg"
+                android:textColor="@color/text_tiffany"
+                android:textSize="@dimen/text_fourth_font_size" />
+
+        </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:background="@drawable/wish_fulfill_listen_bg"
+            android:gravity="center_vertical"
+            android:onClick="@{(v)->handler.onPlayAudioClick(v, detail)}"
+            android:orientation="horizontal"
+            android:visibility="@{detail.type==1 ? View.VISIBLE : View.GONE}">
+
+            <ImageView
+                android:id="@+id/audio_play_anim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/px_25"
+                android:background="@drawable/voice_gray" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_15"
+                android:layout_weight="1"
+                android:text="@{String.format(@string/wish_fulfill_audio_play_time, detail.lastTime)}"
+                android:textColor="@color/gray_lighter_b" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{String.valueOf(detail.browseTimes)}'
+                android:textColor="@color/text_tiffany"
+                android:textSize="24px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/px_25"
+                android:text="次"
+                android:textColor="@color/gray_lighter_b"
+                android:textSize="24px" />
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <com.donut.app.customview.ninegrid.NineGridView
+            android:id="@+id/nineGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginRight="@dimen/px_30"
+            android:visibility="@{detail.type==2 ? View.VISIBLE : View.GONE}"
+            app:ngv_mode="grid">
+
+        </com.donut.app.customview.ninegrid.NineGridView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/px_35"
+            android:background="@color/line_gray2" />
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_100"
+            android:gravity="center_vertical">
+
+            <com.bis.android.plug.autolayout.AutoFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->handler.onLikeClick(detail)}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@{detail.praiseStatus == 1 ? @drawable/wish_item_icon_parise_pre : @drawable/wish_item_icon_parise}"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text='@{detail.praiseTimes > 0 ? String.valueOf(detail.praiseTimes) : @string/favor}'
+                    android:textColor="@color/text_tiffany"
+                    android:textSize="@dimen/text_second_font_size" />
+
+            </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="@dimen/px_50"
+                android:background="@color/line_gray2" />
+
+            <com.bis.android.plug.autolayout.AutoFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->handler.onCommentClick(detail)}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/wish_comment_item_icon"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text='@{detail.commentTimes > 0 ? String.valueOf(detail.commentTimes) : @string/comment}'
+                    android:textColor="@color/text_tiffany"
+                    android:textSize="@dimen/text_second_font_size" />
+
+            </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="@dimen/px_50"
+                android:background="@color/line_gray2" />
+
+            <com.bis.android.plug.autolayout.AutoFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->handler.onShareClick(detail)}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/wish_item_icon_share"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text='@{detail.shareTimes > 0 ? String.valueOf(detail.shareTimes) : @string/share}'
+                    android:textColor="@color/text_tiffany"
+                    android:textSize="@dimen/text_second_font_size" />
+
+            </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_gray2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_30"
+            android:background="@color/bg_color_gray" />
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+</layout>

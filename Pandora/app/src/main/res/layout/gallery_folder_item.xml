@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:paddingLeft="8dp"
+              android:paddingRight="8dp"
+              android:paddingTop="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.donut.app.model.galleypick.views.FolderLayout
+            android:id="@+id/layout_img"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_first"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/galley_img_loading"/>
+        </com.donut.app.model.galleypick.views.FolderLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/layout_img"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_file_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="name"
+                android:textColor="#DE000000"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tv_file_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1"
+                android:textColor="#8A000000"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_selected"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/order_type_selected"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="8dp"
+        android:background="#1F000000"/>
+
+</LinearLayout>

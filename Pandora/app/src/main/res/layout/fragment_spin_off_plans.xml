@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <com.bis.android.plug.autolayout.AutoFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/spin_off_plans_srl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/spin_off_plans_list"
+                android:name="com.donut.app.fragment.NoticeHotFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="LinearLayoutManager"
+                tools:context="com.donut.app.fragment.NoticeHotFragment"
+                tools:listitem="@layout/fragment_spin_off_plans_item" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/no_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="15dp"
+            android:drawableTop="@drawable/no_msg_icon"
+            android:gravity="center"
+            android:text="@string/subject_search_no_mag"
+            android:textColor="@color/text_gray9"
+            android:textSize="@dimen/text_third_font_size"
+            android:visibility="gone" />
+
+    </com.bis.android.plug.autolayout.AutoFrameLayout>
+</layout>

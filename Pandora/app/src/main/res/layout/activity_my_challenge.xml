@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+       layout="@layout/head_include"/>
+    <com.bis.android.plug.autolayout.AutoFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/my_challenge_srl"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_marginTop="@dimen/px_20"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/my_challenge_list"
+            android:name="com.donut.app.fragment.ChallengeItemFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.donut.app.fragment.ChallengeItemFragment"
+            tools:listitem="@layout/my_challenge_item_layout"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <TextView
+        android:id="@+id/no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:drawableTop="@drawable/icon_cry"
+        android:drawablePadding="@dimen/px_20"
+        android:textColor="@color/text_gray9"
+        android:text="对不起，您还没有发起任何挑战哦！"
+        android:textSize="28px"
+        android:visibility="gone"/>
+    </com.bis.android.plug.autolayout.AutoFrameLayout>
+</com.bis.android.plug.autolayout.AutoLinearLayout>

@@ -1,0 +1,3 @@
+include ':app', ':imagecyclelibrary', ':RefreshRecyclerLibrary', ':AndroidAutoLayout',
+        ':CordovaLib', ':UmengShareLibrary', ':addresslibrary',
+        ':CameraLibrary', ':guideview'

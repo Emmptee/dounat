@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/attention_search_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context="com.donut.app.activity.StarAttentionSearchActivity">
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_90"
+        android:paddingLeft="@dimen/px_20"
+        android:paddingTop="@dimen/px_10"
+        android:paddingBottom="@dimen/px_15"
+        android:paddingRight="@dimen/px_10"
+        android:background="@color/bg_color_tiffany">
+
+        <EditText
+            android:id="@+id/subject_search_et"
+            android:layout_width="640px"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_half_rec_write"
+            android:drawableLeft="@drawable/edit_search_icon"
+            android:drawablePadding="5dp"
+            android:hint="请输入明星名称..."
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/px_20"
+            android:paddingRight="@dimen/px_20"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:textColor="@color/text_gray3"
+            android:textColorHint="@color/text_gray9"
+            android:textSize="@dimen/text_second_font_size" />
+
+        <ImageView
+            android:id="@+id/subject_search_iv_etClean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/subject_search_et"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/px_15"
+            android:padding="@dimen/px_5"
+            android:scaleType="center"
+            android:src="@drawable/edit_close_icon"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/subject_search_tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/px_10"
+            android:padding="@dimen/px_5"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="32px" />
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+    <com.bis.android.plug.autolayout.AutoFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/subject_search_tv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/px_250"
+            android:drawablePadding="15dp"
+            android:drawableTop="@drawable/subject_search_default_icon"
+            android:text="@string/search_more_msg"
+            android:textColor="@color/text_gray9"
+            android:textSize="@dimen/text_second_font_size" />
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/my_attention_srl"
+            android:layout_marginTop="@dimen/px_10"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/my_attention_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+</com.bis.android.plug.autolayout.AutoLinearLayout>

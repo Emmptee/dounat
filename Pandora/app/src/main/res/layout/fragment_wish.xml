@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.donut.app.fragment.WishFragment">
+
+    <com.bis.android.plug.autolayout.AutoLinearLayout
+        android:id="@+id/wish_top_view"
+        android:layout_width="match_parent"
+        android:layout_height="88px">
+
+        <com.bis.android.plug.autolayout.AutoFrameLayout
+            android:id="@+id/wish_list_top_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/wish_list_top_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/activity_notice_item_top_down_icon"
+                android:text="心愿清单"
+                android:textColor="@drawable/challenger_text_selector"/>
+        </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+
+        <TextView
+            android:id="@+id/wish_fulfill_list_top_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="心愿达成"
+            android:textColor="@drawable/challenger_text_selector"/>
+
+        <TextView
+            android:id="@+id/wish_mine_list_top_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="我的心愿"
+            android:textColor="@drawable/challenger_text_selector"/>
+
+    </com.bis.android.plug.autolayout.AutoLinearLayout>
+
+    <com.bis.android.plug.autolayout.AutoFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/wish_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_15"
+            android:background="@drawable/shape_wish_top_foreground"/>
+
+        <ImageView
+            android:id="@+id/wishing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/wishing_icon"/>
+
+    </com.bis.android.plug.autolayout.AutoFrameLayout>
+
+</com.bis.android.plug.autolayout.AutoLinearLayout>

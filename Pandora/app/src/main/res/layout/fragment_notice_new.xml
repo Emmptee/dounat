@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:id="@+id/fragment_notice_new_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_90"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/fragment_notice_new_top_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/px_15"
+            android:layout_marginStart="@dimen/px_15"
+            android:maxLines="1"
+            android:paddingRight="@dimen/px_50"
+            android:ellipsize="end"
+            android:text="最新公告"
+            android:textColor="@color/text_gray3"
+            android:textSize="@dimen/text_first_font_size"/>
+
+        <TextView
+            android:id="@+id/fragment_notice_new_top_state"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/px_15"
+            android:layout_marginRight="@dimen/px_15"
+            android:drawablePadding="@dimen/px_20"
+            android:drawableRight="@drawable/activity_notice_item_top_down_icon"
+            android:gravity="center"
+            android:textColor="@color/text_grayC3"
+            android:textSize="@dimen/text_first_font_size"/>
+
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+    <WebView
+        android:id="@+id/fragment_notice_new_webView"
+        android:layout_width="match_parent"
+        android:layout_height="560px"/>
+
+    <View
+        android:id="@+id/fragment_notice_new_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_10"
+        android:visibility="gone"/>
+
+</com.bis.android.plug.autolayout.AutoLinearLayout>

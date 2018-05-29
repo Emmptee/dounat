@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/img_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:scaleType="centerCrop"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_duration"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="5dp"
+            android:text="时长："
+            android:textColor="@android:color/white"
+            android:textSize="11sp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

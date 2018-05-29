@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/px_20"
+    android:paddingLeft="20px"
+    android:paddingRight="20px">
+
+    <HorizontalScrollView
+        android:id="@+id/horScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbars="none">
+
+        <com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/list_area_images_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </com.bis.android.plug.autolayout.AutoLinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/list_area_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="220px"
+        android:background="@color/gray_lighter"
+        android:gravity="center"
+        android:text="还没有人上榜，快点开始拉票"
+        android:textColor="@color/text_gray9"
+        android:textSize="26px"
+        android:visibility="gone"/>
+</com.bis.android.plug.autolayout.AutoRelativeLayout>

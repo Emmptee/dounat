@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bis.android.plug.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/head_include"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/star_comment_radio_srl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_lighter_f2">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/star_comment_radio_list"
+            android:name="com.donut.app.activity.StarCommentRadioActivity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            tools:context="com.donut.app.activity.StarCommentRadioActivity"
+            tools:listitem="@layout/activity_star_comment_radio_item" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</com.bis.android.plug.autolayout.AutoLinearLayout>
