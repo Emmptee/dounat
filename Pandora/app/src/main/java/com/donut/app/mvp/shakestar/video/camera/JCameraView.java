@@ -51,7 +51,7 @@ import VideoHandle.OnEditorListener;
 public class JCameraView extends FrameLayout implements CameraInterface.CameraOpenOverCallback, SurfaceHolder
         .Callback, CameraView {
     private static final String TAG = "JCameraView";
-//    private RecordActivity recordActivity;
+    private RecordActivity recordActivity;
     //Camera状态机
     private CameraMachine machine;
 
@@ -79,6 +79,9 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     //控制输出视频常量
     public static int OUTPUTROTATEFILE = 0;
 
+
+
+
     public static final int BUTTON_STATE_ONLY_CAPTURE = 0x101;      //只能拍照
     public static final int BUTTON_STATE_ONLY_RECORDER = 0x102;     //只能录像
     public static final int BUTTON_STATE_BOTH = 0x103;              //两者都可以
@@ -93,7 +96,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     private VideoView mVideoView;
     private ImageView mPhoto;
     private ImageView mSwitchCamera;
-//    private ImageView mFlashLamp;
+    //    private ImageView mFlashLamp;
     private CaptureLayout mCaptureLayout;
     private FoucsView mFoucsView;
     private MediaPlayer mMediaPlayer;
@@ -120,8 +123,8 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     private boolean firstTouch = true;
     private float firstTouchLength = 0;
     private Player player;
-    private com.donut.app.mvp.shakestar.VideoView mPlayerView;
-    private TextView mNextButton;
+    //    private SurfaceView mPlayerView;
+//    private TextView mNextButton;
     private TextView mMidCameraButton;
     private TextView mClickCameraButton;
     private TextView mPressCameraButton;
@@ -129,7 +132,8 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     private TextView mButtonText;
     private RecordActivity mRecordActivity;
     private LinearLayout mLinearlayout;
-    private ImageView mCameraBack;
+    private FrameLayout mFrameLayout;
+    public  float widthSize;
 
 
     public JCameraView(Context context) {
@@ -153,14 +157,14 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         iconLeft = a.getResourceId(R.styleable.JCameraView_iconLeft, 0);
         iconRight = a.getResourceId(R.styleable.JCameraView_iconRight, 0);
 //        duration = a.getInteger(R.styleable.JCameraView_duration_max, 5 * 1000);       //没设置默认为5s
-        duration = 5000;
+        duration = 5000;       //没设置默认为5s
         a.recycle();
         initData();
         initView();
         mediaRecorder = new MediaRecorder();
         mCaptureButton = new CaptureButton(getContext());
-        if (context instanceof RecordActivity){
-            mRecordActivity = (RecordActivity) context;
+        if (context instanceof  RecordActivity){
+            recordActivity = (RecordActivity) context;
         }
 
     }
@@ -169,57 +173,56 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         layout_width = ScreenUtils.getScreenWidth(mContext);
         //缩放梯度
         zoomGradient = (int) (layout_width / 16f);
-        LogUtils.i("zoom = " + zoomGradient);
+        KLog.i("zoom = " + zoomGradient);
         machine = new CameraMachine(getContext(), this, this);
     }
 
     private void initView() {
         setWillNotDraw(false);
         View view = LayoutInflater.from(mContext).inflate(R.layout.camera_view, this);
-        mLinearlayout = view.findViewById(R.id.ll_surfaceview);
-        mPlayerView = view.findViewById(R.id.record_player_right);
-        mVideoView = view.findViewById(R.id.video_preview);
-        mPhoto = view.findViewById(R.id.image_photo);
-        mSwitchCamera = view.findViewById(R.id.image_switch);
-        mSwitchCamera.setImageResource(iconSrc);
-        mCaptureLayout = view.findViewById(R.id.capture_layout);
+        mFrameLayout = (FrameLayout) view.findViewById(R.id.fl_camera);
+        mLinearlayout = (LinearLayout) view.findViewById(R.id.ll_surfaceview);
+//        mPlayerView = (SurfaceView) view.findViewById(R.id.sv_left);
+        mVideoView = (VideoView) view.findViewById(R.id.video_preview);
+        mPhoto = (ImageView) view.findViewById(R.id.image_photo);
+        mSwitchCamera = (ImageView) view.findViewById(R.id.image_switch);
+//        mSwitchCamera.setImageResource(iconSrc);
+        mCaptureLayout = (CaptureLayout) view.findViewById(R.id.capture_layout);
         mCaptureLayout.setDuration(duration);
 //        mCaptureLayout.setIconSrc(iconLeft, iconRight);
-        mFoucsView = view.findViewById(R.id.fouce_view);
+        mFoucsView = (FoucsView) view.findViewById(R.id.fouce_view);
         mVideoView.getHolder().addCallback(this);
-        mPlayerView.setUp("mnt/sdcard/ffmpeg/anyixuan.mp4",false,null);
+//        player = new Player(mPlayerView);
         ViewGroup.LayoutParams params = mLinearlayout.getLayoutParams();
         params.height = layout_width;
         mLinearlayout.setLayoutParams(params);
 
+        ViewGroup.LayoutParams frameparams = mFrameLayout.getLayoutParams();
+        frameparams.width = layout_width / 2;
+        mFrameLayout.setLayoutParams(frameparams);
 
-        mNextButton = view.findViewById(R.id.btn_next);
-        mCameraBack = view.findViewById(R.id.img_camera_back);
-        mMidCameraButton = view.findViewById(R.id.btn_camera_mid);
-        mClickCameraButton = view.findViewById(R.id.btn_camera_click);
-        mPressCameraButton = view.findViewById(R.id.btn_camera_press);
 
-        mButtonText = view.findViewById(R.id.btn_button_state);
 
-        mNextButton.setEnabled(false);
+//        mNextButton = (TextView) view.findViewById(R.id.btn_next);
+        mMidCameraButton = (TextView) view.findViewById(R.id.btn_camera_mid);
+        mClickCameraButton = (TextView) view.findViewById(R.id.btn_camera_click);
+        mPressCameraButton = (TextView) view.findViewById(R.id.btn_camera_press);
+
+        mButtonText = (TextView) view.findViewById(R.id.btn_button_state);
+
+/*        mNextButton.setEnabled(false);
         mNextButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                /**TODO 执行视频压缩合成*/
+                *//**TODO 执行视频压缩合成*//*
                 KLog.e("点击了下一步");
+                recordActivity.finish();
                 RotateOutputVideo();
 
 //                RecordActivity.getInstance().finish();
 //                mCaptureLayout.setBackgroundColor(getResources().getColor(R.color.red));
             }
-        });
-
-        mCameraBack.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRecordActivity.finish();
-            }
-        });
+        });*/
 
         mClickCameraButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -249,6 +252,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         mSwitchCamera.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                KLog.e("jca中切换");
                 machine.swtich(mVideoView.getHolder(), screenProp);
             }
         });
@@ -284,14 +288,14 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
             public void recordEnd(long time) {
                 machine.stopRecord(false, time);
 //                stopPlayLeftVideo();
-                mNextButton.setBackgroundResource(R.drawable.shape_half_rec_main);
-                mNextButton.setEnabled(true);
-                mNextButton.setClickable(true);
+//                mNextButton.setBackgroundResource(R.drawable.shape_half_rec_main);
+//                mNextButton.setEnabled(true);
+//                mNextButton.setClickable(true);
             }
 
             @Override
             public void recordZoom(float zoom) {
-                LogUtils.i("recordZoom");
+                KLog.i("recordZoom");
                 machine.zoom(zoom, CameraInterface.TYPE_RECORDER);
             }
 
@@ -315,32 +319,19 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
             }
         });
 
-//        mCaptureLayout.setLeftClickListener(new ClickListener() {
-//            @Override
-//            public void onClick() {
-//                if (leftClickListener != null) {
-//                    leftClickListener.onClick();
-//                }
-//            }
-//        });
-//        mCaptureLayout.setRightClickListener(new ClickListener() {
-//            @Override
-//            public void onClick() {
-//                if (rightClickListener != null) {
-//                    rightClickListener.onClick();
-//                }
-//            }
-//        });
     }
 
 
     public void RotateOutputVideo(){
-        EpVideo epVideo = new EpVideo(CameraInterface.videoFileAbsPath);
+        EpVideo epVideo = new EpVideo("mnt/sdcard/ffmpeg" + File.separator + "5566.mp4");
         epVideo.rotation(0, true);
-        final String outPath = FileUtil.choseSavePath() + File.separator + "pandoraoutvideo.mp4";
+        final String outPath = "/mnt/sdcard/ffmpeg/epVideoOut.mp4";
         EpEditor.exec(epVideo, new EpEditor.OutputOption(outPath), new OnEditorListener() {
             @Override
             public void onSuccess() {
+//                Intent v = new Intent(Intent.ACTION_VIEW);
+//                v.setDataAndType(Uri.parse(outPath), "video/mp4");
+//                startActivity(v);
                 KLog.e("输出成功");
                 OUTPUTROTATEFILE = 1;
             }
@@ -359,7 +350,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        float widthSize = mVideoView.getMeasuredWidth();
+        widthSize = mVideoView.getMeasuredWidth();
         float heightSize = mVideoView.getMeasuredHeight();
         if (screenProp == 0) {
             screenProp = heightSize / widthSize;
@@ -382,7 +373,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
 
     //生命周期onPause
     public void onPause() {
-        LogUtils.i("JCameraView onPause");
+        KLog.i("JCameraView onPause");
         stopVideo();
         resetState(TYPE_PICTURE);
         CameraInterface.getInstance().isPreview(false);
@@ -392,7 +383,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     //SurfaceView生命周期
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        LogUtils.i("JCameraView SurfaceCreated");
+        KLog.i("JCameraView SurfaceCreated");
         new Thread() {
             @Override
             public void run() {
@@ -407,7 +398,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-        LogUtils.i("JCameraView SurfaceDestroyed");
+        KLog.i("JCameraView SurfaceDestroyed");
         CameraInterface.getInstance().doDestroyCamera();
     }
 
@@ -630,7 +621,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
 
     @Override
     public void startPreviewCallback() {
-        LogUtils.i("startPreviewCallback");
+        KLog.i("startPreviewCallback");
         handlerFoucs(mFoucsView.getWidth() / 2, mFoucsView.getHeight() / 2);
     }
     @Override
