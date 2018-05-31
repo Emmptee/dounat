@@ -1,8 +1,13 @@
 package com.donut.app.mvp.shakestar.video.record;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.media.MediaRecorder;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.donut.app.R;
 import com.donut.app.databinding.ActivityRecordBinding;
@@ -11,6 +16,7 @@ import com.donut.app.http.message.shakestar.ParticularsResponse;
 import com.donut.app.mvp.MVPBaseActivity;
 import com.donut.app.mvp.shakestar.select.particulars.ParticularsContract;
 import com.donut.app.mvp.shakestar.select.particulars.ParticularsPresenter;
+import com.donut.app.mvp.shakestar.video.constant.CameraContants;
 import com.donut.app.mvp.shakestar.video.camera.CameraInterface;
 import com.donut.app.mvp.shakestar.video.camera.util.FileUtil;
 import com.donut.app.mvp.shakestar.video.camera.util.ScreenUtils;
@@ -28,6 +34,16 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding,Partic
 
     private static final String TAG = "RecordActivity";
     public static int OUTPUTROTATEFILE = 0;
+    public static int VIDEORECORD = 0;
+    public static TextView btnNext;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+       /* IntentFilter screenFilter = new IntentFilter();
+        screenFilter.addCategory(Intent.CATEGORY_DEFAULT);
+        registerReceiver(, screenFilter);*/
+    }
 
     @Override
     protected int getLayoutId() {
@@ -45,13 +61,14 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding,Partic
             }
         });
         //下一步
-        mViewBinding.btnNext.setEnabled(false);
-//        mViewBinding.btnNext.setBackgroundResource(R.drawable.shape_half_rec_main);
+        btnNext = mViewBinding.btnNext;
+        btnNext.setEnabled(false);
 
-        mViewBinding.btnNext.setOnClickListener(new View.OnClickListener() {
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 KLog.e("点击了下一步");
+                //执行视频合成压缩
                 RotateOutputVideo();
             }
         });
@@ -61,7 +78,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding,Partic
         frameparams.width = ScreenUtils.getScreenWidth(this) / 2;
         frameparams.height = ScreenUtils.getScreenWidth(this);
         mViewBinding.recordVideoRight.setLayoutParams(frameparams);
-//        mViewBinding.recordPlayerRight.setUp("mnt/sdcard/ffmpeg/anyixuan.mp4",false,null);
+        mViewBinding.recordPlayerRight.setUp("mnt/sdcard/ffmpeg/anyixuan.mp4",false,null);
 
         //美颜
         mViewBinding.imageBeauty.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +98,23 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding,Partic
         });
     }
 
+    /**
+     * 控制下一步按钮的广播
+     */
+    public static class RecordEndReceiver extends BroadcastReceiver{
+        public RecordEndReceiver(){
+
+        }
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (CameraContants.ACTION_DONUT_RECORD_END.equals(intent.getAction())){
+                btnNext.setBackgroundResource(R.drawable.shape_half_rec_main);
+                btnNext.setEnabled(true);
+                KLog.e("收到改变按钮状态的广播");
+            }
+
+        }
+    }
 
     private MediaRecorder mediaRecorder;
 
@@ -109,6 +143,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding,Partic
     @Override
     protected void onStart() {
         super.onStart();
+
         //全屏显示
 //        if (Build.VERSION.SDK_INT >= 19) {
 //            View decorView = getWindow().getDecorView();

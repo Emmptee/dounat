@@ -3,6 +3,7 @@ package com.donut.app.mvp.shakestar.video.camera;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.donut.app.R;
+import com.donut.app.mvp.shakestar.video.constant.CameraContants;
 import com.donut.app.mvp.shakestar.video.Player;
 import com.donut.app.mvp.shakestar.video.camera.listener.CaptureListener;
 import com.donut.app.mvp.shakestar.video.camera.listener.ClickListener;
@@ -38,7 +40,6 @@ import com.donut.app.mvp.shakestar.video.camera.util.FileUtil;
 import com.donut.app.mvp.shakestar.video.camera.util.ScreenUtils;
 import com.donut.app.mvp.shakestar.video.camera.view.CameraView;
 import com.donut.app.mvp.shakestar.video.record.RecordActivity;
-import com.lidroid.xutils.util.LogUtils;
 import com.socks.library.KLog;
 
 import java.io.File;
@@ -287,6 +288,11 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
             @Override
             public void recordEnd(long time) {
                 machine.stopRecord(false, time);
+                Intent intent = new Intent();
+                intent.setAction(CameraContants.ACTION_DONUT_RECORD_END);
+                intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+                recordActivity.sendBroadcast(intent);
+                KLog.e("发送了广播");
 //                stopPlayLeftVideo();
 //                mNextButton.setBackgroundResource(R.drawable.shape_half_rec_main);
 //                mNextButton.setEnabled(true);

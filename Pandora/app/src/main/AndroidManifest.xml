@@ -555,6 +555,13 @@
         <activity android:name="com.donut.app.mvp.shakestar.video.record.RecordActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <receiver android:name="com.donut.app.mvp.shakestar.video.record.RecordActivity$RecordEndReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.RECORD_END"></action>
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>
