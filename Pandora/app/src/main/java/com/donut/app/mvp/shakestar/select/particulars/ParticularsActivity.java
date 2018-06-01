@@ -1,5 +1,6 @@
 package com.donut.app.mvp.shakestar.select.particulars;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,7 +25,6 @@ import com.donut.app.http.message.shakestar.CommendAllResponse;
 import com.donut.app.http.message.shakestar.ParticularsResponse;
 import com.donut.app.mvp.MVPBaseActivity;
 import com.donut.app.mvp.blooper.detail.BlooperDetailActivity;
-import com.donut.app.mvp.shakestar.commend.ShakeStarSelectActivity;
 import com.donut.app.mvp.shakestar.select.ScrollInterceptScrollView;
 import com.donut.app.mvp.shakestar.video.record.RecordActivity;
 import com.donut.app.utils.BindingUtils;
@@ -129,7 +129,7 @@ List<ParticularsResponse.ShakingStarListBean> list;
             boolean wifi = NetUtils.isWifi(mContext);
             if(wifi){
                 GSYBaseVideoPlayer player=mViewBinding.particularsPlayerRight;
-                //player.startPlayLogic();
+                player.startPlayLogic();
             }
         }
 
@@ -259,19 +259,19 @@ List<ParticularsResponse.ShakingStarListBean> list;
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
         GSYVideoManager.onPause();
     }
 
     public void newImagePic(View view) {
+        requestRuntimePermission("为了给您提供更好的服务,甜麦圈需要获取存储器读写权限",
+                Manifest.permission.CAMERA,Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
         Intent it=new Intent(this.mContext, RecordActivity.class);
+//        Bundle bundle=new Bundle();
+        it.putExtra("g03",g03);
+        it.putExtra("b02",b02);
         startActivity(it);
         ToastUtil.showShort(getContext(),"精彩内容,敬请期待");
 

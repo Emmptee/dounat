@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\MyProject\Donut_Android\Pandora\CordovaLib\src\main\shaders"/></dataSet><dataSet config="debug"><source path="E:\MyProject\Donut_Android\Pandora\CordovaLib\src\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/dashuyourong/Desktop/Donut_Android/Donut_Android/Pandora/CordovaLib/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/Users/dashuyourong/Desktop/Donut_Android/Donut_Android/Pandora/CordovaLib/src/debug/shaders"/></dataSet></merger>

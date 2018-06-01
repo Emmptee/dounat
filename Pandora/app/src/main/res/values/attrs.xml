@@ -24,6 +24,7 @@
             <enum name="grid" value="1"/>
         </attr>
     </declare-styleable>
+
     <!--新添加的内容-->
     <attr name="iconSize" format="dimension"/>
     <attr name="iconMargin" format="dimension"/>
@@ -66,5 +67,4 @@
         <!-- 文字的字体大小 -->
         <attr name="text_size" format="dimension"/>
     </declare-styleable>
-
 </resources>

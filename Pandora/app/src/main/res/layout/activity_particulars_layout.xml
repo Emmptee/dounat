@@ -39,12 +39,12 @@
                      android:id="@+id/video_left"
                      android:layout_width="match_parent"
                      android:layout_height="match_parent">
-                     <com.donut.app.mvp.shakestar.VideoView
+                     <com.donut.app.mvp.shakestar.DonutVideoView
                          android:id="@+id/particulars_player_left"
                          android:layout_width="0px"
                          android:layout_weight="1"
                          android:layout_height="match_parent">
-                     </com.donut.app.mvp.shakestar.VideoView>
+                     </com.donut.app.mvp.shakestar.DonutVideoView>
                      <ImageView
                          android:id="@+id/particulars_img_left"
                          android:layout_width="0dp"
@@ -66,12 +66,12 @@
                          android:layout_height="match_parent"
                          android:background="@drawable/icon_logo"
                          />
-                     <com.donut.app.mvp.shakestar.VideoView
+                     <com.donut.app.mvp.shakestar.DonutVideoView
                          android:id="@+id/particulars_player_right"
                          android:layout_width="0px"
                          android:layout_weight="1"
                          android:layout_height="match_parent">
-                     </com.donut.app.mvp.shakestar.VideoView>
+                     </com.donut.app.mvp.shakestar.DonutVideoView>
 
                  </com.bis.android.plug.autolayout.AutoLinearLayout>
              </com.bis.android.plug.autolayout.AutoRelativeLayout>
@@ -172,17 +172,16 @@
         >
     </android.support.v7.widget.RecyclerView>
 
-            <ImageView
-            android:id="@+id/img_photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/xj"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/content2"
-            android:layout_marginBottom="90px"
-            android:layout_alignParentBottom="true"
-            android:onClick="newImagePic"
-           />
+       <ImageView
+           android:onClick="newImagePic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/xj"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/content2"
+        android:layout_marginBottom="90px"
+        android:layout_alignParentBottom="true"
+        />
 
          </com.bis.android.plug.autolayout.AutoRelativeLayout>
 

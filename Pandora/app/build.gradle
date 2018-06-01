@@ -23,7 +23,7 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file(keystoreProperties['storeFile'])
+            storeFile file('/Users/dashuyourong/Desktop/Donut_Android/Donut_Android/Pandora/donut.release.jks')
             storePassword keystoreProperties['storePassword']
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
@@ -155,7 +155,7 @@ repositories {
 }
 
 dependencies {
-    compile "com.android.support:multidex:1.0.3"
+    compile 'com.android.support:multidex:1.0.3'
     implementation 'com.android.support:support-v4:26.1.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile(name: 'easypermissions', ext: 'aar')
@@ -165,7 +165,6 @@ dependencies {
     compile project(':imagecyclelibrary')
     compile project(':RefreshRecyclerLibrary')
     compile project(':CordovaLib')
-
     compile project(':UmengShareLibrary')
     compile project(':addresslibrary')
     compile project(':CameraLibrary')
@@ -177,10 +176,8 @@ dependencies {
     compile 'com.shuyu:GSYVideoPlayer:3.0.0'
     testCompile 'junit:junit:4.12'
     implementation project(':guideview')
-
     implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
     compile 'com.github.yangjie10930:EpMedia:v0.9.5'
-
 }
 
 

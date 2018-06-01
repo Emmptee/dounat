@@ -2,7 +2,6 @@ package com.donut.app.adapter;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.bis.android.plug.autolayout.AutoRelativeLayout;
 import com.bumptech.glide.Glide;
@@ -23,24 +21,13 @@ import com.donut.app.databinding.ShakeCommendItemBinding;
 import com.donut.app.http.message.shakestar.ParticularsResponse;
 import com.donut.app.http.message.shakestar.ShakeStarCommendResponse;
 import com.donut.app.utils.BindingUtils;
-import com.donut.app.utils.L;
 import com.donut.app.utils.NetUtils;
-import com.shuyu.gsyvideoplayer.GSYVideoManager;
-import com.shuyu.gsyvideoplayer.builder.GSYVideoOptionBuilder;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
-import com.shuyu.gsyvideoplayer.video.CustomGSYVideoPlayer;
-import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
-import com.shuyu.gsyvideoplayer.video.base.GSYVideoControlView;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static android.view.View.GONE;
-import static com.shuyu.gsyvideoplayer.video.base.GSYVideoView.CURRENT_STATE_ERROR;
-import static fm.jiecao.jcvideoplayer_lib.JCVideoPlayer.CURRENT_STATE_PLAYING;
 
 /**
  * Created by hard on 2018/1/29.
@@ -308,7 +295,7 @@ public class ShakeStarRecyclerViewAdapter extends RecyclerView.Adapter<ShakeStar
 
     public class Shake_starViewHolder extends RecyclerView.ViewHolder {
         private ShakeCommendItemBinding binding;
-        private com.donut.app.mvp.shakestar.VideoView video;
+        private com.donut.app.mvp.shakestar.DonutVideoView video;
         private AutoRelativeLayout user;
         private TextView bz;
         private ImageView head_img;

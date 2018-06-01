@@ -48,13 +48,13 @@ import java.util.TimerTask;
  * Created by hard on 2018/1/31.
  */
 
-public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelectLayoutBinding, SelectPresenter> implements SelectContract.View, SwipeRefreshLayout.OnRefreshListener {
+public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelectLayoutBinding, SelectPresenter> implements SelectContract.View,SwipeRefreshLayout.OnRefreshListener {
 
 
-    private String name = null;
+    private String name=null;
     private int page = 0, rows = 10, sortType = 0;
-    private static final int ACTIONA = 0;
-    private static final int ACTIONB = 1;
+    private static final int ACTIONA=0;
+    private static final int ACTIONB=1;
     private ShakeStarSelectAdapter recyclerViewAdapter;
 
     @Override
@@ -80,13 +80,14 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
                 try {
                     ConfigInfo info = SysApplication.getDb().findFirst(Selector.from(ConfigInfo.class).where("name", "=", "MATERIALTIP"));
                     String message = info.getValue();
-                    UserMessageDialog.show(ShakeStarSelectActivity.this, message, null);
+                    UserMessageDialog.show(ShakeStarSelectActivity.this, message,null);
                 } catch (DbException e) {
                     e.printStackTrace();
                 }
 
             }
         });
+
         //最新
         mViewBinding.ivShakeNew.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,16 +126,13 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
                 load();
             }
         });
-
     }
-
 
     @Override
     protected void loadData() {
         mViewBinding.selectSwip.setOnRefreshListener(this);
-        mViewBinding.selectSwip.setColorSchemeResources(R.color.refresh_tiffany);
 
-        ItemDecoration itemDecoration = new ItemDecoration(this);
+        ItemDecoration itemDecoration=new ItemDecoration(this);
         mViewBinding.selectList.addItemDecoration(itemDecoration);
         load();
         initEvent();
@@ -142,37 +140,37 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
     }
 
     @Override
-    public void showView(final List<ShakeStarSelectResponse.MaterialListBean> selectResponse) {
-        mPresenter.setIsInfo(new SelectPresenter.IsInfo() {
-            @Override
-            public void Info(int k) {
-                if (k == 1) {
+    public void showView(final List<ShakeStarSelectResponse.MaterialListBean > selectResponse) {
+               mPresenter.setIsInfo(new SelectPresenter.IsInfo() {
+                   @Override
+                   public void Info(int k) {
+                       if(k==1){
 //                           mViewBinding.subjectSearchTvMsg.setVisibility(View.VISIBLE);
-                } else {
-                    mViewBinding.subjectSearchTvMsg.setVisibility(View.GONE);
-                }
-            }
-        });
+                       }else{
+                           mViewBinding.subjectSearchTvMsg.setVisibility(View.GONE);
+                       }
+                   }
+               });
 
-        if (recyclerViewAdapter == null) {
-            recyclerViewAdapter = new ShakeStarSelectAdapter(selectResponse, getApplicationContext());
-            mViewBinding.selectList.setAdapter(recyclerViewAdapter);
-        } else {
-            recyclerViewAdapter.notifyDataSetChanged();
-        }
+               if(recyclerViewAdapter==null){
+                   recyclerViewAdapter=new ShakeStarSelectAdapter(selectResponse,getApplicationContext());
+                   mViewBinding.selectList.setAdapter(recyclerViewAdapter);
+               }else{
+                   recyclerViewAdapter.notifyDataSetChanged();
+               }
 
         recyclerViewAdapter.setItemParticularsOnClickListener(new ShakeStarSelectAdapter.ItemParticularsOnClickListener() {
             @Override
             public void ParticularsClick(int position) {
-                if (selectResponse.get(position).getType() == ACTIONA) {//分屏
-                    Intent itent = new Intent(getApplicationContext(), ParticularsActivity.class);
-                    itent.putExtra("g03", selectResponse.get(position).getG03Id());
-                    itent.putExtra("b02", selectResponse.get(position).getB02Id());
+                if(selectResponse.get(position).getType()==ACTIONA){//分屏
+                    Intent itent=new Intent(getApplicationContext(), ParticularsActivity.class);
+                    itent.putExtra("g03",selectResponse.get(position).getG03Id());
+                    itent.putExtra("b02",selectResponse.get(position).getB02Id());
                     startActivity(itent);
-                } else if (selectResponse.get(position).getType() == ACTIONB) {
-                    Intent itent = new Intent(getApplicationContext(), JointActivity.class);
-                    itent.putExtra("g03", selectResponse.get(position).getG03Id());
-                    itent.putExtra("b02", selectResponse.get(position).getB02Id());
+                }else if(selectResponse.get(position).getType()==ACTIONB){
+                    Intent itent=new Intent(getApplicationContext(), JointActivity.class);
+                    itent.putExtra("g03",selectResponse.get(position).getG03Id());
+                    itent.putExtra("b02",selectResponse.get(position).getB02Id());
                     startActivity(itent);
                 }
 
@@ -189,9 +187,7 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
         recyclerViewAdapter.notifyDataSetChanged();
         mViewBinding.selectSwip.setRefreshing(false);
     }
-
     private boolean isTop;
-
     private RecyclerView.LayoutManager getLayoutManager() {
 
         final ABaseLinearLayoutManager layoutManager = new ABaseLinearLayoutManager(
@@ -215,45 +211,57 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
         return layoutManager;
     }
 
-    private void showKeyBoard() {
+    private void showKeyBoard()
+    {
         Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        timer.schedule(new TimerTask()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 InputMethodManager inputManager =
-                        (InputMethodManager) mViewBinding.shakeSearchIvEtClean.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.showSoftInput(mViewBinding.shakeSearchIvEtClean, 0);
+                        (InputMethodManager)  mViewBinding.shakeSearchIvEtClean.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.showSoftInput( mViewBinding.shakeSearchIvEtClean, 0);
             }
 
         }, 500);
     }
 
-    @Override
-    public void initEvent() {
-        mViewBinding.shakeSearchEt.addTextChangedListener(new TextWatcher() {
+    public void initEvent()
+    {
+        mViewBinding.shakeSearchEt.addTextChangedListener(new TextWatcher()
+        {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-                if (s.length() == 0) {
+            public void afterTextChanged(Editable s)
+            {
+                if (s.length() == 0)
+                {
                     mViewBinding.shakeSearchIvEtClean.setVisibility(View.GONE);
-                } else {
+                } else
+                {
                     mViewBinding.shakeSearchIvEtClean.setVisibility(View.VISIBLE);
                 }
             }
         });
-        mViewBinding.shakeSearchEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mViewBinding.shakeSearchEt.setOnEditorActionListener(new TextView.OnEditorActionListener()
+        {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH)
+                {
 
-                    name = mViewBinding.shakeSearchEt.getText().toString().trim();
+                    name=mViewBinding.shakeSearchEt.getText().toString().trim();
                     load();
 
                 }
@@ -263,8 +271,8 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
 
         mViewBinding.shakeSearchIvEtClean.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                name = mViewBinding.shakeSearchEt.getText().toString().trim();
-                if (!TextUtils.isEmpty(name)) {
+                name=mViewBinding.shakeSearchEt.getText().toString().trim();
+                if(!TextUtils.isEmpty(name)){
                     mViewBinding.shakeSearchEt.setText("");
                     load();
                 }
@@ -274,10 +282,7 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
 
 
     }
-
-    public void load() {
-        mPresenter.loadData(true, name, sortType, page, rows);
+    public void load(){
+        mPresenter.loadData(true,name,sortType,page,rows);
     }
-
-
 }

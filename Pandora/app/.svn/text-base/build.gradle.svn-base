@@ -1,0 +1,184 @@
+apply plugin: 'com.android.application'
+
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion project.sdk
+    buildToolsVersion project.buildTools
+
+    defaultConfig {
+        applicationId "com.donut.app"
+        minSdkVersion project.minSdk
+        targetSdkVersion project.sdk
+        versionCode 10010200
+        versionName "2.0.0"
+        multiDexEnabled true
+
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a', 'mips', 'mips64', 'x86', 'x86_64'
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            buildConfigField 'boolean', 'LOG_SWITCH', 'true'
+            buildConfigField 'String', 'API_HOST', '"http://10.10.10.251:8080/Donut"'
+            buildConfigField 'String', 'BaiduPushKey', '"TT1yYHulxc6dgiYqbWnR22pt"'
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'boolean', 'LOG_SWITCH', 'false'
+            buildConfigField 'String', 'API_HOST', '"http://www.sweetdonut.cn"'
+            buildConfigField 'String', 'BaiduPushKey', '"X68mDYuWatkjvjaG7DR97hxg"'
+        }
+    }
+
+    lintOptions {
+        abortOnError false;
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    flavorDimensions "installChanel"
+
+    productFlavors {
+        AALocal {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "a"]
+        }
+        Baidu {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "1"]
+        }
+        oppo {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "2"]
+        }
+        vivo {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "3"]
+        }
+        _360 {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "4"]
+        }
+        YingyongHui {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "5"]
+        }
+        Wandoujia {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "6"]
+        }
+        QQYingyongbao {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "7"]
+        }
+        Xiaomi {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "8"]
+        }
+        HuaWei {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "9"]
+        }
+        SoGou {
+            dimension "installChanel"
+            manifestPlaceholders = [installChanel: "b"]
+        }
+    }
+
+    // 批量,此时的name为productFlavors中name(如Baidu,Anzhuo...),目前不知如何获取具体值,待查
+    //productFlavors.all {
+    //    flavor -> flavor.manifestPlaceholders = [channelName: name]
+    //}
+
+    //修改生成的apk名字
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+
+            if (variant.buildType.name == 'release') {
+                output.outputFileName = "donut-${productFlavors.name}-${defaultConfig.versionName}_${getDate()}.apk"
+            }
+
+//            def file = output.outputFile
+//            if (variant.buildType.name.equals('release')) {
+//                def releaseApkName = 'donut-' + productFlavors.name + "-" + defaultConfig.versionName + '-' + getDate() + '.apk'
+//                output.outputFile = new File((String) file.parent, releaseApkName)
+//            }
+//            if(variant.buildType.name.equals('beta')){
+//            }
+//            if(variant.buildType.name.equals('debug')){
+//            }
+        }
+    }
+}
+
+//获取时间戳
+def static getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMdd-HHmm')
+    return formattedDate
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile "com.android.support:multidex:1.0.3"
+    implementation 'com.android.support:support-v4:26.1.0'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile(name: 'easypermissions', ext: 'aar')
+    compile(name: 'SMSSDK-2.1.3', ext: 'aar')
+    compile(name: 'jiecaovideoplayer-5.5.2', ext: 'aar')
+    compile project(':AndroidAutoLayout')
+    compile project(':imagecyclelibrary')
+    compile project(':RefreshRecyclerLibrary')
+    compile project(':CordovaLib')
+
+    compile project(':UmengShareLibrary')
+    compile project(':addresslibrary')
+    compile project(':CameraLibrary')
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:support-v4:' + project.supportVersion
+    compile 'com.android.support:appcompat-v7:' + project.supportVersion
+    compile 'com.github.todou:appbarspring:1.0.3'
+    compile 'com.github.chrisbanes:PhotoView:2.1.3'
+    compile 'com.shuyu:GSYVideoPlayer:3.0.0'
+    testCompile 'junit:junit:4.12'
+    implementation project(':guideview')
+}
+
+
+
+

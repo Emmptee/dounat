@@ -20,16 +20,39 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             >
-            <com.donut.app.mvp.shakestar.VideoView
+            <com.donut.app.mvp.shakestar.video.DonutCameraVideoView
                 android:id="@+id/record_player_right"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="match_parent">
-            </com.donut.app.mvp.shakestar.VideoView>
+            </com.donut.app.mvp.shakestar.video.DonutCameraVideoView>
 
         </RelativeLayout>
+        <com.bis.android.plug.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150px">
 
-        <ImageView
+            <ImageView
+                android:id="@+id/img_camera_back"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/back"/>
+
+            <TextView
+                android:id="@+id/btn_next"
+                android:layout_width="@dimen/px_110"
+                android:layout_height="@dimen/px_50"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="下一步"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_fourth_font_size"
+                android:layout_alignParentRight="true" />
+        </com.bis.android.plug.autolayout.AutoRelativeLayout>
+        <!--<ImageView
             android:id="@+id/img_camera_back"
             android:layout_width="32dp"
             android:layout_height="wrap_content"
@@ -45,12 +68,13 @@
             android:layout_height="@dimen/px_50"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/px_17"
+            android:layout_marginTop="@dimen/px_0"
             android:layout_marginRight="@dimen/px_10"
             android:gravity="center"
             android:text="下一步"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/text_fourth_font_size" />
+            android:textSize="@dimen/text_fourth_font_size"
+            android:layout_alignParentRight="true" />-->
 
         <LinearLayout
             android:id="@+id/linearlayout"

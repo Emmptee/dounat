@@ -1,0 +1,56 @@
+10
+
+dir
+0
+svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/shakestar/video/camera/callback
+svn://shidongfang@10.10.10.201/repo1
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+0b7bfb8c-1547-11e3-8535-551624b94288
+
+CameraViewChangeCallback.java
+file
+
+
+
+add
+
+FocusCameraCallback.java
+file
+
+
+
+add
+
+SwitchCameraCallback.java
+file
+
+
+
+add
+
+SwitchFlashModeCallback.java
+file
+
+
+
+add
+

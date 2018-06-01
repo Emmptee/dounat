@@ -126,8 +126,8 @@ public class ShakeStarSearchFragment extends MVPBaseFragment<ShakeSearchFragment
                 //选择素材
                 Intent it=new Intent(getActivity(), ShakeStarSelectActivity.class);
                 startActivity(it);
-//                l.e("这个是tosi");
-//                ToastUtil.showLong(getActivity(),"敬请期待");
+                l.e("这个是tosi");
+                ToastUtil.showLong(getActivity(),"精彩内容,敬请期待");
             }
         });
         initEvent();

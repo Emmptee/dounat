@@ -28,7 +28,6 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.donut.app.R;
-import com.donut.app.mvp.shakestar.video.constant.CameraContants;
 import com.donut.app.mvp.shakestar.video.Player;
 import com.donut.app.mvp.shakestar.video.camera.listener.CaptureListener;
 import com.donut.app.mvp.shakestar.video.camera.listener.ClickListener;
@@ -39,6 +38,7 @@ import com.donut.app.mvp.shakestar.video.camera.state.CameraMachine;
 import com.donut.app.mvp.shakestar.video.camera.util.FileUtil;
 import com.donut.app.mvp.shakestar.video.camera.util.ScreenUtils;
 import com.donut.app.mvp.shakestar.video.camera.view.CameraView;
+import com.donut.app.mvp.shakestar.video.constant.CameraContants;
 import com.donut.app.mvp.shakestar.video.record.RecordActivity;
 import com.socks.library.KLog;
 
@@ -52,7 +52,7 @@ import VideoHandle.OnEditorListener;
 public class JCameraView extends FrameLayout implements CameraInterface.CameraOpenOverCallback, SurfaceHolder
         .Callback, CameraView {
     private static final String TAG = "JCameraView";
-    private RecordActivity recordActivity;
+    private RecordActivity mRecordActivity;
     //Camera状态机
     private CameraMachine machine;
 
@@ -79,8 +79,6 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
 
     //控制输出视频常量
     public static int OUTPUTROTATEFILE = 0;
-
-
 
 
     public static final int BUTTON_STATE_ONLY_CAPTURE = 0x101;      //只能拍照
@@ -131,10 +129,9 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     private TextView mPressCameraButton;
     private CaptureButton mCaptureButton;
     private TextView mButtonText;
-    private RecordActivity mRecordActivity;
     private LinearLayout mLinearlayout;
     private FrameLayout mFrameLayout;
-    public  float widthSize;
+    public float widthSize;
 
 
     public JCameraView(Context context) {
@@ -164,8 +161,8 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         initView();
         mediaRecorder = new MediaRecorder();
         mCaptureButton = new CaptureButton(getContext());
-        if (context instanceof  RecordActivity){
-            recordActivity = (RecordActivity) context;
+        if (context instanceof RecordActivity) {
+            mRecordActivity = (RecordActivity) context;
         }
 
     }
@@ -203,7 +200,6 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         mFrameLayout.setLayoutParams(frameparams);
 
 
-
 //        mNextButton = (TextView) view.findViewById(R.id.btn_next);
         mMidCameraButton = (TextView) view.findViewById(R.id.btn_camera_mid);
         mClickCameraButton = (TextView) view.findViewById(R.id.btn_camera_click);
@@ -217,7 +213,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
             public void onClick(View v) {
                 *//**TODO 执行视频压缩合成*//*
                 KLog.e("点击了下一步");
-                recordActivity.finish();
+                mRecordActivity.finish();
                 RotateOutputVideo();
 
 //                RecordActivity.getInstance().finish();
@@ -248,7 +244,6 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         });
 
 
-
         //切换摄像头
         mSwitchCamera.setOnClickListener(new OnClickListener() {
             @Override
@@ -259,16 +254,19 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         });
         //拍照 录像
         mCaptureLayout.setCaptureLisenter(new CaptureListener() {
+            //点击录像
             @Override
             public void takePictures() {
+                KLog.e("点击录像");
                 machine.capture();
             }
 
             @Override
             public void recordStart() {
+                KLog.e("开始录像");
                 machine.record(mVideoView.getHolder().getSurface(), screenProp);
 //                player.playUrl("/mnt/sdcard/ffmpeg/anyixuan.mp4");
-
+                sendRecordStartBroadcast();
             }
 
             @Override
@@ -283,16 +281,14 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
                         KLog.e("录制时间过短========");
                     }
                 }, 1500 - time);
+                sendRecordShortBroadcast();
             }
 
             @Override
             public void recordEnd(long time) {
                 machine.stopRecord(false, time);
-                Intent intent = new Intent();
-                intent.setAction(CameraContants.ACTION_DONUT_RECORD_END);
-                intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-                recordActivity.sendBroadcast(intent);
-                KLog.e("发送了广播");
+                sendRecordEndBroadcast();
+
 //                stopPlayLeftVideo();
 //                mNextButton.setBackgroundResource(R.drawable.shape_half_rec_main);
 //                mNextButton.setEnabled(true);
@@ -301,7 +297,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
 
             @Override
             public void recordZoom(float zoom) {
-                KLog.i("recordZoom");
+                KLog.e("recordZoom");
                 machine.zoom(zoom, CameraInterface.TYPE_RECORDER);
             }
 
@@ -328,7 +324,32 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     }
 
 
-    public void RotateOutputVideo(){
+    private void sendRecordStartBroadcast() {
+        Intent intent = new Intent();
+        intent.setAction(CameraContants.ACTION_DONUT_RECORD_START);
+        intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+        mRecordActivity.sendBroadcast(intent);
+        KLog.e("发送了录像开始的广播");
+    }
+
+    private void sendRecordShortBroadcast() {
+        Intent intent = new Intent();
+        intent.setAction(CameraContants.ACTION_DONUT_RECORD_SHORT);
+        intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+        mRecordActivity.sendBroadcast(intent);
+        KLog.e("发送了录像过短的广播");
+    }
+
+    private void sendRecordEndBroadcast() {
+        Intent intent = new Intent();
+        intent.setAction(CameraContants.ACTION_DONUT_RECORD_END);
+        intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+        mRecordActivity.sendBroadcast(intent);
+        KLog.e("发送了录像结束的广播");
+    }
+
+
+    public void RotateOutputVideo() {
         EpVideo epVideo = new EpVideo("mnt/sdcard/ffmpeg" + File.separator + "5566.mp4");
         epVideo.rotation(0, true);
         final String outPath = "/mnt/sdcard/ffmpeg/epVideoOut.mp4";
@@ -353,6 +374,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
             }
         });
     }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -630,6 +652,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         KLog.i("startPreviewCallback");
         handlerFoucs(mFoucsView.getWidth() / 2, mFoucsView.getHeight() / 2);
     }
+
     @Override
     public boolean handlerFoucs(float x, float y) {
         if (y > mCaptureLayout.getTop()) {
@@ -684,13 +707,14 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
                 break;
         }
     }
+
     private MediaRecorder mediaRecorder;
 
-    private void stopPlayLeftVideo(){
+    private void stopPlayLeftVideo() {
 
         player.stop();
 
-        if (mediaRecorder == null){
+        if (mediaRecorder == null) {
             return;
         }
         try {
