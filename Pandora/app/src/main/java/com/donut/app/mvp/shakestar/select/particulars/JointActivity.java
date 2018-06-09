@@ -23,7 +23,6 @@ import com.donut.app.http.message.shakestar.CommendAllResponse;
 import com.donut.app.http.message.shakestar.ParticularsResponse;
 import com.donut.app.mvp.MVPBaseActivity;
 import com.donut.app.mvp.shakestar.select.ScrollInterceptScrollView;
-import com.donut.app.mvp.shakestar.video.record.RecordActivity;
 import com.donut.app.utils.BindingUtils;
 import com.donut.app.utils.L;
 import com.donut.app.utils.NetUtils;
@@ -233,8 +232,6 @@ public class JointActivity extends MVPBaseActivity<ActivityJointBinding, Particu
     }
 
     public void showPhone(View view) {
-        Intent it=new Intent(this.mContext, RecordActivity.class);
-        startActivity(it);
         ToastUtil.showShort(getContext(),"精彩内容,敬请期待");
     }
 }

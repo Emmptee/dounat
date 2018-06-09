@@ -112,7 +112,6 @@ public class CameraInterface implements Camera.PreviewCallback {
 
     public void setSwitchView(ImageView mSwitchView) {
         this.mSwitchView = mSwitchView;
-//        this.mFlashLamp = mFlashLamp;
         if (mSwitchView != null) {
             cameraAngle = CameraParamUtil.getInstance().getCameraDisplayOrientation(mSwitchView.getContext(),
                     SELECTED_CAMERA);

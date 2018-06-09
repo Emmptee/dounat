@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
@@ -30,6 +31,7 @@ import com.donut.app.utils.BindingUtils;
 import com.donut.app.utils.JsonUtils;
 import com.donut.app.utils.status_bar.StatusBarCompat;
 import com.lidroid.xutils.exception.DbException;
+import com.socks.library.KLog;
 
 import java.util.List;
 
@@ -39,7 +41,7 @@ import java.util.List;
  */
 public class WishingActivity extends MVPBaseActivity<ActivityWishingBinding, WishingPresenter>
         implements WishingContract.View, com.donut.app.mvp.wish.wishing.ShowChooseMediaPopupWindow.OnShowViewListener {
-
+    private static final String TAG = "WISHING";
     private CharSequence starNameOldSequence, contentOldSequence;
 
     private String videoFilePath;
@@ -206,6 +208,7 @@ public class WishingActivity extends MVPBaseActivity<ActivityWishingBinding, Wis
             showToast("文件正在上传,请稍后");
             return;
         }
+        KLog.e(TAG,"视频地址是什么" + mPresenter.playUrl);
 
         AddWishRequest request = new AddWishRequest();
         request.setStarName(starName);
@@ -221,6 +224,7 @@ public class WishingActivity extends MVPBaseActivity<ActivityWishingBinding, Wis
         if (mPresenter.isVideo && !mPresenter.takeVideo) {
             //此时为选择的视频文件!
             //非拍摄视频去处理...
+            KLog.e(TAG,"选择的视频文件");
             try {
                 UploadService.getUploadManager().addNewUpload(
                         videoFilePath,
@@ -229,6 +233,7 @@ public class WishingActivity extends MVPBaseActivity<ActivityWishingBinding, Wis
                         UploadInfo.SaveTypeEnum.IP_SEND,
                         "",
                         JsonUtils.toJson(request, request.getClass()));
+                KLog.e(TAG,"视频地址" + videoFilePath);
             } catch (DbException e) {
                 e.printStackTrace();
             }

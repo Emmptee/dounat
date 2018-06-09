@@ -15,6 +15,7 @@ import android.view.View;
 import com.donut.app.R;
 import com.donut.app.mvp.shakestar.video.camera.listener.CaptureListener;
 import com.donut.app.mvp.shakestar.video.camera.util.CheckPermission;
+import com.donut.app.mvp.shakestar.video.record.RecordActivity;
 import com.socks.library.KLog;
 
 
@@ -94,9 +95,10 @@ public class CaptureButton extends View {
         state = STATE_IDLE;                //初始化为空闲状态
         button_state = JCameraView.BUTTON_STATE_BOTH;  //初始化按钮为可录制可拍照
         KLog.e(TAG,"CaptureButtom start");
-        duration = 3 * 1000;              //默认最长录制时间为10s
+        duration = 10 * 1000;              //默认最长录制时间为10s
         KLog.e(TAG,"CaptureButtom end");
-        min_duration = 1500;              //默认最短录制时间为1.5s
+        min_duration = (int) (RecordActivity.VideoDuration*0.8);              //默认最短录制时间为素材视频时长的80%
+//        min_duration = 6000;              //默认最短录制时间为素材视频时长的80%
 
         center_X = (button_size + outside_add_size * 2) / 2;
         center_Y = (button_size + outside_add_size * 2) / 2;

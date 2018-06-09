@@ -23,7 +23,6 @@
             <com.donut.app.mvp.shakestar.video.DonutCameraVideoView
                 android:id="@+id/record_player_right"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="match_parent">
             </com.donut.app.mvp.shakestar.video.DonutCameraVideoView>
 

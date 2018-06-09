@@ -72,7 +72,8 @@ public class UploadInfo {
         IP_SEND(1),
         CHALLENGE(2),
         STAR_REPLY(3),
-        STAR_SEND_NOTICE(4);
+        STAR_SEND_NOTICE(4),
+        SHAKE_STAR_PREVIEW(5);
 
         SaveTypeEnum(int type) {
             this.type = type;

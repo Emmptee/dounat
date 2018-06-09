@@ -222,6 +222,8 @@ public interface HeaderRequest {
 
     String SHAKESTAR_PARTICULARS = "00010803";
 
+    String SHAKESTAR_PREVIEW = "00100804";
+
     String SHAKE_MYPRODUCTION ="00000119";
     String SHAKE_MYLIKE ="00000120";
     String SHAKE_MYMATERIAL ="10000128";

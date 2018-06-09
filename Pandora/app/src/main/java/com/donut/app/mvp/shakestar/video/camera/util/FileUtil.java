@@ -19,7 +19,7 @@ public class FileUtil {
     private static String savePath;
 
     public static String choseSavePath() {
-        savePath = Environment.getExternalStorageDirectory().getPath() + "/PandoraVideo/";
+        savePath = Environment.getExternalStorageDirectory().getPath() + "/PandoraVideo";
         File file = new File(savePath);
         if (!file.exists()) {
             file.mkdirs();
@@ -49,7 +49,7 @@ public class FileUtil {
     public static void savePicture(String dir , Bitmap bitmap){
         File file = new File(dir);
         file.mkdirs();// 创建文件夹
-        String fileName = dir+"2233.jpg";
+        String fileName = dir+"videoThumbnail.jpg";
         try {
             FileOutputStream outputStream = new FileOutputStream(fileName);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);// 把数据写入文件

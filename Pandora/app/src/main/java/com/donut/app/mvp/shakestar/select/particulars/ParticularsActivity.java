@@ -1,14 +1,17 @@
 package com.donut.app.mvp.shakestar.select.particulars;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Parcelable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -16,7 +19,6 @@ import com.bis.android.plug.refresh_recycler.layoutmanager.ABaseGridLayoutManage
 import com.bis.android.plug.refresh_recycler.listener.OnRecyclerViewScrollLocationListener;
 import com.bis.android.sharelibrary.ShareBuilderCommonUtil;
 import com.donut.app.R;
-import com.donut.app.activity.StarDetailActivity;
 import com.donut.app.adapter.ShakeStarParticularsAdapter;
 import com.donut.app.databinding.ActivityParticularsLayoutBinding;
 import com.donut.app.http.HeaderRequest;
@@ -26,21 +28,20 @@ import com.donut.app.http.message.shakestar.ParticularsResponse;
 import com.donut.app.mvp.MVPBaseActivity;
 import com.donut.app.mvp.blooper.detail.BlooperDetailActivity;
 import com.donut.app.mvp.shakestar.select.ScrollInterceptScrollView;
+import com.donut.app.mvp.shakestar.video.SourceVideoDownload.DownloadUtil;
 import com.donut.app.mvp.shakestar.video.record.RecordActivity;
 import com.donut.app.utils.BindingUtils;
 import com.donut.app.utils.L;
 import com.donut.app.utils.NetUtils;
-import com.donut.app.utils.ToastUtil;
 import com.donut.app.utils.status_bar.StatusBarCompat;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
-import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
 import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
+import com.socks.library.KLog;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.donut.app.mvp.subject.snap.SubjectSnapActivity.STAR_DETAIL_CODE;
 
 /**
  * Created by hard on 2018/2/1.
@@ -50,17 +51,32 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
 
     private static final String TAG = "ParticularsActivity";
 
-  private ShakeStarParticularsAdapter adapter;
-  private Intent intent;
-  private String g03 ;
-  private String b02;
-  boolean isCollection;
-  private  int STATUSA=0;//未收藏
-  private static final int STATUSB=1;//已收藏
-  private int page = 0, rows = 10, sortType = 0;
-  private int status;
-  private ParticularsResponse shakingStarListBeans;
-List<ParticularsResponse.ShakingStarListBean> list;
+    private ShakeStarParticularsAdapter adapter;
+    private Intent intent;
+    private String g03 ;
+    private String b02;
+    boolean isCollection;
+    private  int STATUSA=0;//未收藏
+    private static final int STATUSB=1;//已收藏
+    private int page = 0, rows = 10, sortType = 0;
+    private int status;
+    private ParticularsResponse shakingStarListBeans;
+    List<ParticularsResponse.ShakingStarListBean> list;
+    private String itemLastTime;
+
+    private ProgressDialog mProgressDialog;
+    private String videoPath;//下载路径
+    private int max;
+    private String sourceVideoUrl;
+    private DownloadUtil mDownloadUtil;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_particulars_layout;
@@ -79,9 +95,9 @@ List<ParticularsResponse.ShakingStarListBean> list;
     @Override
     protected void loadData() {
         StatusBarCompat.translucentStatusBar(this);
-         intent = getIntent();
-         g03 = intent.getStringExtra("g03");
-         b02 = intent.getStringExtra("b02");
+        intent = getIntent();
+        g03 = intent.getStringExtra("g03");
+        b02 = intent.getStringExtra("b02");
         mPresenter.loadData(true,b02,g03,page,rows);
     }
 
@@ -89,6 +105,9 @@ List<ParticularsResponse.ShakingStarListBean> list;
     public void showView( List<ParticularsResponse.ShakingStarListBean> list,ParticularsResponse shakingStarListBeans) {
 //        GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_DEFAULT);//默认比例
         this.list=list;
+        sourceVideoUrl = shakingStarListBeans.getMaterialVideoList().get(0).getPlayUrl();
+        videoPath = Environment.getExternalStorageDirectory().getPath() + "/PandoraVideo/";
+        mDownloadUtil = new DownloadUtil(4, videoPath, "download.mp4", sourceVideoUrl, this);
 //        mViewBinding.shakeCommendSwip.setEnabled(false);
         mViewBinding.xqRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
         if(shakingStarListBeans.getShakingStarList().get(0).getVideoThumbnail()!=null){
@@ -129,8 +148,10 @@ List<ParticularsResponse.ShakingStarListBean> list;
             boolean wifi = NetUtils.isWifi(mContext);
             if(wifi){
                 GSYBaseVideoPlayer player=mViewBinding.particularsPlayerRight;
-                player.startPlayLogic();
+                //player.startPlayLogic();
             }
+            itemLastTime = getLastTime(shakingStarListBeans.getMaterialVideoList().get(0).getPlayUrl());
+            KLog.e("在particular中的时长" + itemLastTime);
         }
 
 
@@ -145,6 +166,24 @@ List<ParticularsResponse.ShakingStarListBean> list;
 //            }
 //        });
         onClick(shakingStarListBeans);
+    }
+
+    private static String getLastTime(String url){
+        String duration = null;
+        MediaPlayer player = new MediaPlayer();
+        try {
+            player.setDataSource(url);  //recordingFilePath（）为音频文件的路径
+            player.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //获取素材视频的时间
+        duration = String.valueOf(player.getDuration());
+        KLog.d("ACETEST", "### duration: " + duration);
+        player.release();//释放资源
+        return duration;
     }
 
     @Override
@@ -184,8 +223,8 @@ List<ParticularsResponse.ShakingStarListBean> list;
         mViewBinding.scrollview.setScrollViewListener(new ScrollInterceptScrollView.IScrollChangedListener() {
             @Override
             public void onScrolledToBottom() {
-                     page++;
-                    mPresenter.loadData(false,g03,b02,page,rows);
+                page++;
+                mPresenter.loadData(false,g03,b02,page,rows);
             }
 
             @Override
@@ -198,9 +237,9 @@ List<ParticularsResponse.ShakingStarListBean> list;
 
             }
         });
-       adapter.setItemOnClickListener(new ShakeStarParticularsAdapter.ItemOnClickListener() {
-           @Override
-           public void onClick(int position) {
+        adapter.setItemOnClickListener(new ShakeStarParticularsAdapter.ItemOnClickListener() {
+            @Override
+            public void onClick(int position) {
                 Intent it=new Intent(ParticularsActivity.this,SelectVideoActivity.class);
                 Bundle bundle=new Bundle();
                 bundle.putParcelableArrayList("shakingStarListBeans", (ArrayList<? extends Parcelable>) list);
@@ -211,8 +250,8 @@ List<ParticularsResponse.ShakingStarListBean> list;
                 bundle.putInt("position",position);
                 it.putExtra("bundle",bundle);
                 startActivity(it);
-           }
-       });
+            }
+        });
         mViewBinding.particularsFx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -243,15 +282,15 @@ List<ParticularsResponse.ShakingStarListBean> list;
             public void onClick(View v) {
                 L.e("status",status);
                 if(STATUSA==0){
-                   //收藏        type:99是没有用过的标识 ，后台没有操作
+                    //收藏        type:99是没有用过的标识 ，后台没有操作
                     mViewBinding.particularsSc.setImageResource(R.drawable.sc2);
-                        mPresenter.Collect(false,b02,99,1);
+                    mPresenter.Collect(false,b02,99,1);
                     STATUSA=1;
-                    }else if(STATUSA==1){//取消收藏
+                }else if(STATUSA==1){//取消收藏
                     mViewBinding.particularsSc.setImageResource(R.drawable.sc1);
-                        mPresenter.Collect(false,b02,99,0);
+                    mPresenter.Collect(false,b02,99,0);
                     STATUSA=0;
-                    }
+                }
             }
         });
 
@@ -268,12 +307,53 @@ List<ParticularsResponse.ShakingStarListBean> list;
         requestRuntimePermission("为了给您提供更好的服务,甜麦圈需要获取存储器读写权限",
                 Manifest.permission.CAMERA,Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        Intent it=new Intent(this.mContext, RecordActivity.class);
-//        Bundle bundle=new Bundle();
-        it.putExtra("g03",g03);
-        it.putExtra("b02",b02);
-        startActivity(it);
-        ToastUtil.showShort(getContext(),"精彩内容,敬请期待");
-
+//        ToastUtil.showShort(getContext(),"精彩内容,敬请期待");
+        initSourceVideo();
     }
+    private void initSourceVideo(){
+        mDownloadUtil.start();
+        mDownloadUtil.setOnDownloadListener(new DownloadUtil.OnDownloadListener() {
+            @Override
+            public void downloadStart(int fileSize) {
+                showProgressDialog();
+                KLog.d("开始下载视频");
+                max = fileSize;//文件总长度
+            }
+
+            @Override
+            public void downloadProgress(int downloadedSize) {
+                KLog.d("视频在下载中");
+                mProgressDialog.setMessage("资源加载中..."+ downloadedSize * 100 / max + "%");
+
+            }
+
+            @Override
+            public void downloadEnd() {
+                KLog.e("视频下载结束");
+                calcelProgressDialog();
+                mDownloadUtil.pause();
+                Intent it=new Intent(getContext(), RecordActivity.class);
+                it.putExtra("g03",g03);
+                it.putExtra("b02",b02);
+                it.putExtra("mylasttime",itemLastTime);
+                startActivity(it);
+            }
+        });
+    }
+
+    private void showProgressDialog() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        Log.e("DAo","正在处理中");
+        mProgressDialog.setMessage("资源加载中");
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+    }
+    private void calcelProgressDialog() {
+        if( mProgressDialog !=null){
+            mProgressDialog.cancel();
+            mProgressDialog =null;
+        }
+    }
+
 }

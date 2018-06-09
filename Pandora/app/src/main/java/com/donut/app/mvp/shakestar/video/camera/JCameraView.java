@@ -145,6 +145,11 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     public JCameraView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
+        mediaRecorder = new MediaRecorder();
+        mCaptureButton = new CaptureButton(getContext());
+        if (context instanceof RecordActivity) {
+            mRecordActivity = (RecordActivity) context;
+        }
         //get AttributeSet
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.JCameraView, defStyleAttr, 0);
         iconSize = a.getDimensionPixelSize(R.styleable.JCameraView_iconSize, (int) TypedValue.applyDimension(
@@ -155,16 +160,12 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         iconLeft = a.getResourceId(R.styleable.JCameraView_iconLeft, 0);
         iconRight = a.getResourceId(R.styleable.JCameraView_iconRight, 0);
 //        duration = a.getInteger(R.styleable.JCameraView_duration_max, 5 * 1000);       //没设置默认为5s
-        duration = 5000;       //没设置默认为5s
+//        duration = RecordActivity.VideoDuration;       //没设置默认为5s
+        duration = 10000;       //没设置默认为10s
+        KLog.e("ACETEST"  + "视频时长是" + duration);
         a.recycle();
         initData();
         initView();
-        mediaRecorder = new MediaRecorder();
-        mCaptureButton = new CaptureButton(getContext());
-        if (context instanceof RecordActivity) {
-            mRecordActivity = (RecordActivity) context;
-        }
-
     }
 
     private void initData() {
@@ -173,6 +174,10 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         zoomGradient = (int) (layout_width / 16f);
         KLog.i("zoom = " + zoomGradient);
         machine = new CameraMachine(getContext(), this, this);
+    }
+
+    public RecordActivity getmRecordActivity() {
+        return mRecordActivity;
     }
 
     private void initView() {
@@ -186,6 +191,10 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         mSwitchCamera = (ImageView) view.findViewById(R.id.image_switch);
 //        mSwitchCamera.setImageResource(iconSrc);
         mCaptureLayout = (CaptureLayout) view.findViewById(R.id.capture_layout);
+
+        duration = RecordActivity.VideoDuration;
+
+        KLog.e("initview视频时长是" + duration);
         mCaptureLayout.setDuration(duration);
 //        mCaptureLayout.setIconSrc(iconLeft, iconRight);
         mFoucsView = (FoucsView) view.findViewById(R.id.fouce_view);
@@ -710,7 +719,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
 
     private MediaRecorder mediaRecorder;
 
-    private void stopPlayLeftVideo() {
+    private void stopPlayRightVideo() {
 
         player.stop();
 

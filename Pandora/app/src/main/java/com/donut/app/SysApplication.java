@@ -9,6 +9,9 @@ import com.android.volley.manager.RequestManager;
 import com.donut.app.config.Constant;
 import com.donut.app.entity.UserBehaviour;
 import com.donut.app.entity.UserInfo;
+import com.donut.app.mvp.shakestar.greendaobase.DaoMaster;
+import com.donut.app.mvp.shakestar.greendaobase.DaoSession;
+import com.donut.app.mvp.shakestar.greendaobase.UserDao;
 import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.exception.DbException;
 import com.umeng.socialize.Config;
@@ -21,6 +24,7 @@ import com.umeng.socialize.UMShareAPI;
 
 public class SysApplication extends Application {
     private volatile static SysApplication instance;
+    public static UserDao userDao;
 
     /**
      * 获取本app可用的Context
@@ -56,6 +60,11 @@ public class SysApplication extends Application {
                     new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build()
             );
         }
+
+        DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(this, "zpf.db", null);
+        DaoMaster daoMaster = new DaoMaster(devOpenHelper.getWritableDb());
+        DaoSession daoSession = daoMaster.newSession();
+        userDao = daoSession.getUserDao();
 
     }
 

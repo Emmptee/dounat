@@ -146,7 +146,7 @@ public class CaptureLayout extends FrameLayout {
             public void recordShort(long time) {
                 if (captureLisenter != null) {
                     captureLisenter.recordShort(time);
-                    KLog.e(TAG,"摄制时间过短"+CaptureButton.state);
+                    KLog.e(TAG,"摄制时间过短"+ CaptureButton.state);
                 }
                 startAlphaAnimation();
             }
@@ -154,7 +154,7 @@ public class CaptureLayout extends FrameLayout {
             @Override
             public void recordStart() {
                 if (captureLisenter != null) {
-                    KLog.e(TAG, "recordStart: 开始摄制" +CaptureButton.state);
+                    KLog.e(TAG, "recordStart: 开始摄制" + CaptureButton.state);
                     captureLisenter.recordStart();
                 }
                 startAlphaAnimation();

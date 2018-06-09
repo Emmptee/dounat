@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.shakestar.video.record.RecordPreviewActivity" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/title_preview"
+            android:layout_width="match_parent"
+            android:layout_height="126px"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/videoPreview_back"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="发布预览"
+                android:textColor="@color/white"
+                android:textSize="17dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/preview_video_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="126px">
+
+                <com.donut.app.mvp.shakestar.DonutVideoView
+                    android:id="@+id/videoview_pre"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </com.donut.app.mvp.shakestar.DonutVideoView>
+                <!--<com.donut.app.mvp.shakestar.video.DonutCameraVideoView
+                    android:id="@+id/preview_videoview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </com.donut.app.mvp.shakestar.video.DonutCameraVideoView>-->
+            </RelativeLayout>
+
+
+            <EditText
+                android:id="@+id/videoPreview_search_et"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/preview_video_layout"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/shape_shake_rec_gray"
+                android:focusableInTouchMode="true"
+                android:hint="为你的大片填个描述吧~~"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/text_gray3"
+                android:textColorHint="@color/text_gray9"
+                android:textSize="30px" />
+
+            <ProgressBar
+                android:id="@+id/uploading_pb"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="280dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:max="100"
+                android:progressDrawable="@drawable/progressbarbg"
+                />
+
+            <Button
+                android:id="@+id/preview_btn_publish"
+                android:layout_width="320dp"
+                android:layout_height="@dimen/px_88"
+                android:layout_below="@+id/videoPreview_search_et"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/shape_login_btn_main"
+                android:text="发布"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_first_font_size" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

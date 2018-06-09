@@ -162,9 +162,17 @@ public class ShakeStarCommendFragment extends MVPBaseFragment<ShakeCommendFragme
             @Override
             public void onClick(View v) {
                 //选择素材
-                Intent it=new Intent(getActivity(), ShakeStarSelectActivity.class);
-                startActivity(it);
-                ToastUtil.showLong(getActivity(),"精彩内容,敬请期待");
+                UserInfo userInfo = SysApplication.getUserInfo();
+                String userId = userInfo.getUserId();
+                if(TextUtils.isEmpty(userId)||null==userId){
+                    //去登陆
+                    Intent it=new Intent(getActivity(), LoginActivity.class);
+                    getActivity().startActivity(it);
+                }else{
+                    Intent it=new Intent(getActivity(), ShakeStarSelectActivity.class);
+                    startActivity(it);
+                }
+
             }
         });
     }
