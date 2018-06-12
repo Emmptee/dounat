@@ -2,6 +2,7 @@ package com.donut.app.mvp.wish.wishing;
 
 import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
+import android.nfc.Tag;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.SparseArray;
@@ -18,6 +19,7 @@ import com.donut.app.service.SaveBehaviourDataService;
 import com.donut.app.utils.FileUtils;
 import com.donut.app.utils.JsonUtils;
 import com.donut.app.utils.PictureUtil;
+import com.socks.library.KLog;
 
 import java.io.File;
 import java.util.Map;
@@ -29,7 +31,7 @@ import java.util.UUID;
  * Description : <br>
  */
 public class WishingPresenter extends com.donut.app.mvp.wish.wishing.WishingContract.Presenter {
-
+    private static final String TAG = "WishingPresenter";
     private static final int WISH_ADD_CODE = 1;
 
     public static final int UPLOAD_IMG_REQUEST = 2,
@@ -46,6 +48,7 @@ public class WishingPresenter extends com.donut.app.mvp.wish.wishing.WishingCont
 
     @Override
     public void onSuccess(String responseJson, String url, int actionId) {
+        KLog.e("wishing的ID是" + actionId);
         switch (actionId) {
             case WISH_ADD_CODE:
                 BaseResponse response = JsonUtils.fromJson(responseJson, BaseResponse.class);
@@ -65,6 +68,7 @@ public class WishingPresenter extends com.donut.app.mvp.wish.wishing.WishingCont
         if (controller != null) {
             controller.cancel();
         }
+        KLog.e("muploadArray---" + mUploadArray.size());
         mUploadArray.delete(requestCode);
 
         SendNetRequestManager requestManager = new SendNetRequestManager(requestListener);
@@ -93,7 +97,7 @@ public class WishingPresenter extends com.donut.app.mvp.wish.wishing.WishingCont
 
         // 上传视频文件缩略图
         uploadImg(file.getAbsolutePath(), 4, UPLOAD_VIDEO_IMG);
-        if (takeVideo) {
+//        if (takeVideo) {
             LoadController controller = mUploadArray.get(UPLOAD_VIDEO);
             if (controller != null) {
                 controller.cancel();
@@ -103,7 +107,7 @@ public class WishingPresenter extends com.donut.app.mvp.wish.wishing.WishingCont
             SendNetRequestManager requestManager = new SendNetRequestManager(requestListener);
             LoadController loadController = requestManager.uploadImg(filePath, 1, UPLOAD_VIDEO);
             mUploadArray.put(UPLOAD_VIDEO, loadController);
-        }
+//        }
 
         this.isVideo = true;
     }
@@ -140,6 +144,8 @@ public class WishingPresenter extends com.donut.app.mvp.wish.wishing.WishingCont
                     case UPLOAD_VIDEO:
                         lastTime = String.valueOf(res.getVideoTime());
                         playUrl = res.getFileUrl();
+                        KLog.e(TAG,"成功" + playUrl);
+                        KLog.e(TAG,"成功" + lastTime);
                         break;
                 }
             }
@@ -159,6 +165,7 @@ public class WishingPresenter extends com.donut.app.mvp.wish.wishing.WishingCont
                 HeaderRequest.WISH_ADD,
                 WISH_ADD_CODE,
                 true);
+        KLog.e("wishing保存数据");
     }
 
     public void saveBehaviour(String functionCode) {

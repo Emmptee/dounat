@@ -208,8 +208,12 @@ public class WishingActivity extends MVPBaseActivity<ActivityWishingBinding, Wis
             showToast("文件正在上传,请稍后");
             return;
         }
-        KLog.e(TAG,"视频地址是什么" + mPresenter.playUrl);
-
+        KLog.e("明星名字" + starName);
+        KLog.e("描述" + des);
+        KLog.e("wishtype" + wishType);
+        KLog.e("图片地址" + mPresenter.imgUrl);
+        KLog.e("视频地址" + mPresenter.playUrl);
+        KLog.e("持续时间" + mPresenter.lastTime);
         AddWishRequest request = new AddWishRequest();
         request.setStarName(starName);
         request.setDescription(des);
@@ -221,11 +225,11 @@ public class WishingActivity extends MVPBaseActivity<ActivityWishingBinding, Wis
 
         mPresenter.saveBehaviour("02", request, HeaderRequest.WISH_ADD);
 
-        if (mPresenter.isVideo && !mPresenter.takeVideo) {
+//        if (mPresenter.isVideo && !mPresenter.takeVideo) {
             //此时为选择的视频文件!
             //非拍摄视频去处理...
-            KLog.e(TAG,"选择的视频文件");
             try {
+                KLog.e("从图库选择视频上传");
                 UploadService.getUploadManager().addNewUpload(
                         videoFilePath,
                         getUserInfo().getUserId(),
@@ -233,15 +237,14 @@ public class WishingActivity extends MVPBaseActivity<ActivityWishingBinding, Wis
                         UploadInfo.SaveTypeEnum.IP_SEND,
                         "",
                         JsonUtils.toJson(request, request.getClass()));
-                KLog.e(TAG,"视频地址" + videoFilePath);
             } catch (DbException e) {
                 e.printStackTrace();
             }
             showToast("视频过大可能导致压缩时间较长哦，请耐心等候！");
-            launchActivity(UploadManagerActivity.class);
+    /*        launchActivity(UploadManagerActivity.class);
             finish();
             return;
-        }
+        }*/
         mPresenter.saveData(request);
     }
 
@@ -329,6 +332,7 @@ public class WishingActivity extends MVPBaseActivity<ActivityWishingBinding, Wis
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (mPopupWindow != null) {
+            KLog.e("wishingActivity",requestCode+"-----" +resultCode);
             mPopupWindow.onActivityResult(requestCode, resultCode, data);
         }
     }

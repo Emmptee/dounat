@@ -30,6 +30,7 @@ import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
 import com.lidroid.xutils.http.HttpHandler;
 import com.lidroid.xutils.util.LogUtils;
+import com.socks.library.KLog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -486,14 +487,21 @@ public class UploadManager {
                     baseRequest.setData(JsonUtils.toJson(request, request.getClass()));
                 } else if (uploadInfo.getSaveType() == UploadInfo.SaveTypeEnum.SHAKE_STAR_PREVIEW.getType()) {
 
-                    ShakeStarPreviewRequest request = JsonUtils.fromJson(uploadInfo.getSaveData(),ShakeStarPreviewRequest.class);
+                    ShakeStarPreviewRequest request
+                            = JsonUtils.fromJson(uploadInfo.getSaveData(),ShakeStarPreviewRequest.class);
                     request.setPlayUrl(res.getFileUrl());
+                    KLog.e("视频播放地址====" + res.getFileUrl());
+
                     requestCode = 500;
 
                     baseRequest.setHeader(HeaderRequest.SHAKESTAR_PREVIEW);
                     baseRequest.setUserId(uploadInfo.getUserId());
                     baseRequest.setToken(uploadInfo.getToken());
                     baseRequest.setData(JsonUtils.toJson(request, request.getClass()));
+                    KLog.e("userde id====" + uploadInfo.getUserId());
+
+                    KLog.e("token id====" + uploadInfo.getToken());
+
                 }
 
                 try {

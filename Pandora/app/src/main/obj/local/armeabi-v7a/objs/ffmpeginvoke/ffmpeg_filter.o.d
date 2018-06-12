@@ -1,6 +1,9 @@
-./obj/local/armeabi-v7a/objs/ffmpeginvoke/ffmpeg_filter.o: \
-  jni/ffmpeg_filter.c jni/ffmpeg.h jni/android_log.h jni/config.h \
-  jni/cmdutils.h \
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/obj/local/armeabi-v7a/objs/ffmpeginvoke/ffmpeg_filter.o: \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/ffmpeg_filter.c \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/ffmpeg.h \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/android_log.h \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/config.h \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/cmdutils.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavcodec/avcodec.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/samplefmt.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/avutil.h \
@@ -46,13 +49,13 @@
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/pixdesc.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/imgutils.h
 
-jni/ffmpeg.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/ffmpeg.h:
 
-jni/android_log.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/android_log.h:
 
-jni/config.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/config.h:
 
-jni/cmdutils.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/cmdutils.h:
 
 /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavcodec/avcodec.h:
 

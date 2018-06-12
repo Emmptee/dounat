@@ -35,12 +35,13 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
     public String imgUrl, playUrl, thumbnail;
     public long lastTime;
 
-    public boolean isvideo;
+    public boolean takeVideo,isVideo;
 
     @Override
     public void saveData(ShakeStarPreviewRequest request) {
         super.loadData(request, HeaderRequest.SHAKESTAR_PREVIEW,
-                SHAKE_STAR_PREVIEW, true);
+                SHAKE_STAR_PREVIEW, false);
+        KLog.e("保存数据");
     }
 
     @Override
@@ -49,6 +50,7 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
             case SHAKE_STAR_PREVIEW:
                 BaseResponse response = JsonUtils.fromJson(responseJson, BaseResponse.class);
                 KLog.e("jason是" + responseJson);
+                KLog.e("CODEC----" + response.getCode());
                 if (COMMON_SUCCESS.equals(response.getCode())) {
                     showToast("发布~~~成功!");
                     KLog.e("发布成功");
@@ -73,39 +75,40 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
         LoadController loadController = requestManager.uploadImg(path, type, requestCode);
         mUploadArray.put(requestCode, loadController);
         KLog.e("上传图片");
-        this.isvideo = false;
+        this.isVideo = false;
 
     }
 
-    public void uploadVideo(String filePath) {
+    public void uploadVideo(String filePath,boolean takeVideo) {
         if (TextUtils.isEmpty(filePath) || filePath.startsWith("file")) {
             showToast("您选择的文件已损坏,请重新选择");
             return;
         }
-        this.isvideo = isvideo;
+        this.takeVideo = takeVideo;
         Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(
                 filePath, MediaStore.Video.Thumbnails.MINI_KIND);
         bitmap = ThumbnailUtils.extractThumbnail(bitmap, bitmap.getWidth(), bitmap.getHeight(),
                 ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
         File file = new File(FileUtil.choseSavePath(),
-                UUID.randomUUID().toString() + ".JPG");
+                 "2233.JPG");
         if (bitmap != null) {
             PictureUtil.compressBmpToFile(bitmap, file);
         }
 
         // 上传视频文件缩略图
         uploadImg(file.getAbsolutePath(), 4, UPLOAD_VIDEO_IMG);
-        LoadController controller = mUploadArray.get(UPLOAD_VIDEO);
-        if (controller != null) {
-            controller.cancel();
-        }
-        mUploadArray.delete(UPLOAD_VIDEO);
-        // 上传拍摄的视频文件
-        SendNetRequestManager requestManager = new SendNetRequestManager(requestListener);
-        LoadController loadController = requestManager.uploadImg(filePath, 1, UPLOAD_VIDEO);
-        mUploadArray.put(UPLOAD_VIDEO, loadController);
-        KLog.e("上传视频");
-        this.isvideo = true;
+//        if (takeVideo) {
+            LoadController controller = mUploadArray.get(UPLOAD_VIDEO);
+            if (controller != null) {
+                controller.cancel();
+            }
+            mUploadArray.delete(UPLOAD_VIDEO);
+            // 上传拍摄的视频文件
+            SendNetRequestManager requestManager = new SendNetRequestManager(requestListener);
+            LoadController loadController = requestManager.uploadImg(filePath, 1, UPLOAD_VIDEO);
+            mUploadArray.put(UPLOAD_VIDEO, loadController);
+//        }
+        this.takeVideo = true;
 
     }
 
@@ -113,28 +116,30 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
     private RequestManager.RequestListener requestListener = new RequestManager.RequestListener() {
         @Override
         public void onRequest() {
-//            mView.showUploadingProgress(0);
         }
 
         @Override
         public void onLoading(long total, long count, String filePath) {
-            int progress = (int) ((float) count / (float) total * 100f);
-            mView.showUploadingProgress(progress);
+            showToast("正在上传,请稍后");
         }
 
         @Override
         public void onSuccess(String response, Map<String, String> headers,
                               String url, int actionId) {
-            mView.dismissUploadingProgress(actionId);
+//            mView.dismissUploadingProgress(actionId);
             mUploadArray.remove(actionId);
             UploadResponse res = JsonUtils.fromJson(response, UploadResponse.class);
             if (COMMON_SUCCESS.equals(res.getCode())) {
                 switch (actionId) {
                     case UPLOAD_IMG_REQUEST:
-                        imgUrl = res.getFileUrl();
+                        thumbnail = res.getFileUrl();
+                        KLog.e("UPLOAD_IMG_REQUEST" + thumbnail);
                         break;
                     case UPLOAD_VIDEO_IMG:
+
                         thumbnail = res.getFileUrl();
+                        KLog.e("UPLOAD_VIDEO_IMG" + thumbnail);
+
                         break;
                     case UPLOAD_VIDEO:
                         lastTime = res.getVideoTime();

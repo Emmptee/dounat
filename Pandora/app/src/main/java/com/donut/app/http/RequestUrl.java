@@ -13,7 +13,8 @@ public class RequestUrl {
 
 //     public static final String REQUEST_UPLOAD_URL = BASE_URL + "/upload/";
 
-    public static final String REQUEST_UPLOAD_URL = "http://media.sweetdonut.cn/upload/";
+//    public static final String REQUEST_UPLOAD_URL = "http://media.sweetdonut.cn/upload/";
+    public static final String REQUEST_UPLOAD_URL = "http://10.10.10.251:8080/Donut/upload/";
 
 //     public static final String REQUEST_UPLOAD_URL = "http://10.10.10.48:8080/Donut/upload/";
 

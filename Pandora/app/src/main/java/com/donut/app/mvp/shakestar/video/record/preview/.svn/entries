@@ -26,6 +26,13 @@ svn:special svn:externals svn:needs-lock
 
 0b7bfb8c-1547-11e3-8535-551624b94288
 
+RecordPreviewActivity.java
+file
+
+
+
+add
+
 ShakeStarPreviewContract.java
 file
 
@@ -46,4 +53,27 @@ file
 
 
 add
+
+chooseVideoPopupWindow.java
+file
+
+
+
+add
+
+921aff9b80ef8c1cb92a22ca3a8c5a10
+
+
+
+
+
+
+
+
+
+
+
+copied
+svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/wish/wishing/ShowChooseMediaPopupWindow.java
+61452
 

@@ -1,5 +1,6 @@
-./obj/local/armeabi-v7a/objs/ffmpeginvoke/cmdutils.o: jni/cmdutils.c \
-  jni/config.h \
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/obj/local/armeabi-v7a/objs/ffmpeginvoke/cmdutils.o: \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/cmdutils.c \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/config.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/compat/va_copy.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavformat/avformat.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavcodec/avcodec.h \
@@ -49,12 +50,12 @@
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/parseutils.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/eval.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/ffversion.h \
-  jni/cmdutils.h \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/cmdutils.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavformat/network.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavformat/os_support.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavformat/url.h
 
-jni/config.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/config.h:
 
 /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/compat/va_copy.h:
 
@@ -154,7 +155,7 @@ jni/config.h:
 
 /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/ffversion.h:
 
-jni/cmdutils.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/cmdutils.h:
 
 /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavformat/network.h:
 

@@ -8,7 +8,7 @@
 
         <variable
             name="handler"
-            type="com.donut.app.mvp.shakestar.video.record.RecordPreviewActivity" />
+            type="com.donut.app.mvp.shakestar.video.record.preview.RecordPreviewActivity" />
 
     </data>
 
@@ -54,7 +54,7 @@
                 <com.donut.app.mvp.shakestar.DonutVideoView
                     android:id="@+id/videoview_pre"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="360dp">
 
                 </com.donut.app.mvp.shakestar.DonutVideoView>
                 <!--<com.donut.app.mvp.shakestar.video.DonutCameraVideoView
@@ -80,27 +80,28 @@
                 android:textColorHint="@color/text_gray9"
                 android:textSize="30px" />
 
-            <ProgressBar
-                android:id="@+id/uploading_pb"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="280dp"
-                android:layout_height="2dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:max="100"
-                android:progressDrawable="@drawable/progressbarbg"
-                />
-
             <Button
                 android:id="@+id/preview_btn_publish"
                 android:layout_width="320dp"
-                android:layout_height="@dimen/px_88"
+                android:layout_height="@dimen/px_80"
                 android:layout_below="@+id/videoPreview_search_et"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/shape_login_btn_main"
                 android:text="发布"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_first_font_size" />
+            <Button
+                android:id="@+id/preview_btn_test"
+                android:layout_width="320dp"
+                android:layout_height="@dimen/px_80"
+                android:layout_below="@+id/preview_btn_publish"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_login_btn_main"
+                android:text="上传"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/text_first_font_size" />
 

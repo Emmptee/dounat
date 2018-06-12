@@ -1,5 +1,6 @@
-./obj/local/armeabi-v7a/objs/ffmpeginvoke/ffmpeg.o: jni/ffmpeg.c \
-  jni/config.h \
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/obj/local/armeabi-v7a/objs/ffmpeginvoke/ffmpeg.o: \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/ffmpeg.c \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/config.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavformat/avformat.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavcodec/avcodec.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/samplefmt.h \
@@ -52,13 +53,15 @@
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavfilter/version.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavfilter/buffersrc.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavfilter/buffersink.h \
-  jni/ffmpeg.h jni/android_log.h jni/cmdutils.h \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/ffmpeg.h \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/android_log.h \
+  /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/cmdutils.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libswscale/swscale.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libswscale/version.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/eval.h \
   /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavutil/avassert.h
 
-jni/config.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/config.h:
 
 /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavformat/avformat.h:
 
@@ -164,11 +167,11 @@ jni/config.h:
 
 /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libavfilter/buffersink.h:
 
-jni/ffmpeg.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/ffmpeg.h:
 
-jni/android_log.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/android_log.h:
 
-jni/cmdutils.h:
+/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/app/src/main/jni/cmdutils.h:
 
 /Users/dashuyourong/Desktop/Tools/ffmpeg-3.2.4/libswscale/swscale.h:
 
