@@ -1,37 +1,37 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
+ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
 	package
-		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:3:5-37
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
+		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:3:5-37
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:1-6:12
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml:2:11-69
 uses-sdk
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
-		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_Second/Pandora/guideview/src/main/AndroidManifest.xml
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+		ADDED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml
+		INJECTED from /Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/guideview/src/main/AndroidManifest.xml

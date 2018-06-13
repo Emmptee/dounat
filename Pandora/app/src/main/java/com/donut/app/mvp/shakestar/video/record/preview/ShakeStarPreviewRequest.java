@@ -7,9 +7,9 @@ public class ShakeStarPreviewRequest {
 
     private Integer contentType;   //内容类型
 
-    private String description; // 描述
+    private String contentDesc; // 描述
 
-    private String thumbnail; // 视频缩略图
+    private String videoThumbnail; // 视频缩略图
 
     private String playUrl; // 视频播放地址
     private Long lastTime;    //视频时长
@@ -31,7 +31,24 @@ public class ShakeStarPreviewRequest {
         this.g04Id = g04Id;
     }
 
+    public String getContentDesc() {
+        return contentDesc;
+    }
+
+    public void setContentDesc(String contentDesc) {
+        this.contentDesc = contentDesc;
+    }
+
+    public String getVideoThumbnail() {
+        return videoThumbnail;
+    }
+
+    public void setVideoThumbnail(String videoThumbnail) {
+        this.videoThumbnail = videoThumbnail;
+    }
+
     public Integer getContentType() {
+
         return contentType;
     }
 
@@ -46,22 +63,6 @@ public class ShakeStarPreviewRequest {
 
     public void setLastTime(Long lastTime) {
         this.lastTime = lastTime;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
     }
 
     public String getPlayUrl() {

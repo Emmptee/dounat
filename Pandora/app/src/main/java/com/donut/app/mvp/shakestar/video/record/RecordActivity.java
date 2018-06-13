@@ -27,7 +27,6 @@ import com.donut.app.mvp.shakestar.ffmpegdemo.MediaInfo;
 import com.donut.app.mvp.shakestar.select.particulars.ParticularsContract;
 import com.donut.app.mvp.shakestar.select.particulars.ParticularsPresenter;
 import com.donut.app.mvp.shakestar.video.DonutCameraVideoView;
-import com.donut.app.mvp.shakestar.video.camera.CameraInterface;
 import com.donut.app.mvp.shakestar.video.camera.JCameraView;
 import com.donut.app.mvp.shakestar.video.camera.util.FileUtil;
 import com.donut.app.mvp.shakestar.video.camera.util.ScreenUtils;
@@ -46,16 +45,12 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import VideoHandle.EpEditor;
-import VideoHandle.EpVideo;
-import VideoHandle.OnEditorListener;
-
 
 public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, ParticularsPresenter> implements ParticularsContract.View {
 
     private static final String TAG = "RecordActivity";
+    public static final int REQUEST_FOR_PREVIEW = 100;
     public static int OUTPUTROTATEFILE = 0;
-    public static int VIDEORECORD = 0;
     private TextView mBtnNext;
     private RelativeLayout mRecordVideoRight;
     private DonutCameraVideoView mRecordPlayerRight;
@@ -64,6 +59,8 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
     private Intent intent;
     private String g03 ;
     private String b02;
+    private boolean isUpload;
+
     private  int STATUSA=0;//未收藏
     private static final int STATUSB=1;//已收藏
     private int page = 0, rows = 10, sortType = 0;
@@ -72,7 +69,6 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
     List<ParticularsResponse.ShakingStarListBean> list;
     public static int VideoDuration;
     public String stringVideoDuration;
-    private String sourcePath;
 
     //视频合成相关
     public enum FunctionState {
@@ -183,7 +179,8 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
                 Intent it=new Intent(getApplicationContext(), RecordPreviewActivity.class);
                 it.putExtra("g03",g03);
                 it.putExtra("b02",b02);
-                startActivity(it);
+                it.putExtra("isUpload","upload");
+                startActivityForResult(it, REQUEST_FOR_PREVIEW);
             }
         });
 
@@ -211,7 +208,10 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
             public void onClick(View v) {
                 KLog.e("点击了背景音乐");
                 Intent it=new Intent(getApplicationContext(), RecordPreviewActivity.class);
-                startActivity(it);
+                it.putExtra("g03",g03);
+                it.putExtra("b02",b02);
+                it.putExtra("isUpload","upload");
+                startActivityForResult(it, REQUEST_FOR_PREVIEW);
 
             }
         });
@@ -277,9 +277,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
         unregisterReceiver(mFFmpegReceiver);
     }
 
-
-
-    public void RotateOutputVideo() {
+/*    public void RotateOutputVideo() {
         EpVideo epVideo = new EpVideo(CameraInterface.videoFileAbsPath);
         epVideo.rotation(0, true);
         final String outPath = FileUtil.choseSavePath() + File.separator + "pandoraoutvideo.mp4";
@@ -300,7 +298,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
                 KLog.e("输出中");
         }
         });
-    }
+    }*/
 
     private void registerRecordReceiver() {
         IntentFilter startFilter = new IntentFilter();
@@ -474,11 +472,11 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
                 @Override
                 public void run() {
                     Intent preIntent =new Intent(getContext(),RecordPreviewActivity.class);
-                    startActivity(preIntent);
+                    startActivityForResult(preIntent, REQUEST_FOR_PREVIEW);
                 }
             };
             Timer timer = new Timer();
-            timer.schedule(task, 2000);
+            timer.schedule(task, 500);
             return;
         }
 
@@ -521,6 +519,18 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
         }
         if(tempFile2.equals(filePath)){
             temp2Frames = frams;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode== REQUEST_FOR_PREVIEW){
+            if (resultCode == RESULT_OK){
+                KLog.e("返回了");
+                setResult(RESULT_OK);
+                this.finish();
+            }
         }
     }
 }

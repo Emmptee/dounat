@@ -50,6 +50,7 @@ import java.util.List;
 public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayoutBinding, ParticularsPresenter>implements ParticularsContract.View{
 
     private static final String TAG = "ParticularsActivity";
+    public static final int REQUEST_FOR_RECORD = 1000;
 
     private ShakeStarParticularsAdapter adapter;
     private Intent intent;
@@ -336,7 +337,7 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
                 it.putExtra("g03",g03);
                 it.putExtra("b02",b02);
                 it.putExtra("mylasttime",itemLastTime);
-                startActivity(it);
+                startActivityForResult(it,REQUEST_FOR_RECORD);
             }
         });
     }
@@ -356,4 +357,14 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_FOR_RECORD){
+            if (resultCode == RESULT_OK){
+                setResult(RESULT_OK);
+                this.finish();
+            }
+        }
+    }
 }

@@ -3,7 +3,6 @@ package com.donut.app.mvp.shakestar.video.record.preview;
 import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.SparseArray;
 
 import com.android.volley.manager.LoadController;
@@ -15,14 +14,12 @@ import com.donut.app.http.message.BaseResponse;
 import com.donut.app.http.message.UploadResponse;
 import com.donut.app.mvp.shakestar.video.camera.util.FileUtil;
 import com.donut.app.service.SaveBehaviourDataService;
-import com.donut.app.utils.FileUtils;
 import com.donut.app.utils.JsonUtils;
 import com.donut.app.utils.PictureUtil;
 import com.socks.library.KLog;
 
 import java.io.File;
 import java.util.Map;
-import java.util.UUID;
 
 public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presenter {
 
@@ -32,10 +29,10 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
 
     public SparseArray<LoadController> mUploadArray = new SparseArray<>();
 
-    public String imgUrl, playUrl, thumbnail;
+    public String imgUrl, playUrl, videoThumbnail;
     public long lastTime;
 
-    public boolean takeVideo,isVideo;
+    public boolean takeVideo, isVideo;
 
     @Override
     public void saveData(ShakeStarPreviewRequest request) {
@@ -49,7 +46,6 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
         switch (actionId) {
             case SHAKE_STAR_PREVIEW:
                 BaseResponse response = JsonUtils.fromJson(responseJson, BaseResponse.class);
-                KLog.e("jason是" + responseJson);
                 KLog.e("CODEC----" + response.getCode());
                 if (COMMON_SUCCESS.equals(response.getCode())) {
                     showToast("发布~~~成功!");
@@ -79,36 +75,31 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
 
     }
 
-    public void uploadVideo(String filePath,boolean takeVideo) {
-        if (TextUtils.isEmpty(filePath) || filePath.startsWith("file")) {
-            showToast("您选择的文件已损坏,请重新选择");
-            return;
-        }
+    public void uploadVideo(String filePath, boolean takeVideo) {
+        KLog.e("上传视频");
         this.takeVideo = takeVideo;
         Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(
                 filePath, MediaStore.Video.Thumbnails.MINI_KIND);
         bitmap = ThumbnailUtils.extractThumbnail(bitmap, bitmap.getWidth(), bitmap.getHeight(),
                 ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
         File file = new File(FileUtil.choseSavePath(),
-                 "2233.JPG");
+                "DonutVideoTnumbnail.JPG");
         if (bitmap != null) {
             PictureUtil.compressBmpToFile(bitmap, file);
         }
 
         // 上传视频文件缩略图
         uploadImg(file.getAbsolutePath(), 4, UPLOAD_VIDEO_IMG);
-//        if (takeVideo) {
-            LoadController controller = mUploadArray.get(UPLOAD_VIDEO);
-            if (controller != null) {
-                controller.cancel();
-            }
-            mUploadArray.delete(UPLOAD_VIDEO);
-            // 上传拍摄的视频文件
-            SendNetRequestManager requestManager = new SendNetRequestManager(requestListener);
-            LoadController loadController = requestManager.uploadImg(filePath, 1, UPLOAD_VIDEO);
-            mUploadArray.put(UPLOAD_VIDEO, loadController);
-//        }
+        LoadController controller = mUploadArray.get(UPLOAD_VIDEO);
+        if (controller != null) {
+            controller.cancel();
+        }
+        mUploadArray.delete(UPLOAD_VIDEO);
+        SendNetRequestManager requestManager = new SendNetRequestManager(requestListener);
+        LoadController loadController = requestManager.uploadImg(filePath, 1, UPLOAD_VIDEO);
+        mUploadArray.put(UPLOAD_VIDEO, loadController);
         this.takeVideo = true;
+//        RecordPreviewActivity.getInstance().saveData();
 
     }
 
@@ -116,32 +107,35 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
     private RequestManager.RequestListener requestListener = new RequestManager.RequestListener() {
         @Override
         public void onRequest() {
+            mView.showUploadingProgress(0);
         }
 
         @Override
         public void onLoading(long total, long count, String filePath) {
+            int progress = (int) ((float) count / (float) total * 100f);
             showToast("正在上传,请稍后");
         }
 
         @Override
         public void onSuccess(String response, Map<String, String> headers,
                               String url, int actionId) {
-//            mView.dismissUploadingProgress(actionId);
+            mView.dismissUploadingProgress();
             mUploadArray.remove(actionId);
             UploadResponse res = JsonUtils.fromJson(response, UploadResponse.class);
             if (COMMON_SUCCESS.equals(res.getCode())) {
                 switch (actionId) {
                     case UPLOAD_IMG_REQUEST:
-                        thumbnail = res.getFileUrl();
-                        KLog.e("UPLOAD_IMG_REQUEST" + thumbnail);
+                        videoThumbnail = res.getFileUrl();
+                        KLog.e("UPLOAD_IMG_REQUEST" + videoThumbnail);
                         break;
                     case UPLOAD_VIDEO_IMG:
 
-                        thumbnail = res.getFileUrl();
-                        KLog.e("UPLOAD_VIDEO_IMG" + thumbnail);
+                        videoThumbnail = res.getFileUrl();
+                        KLog.e("UPLOAD_VIDEO_IMG" + videoThumbnail);
 
                         break;
                     case UPLOAD_VIDEO:
+
                         lastTime = res.getVideoTime();
                         playUrl = res.getFileUrl();
                         break;
@@ -164,4 +158,5 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
         SaveBehaviourDataService.startAction(mView.getContext(),
                 BehaviourEnum.SHAKE_STAR_PREVIEW.getCode() + functionCode, request, header);
     }
+
 }

@@ -46,6 +46,7 @@ public class DownloadUtil {
     }
 
     //下载之前首先异步线程调用ready方法获得文件大小信息，之后调用开始方法
+    @SuppressLint("StaticFieldLeak")
     public void start() {
         new AsyncTask<Void,Void,Void>() {
 

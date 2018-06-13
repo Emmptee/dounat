@@ -83,25 +83,13 @@
             <Button
                 android:id="@+id/preview_btn_publish"
                 android:layout_width="320dp"
-                android:layout_height="@dimen/px_80"
+                android:layout_height="@dimen/px_88"
                 android:layout_below="@+id/videoPreview_search_et"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/shape_login_btn_main"
                 android:text="发布"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/text_first_font_size" />
-            <Button
-                android:id="@+id/preview_btn_test"
-                android:layout_width="320dp"
-                android:layout_height="@dimen/px_80"
-                android:layout_below="@+id/preview_btn_publish"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/shape_login_btn_main"
-                android:text="上传"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/text_first_font_size" />
 

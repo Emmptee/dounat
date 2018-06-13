@@ -50,6 +50,7 @@ import java.util.TimerTask;
 
 public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelectLayoutBinding, SelectPresenter> implements SelectContract.View,SwipeRefreshLayout.OnRefreshListener {
 
+    public static final int REQUEST_FOR_PARTICULARS = 1000;
 
     private String name=null;
     private int page = 0, rows = 10, sortType = 0;
@@ -166,12 +167,12 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
                     Intent itent=new Intent(getApplicationContext(), ParticularsActivity.class);
                     itent.putExtra("g03",selectResponse.get(position).getG03Id());
                     itent.putExtra("b02",selectResponse.get(position).getB02Id());
-                    startActivity(itent);
+                    startActivityForResult(itent,REQUEST_FOR_PARTICULARS);
                 }else if(selectResponse.get(position).getType()==ACTIONB){
                     Intent itent=new Intent(getApplicationContext(), JointActivity.class);
                     itent.putExtra("g03",selectResponse.get(position).getG03Id());
                     itent.putExtra("b02",selectResponse.get(position).getB02Id());
-                    startActivity(itent);
+                    startActivityForResult(itent,REQUEST_FOR_PARTICULARS);
                 }
 
             }
@@ -284,5 +285,16 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
     }
     public void load(){
         mPresenter.loadData(true,name,sortType,page,rows);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_FOR_PARTICULARS){
+            if (resultCode == RESULT_OK){
+                setResult(RESULT_OK);
+                this.finish();
+            }
+        }
     }
 }

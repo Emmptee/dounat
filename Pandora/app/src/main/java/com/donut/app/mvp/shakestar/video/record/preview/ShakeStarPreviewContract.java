@@ -8,7 +8,7 @@ public interface ShakeStarPreviewContract {
 
         void showUploadingProgress(int progress);
 
-        void dismissUploadingProgress(int actionId);
+        void dismissUploadingProgress();
 
         void finishView();
     }
