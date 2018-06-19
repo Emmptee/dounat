@@ -71,6 +71,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.jzvd.JZVideoPlayer;
+
 /**
  * 搜索页面
  * Created by hard on 2018/1/29.
@@ -460,6 +462,6 @@ public class ShakeStarSearchFragment extends MVPBaseFragment<ShakeSearchFragment
     @Override
     public void onPause() {
         super.onPause();
-        GSYVideoManager.onPause();
+        JZVideoPlayer.releaseAllVideos();
     }
 }

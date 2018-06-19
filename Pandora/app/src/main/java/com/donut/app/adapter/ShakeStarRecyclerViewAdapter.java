@@ -20,14 +20,20 @@ import com.donut.app.R;
 import com.donut.app.databinding.ShakeCommendItemBinding;
 import com.donut.app.http.message.shakestar.ParticularsResponse;
 import com.donut.app.http.message.shakestar.ShakeStarCommendResponse;
+import com.donut.app.model.video.VideoActivity;
+import com.donut.app.mvp.shakestar.video.camera.util.FileUtil;
+import com.donut.app.mvp.shakestar.video.record.preview.DonutCameraVideo;
 import com.donut.app.utils.BindingUtils;
 import com.donut.app.utils.NetUtils;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
 import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
+
+import cn.jzvd.JZVideoPlayerStandard;
 
 /**
  * Created by hard on 2018/1/29.
@@ -177,21 +183,22 @@ public class ShakeStarRecyclerViewAdapter extends RecyclerView.Adapter<ShakeStar
 //                }else{
 //                    holder.attention_user.setVisibility(View.GONE);
 //                }
-            ImageView imageView = new ImageView(mContext);
-            Glide.with(mContext).load(list2.get(position).getVideoThumbnail()).into(imageView);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            holder.video.setThumbImageView(imageView);
+//            ImageView imageView = new ImageView(mContext);
+            Glide.with(mContext).load(list2.get(position).getVideoThumbnail()).into(holder.video.thumbImageView);
+//            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            holder.video.setThumbImageView(imageView);
             if (TextUtils.isEmpty(list2.get(position).getNickName())) {
                 holder.uname.setText("小麦穗");//用户昵称
             } else {
                 holder.uname.setText(list2.get(position).getNickName());//用户昵称
             }
 
-            holder.video.setUp(list2.get(position).getPlayUrl(), false, null, null);//视频
-            ImageView backButton = holder.video.getBackButton();
-            backButton.setVisibility(View.GONE);//隐藏返回键
-            ImageView fullscreenButton = holder.video.getFullscreenButton();
-            fullscreenButton.setVisibility(View.GONE);//隐藏全屏按钮
+            holder.video.setUp(list2.get(position).getPlayUrl(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, " ");//视频
+            holder.video.performClick();
+//            ImageView backButton = holder.video.getBackButton();
+//            backButton.setVisibility(View.GONE);//隐藏返回键
+//            ImageView fullscreenButton = holder.video.getFullscreenButton();
+//            fullscreenButton.setVisibility(View.GONE);//隐藏全屏按钮
             BindingUtils.loadRoundImg(holder.head_img, list2.get(position).getHeadPic());//用户头像
             holder.bz.setText(list2.get(position).getMaterialTitle());//素材标题
             holder.content.setText(list2.get(position).getContentDesc());//内容描述
@@ -208,7 +215,7 @@ public class ShakeStarRecyclerViewAdapter extends RecyclerView.Adapter<ShakeStar
             }
             boolean wifi = NetUtils.isWifi(mContext);
             if (wifi) {
-                GSYBaseVideoPlayer player = holder.video;
+//                GSYBaseVideoPlayer player = holder.video;
                 //player.startPlayLogic();
             }
 //                BindingUtils.loadRoundImg(holder.sc_img, (String) list2.get(position).getMaterialThumbnail());
@@ -225,23 +232,26 @@ public class ShakeStarRecyclerViewAdapter extends RecyclerView.Adapter<ShakeStar
                 holder.attention_user.setVisibility(View.GONE);
             }
             ShakeStarCommendResponse.ShakingStarListBean commend = list.get(position);
-            ImageView imageView = new ImageView(mContext);
-            Glide.with(mContext).load(list.get(position).getVideoThumbnail()).into(imageView);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            holder.video.setThumbImageView(imageView);
+//            ImageView imageView = new ImageView(mContext);
+//            Glide.with(mContext).load(list.get(position).getVideoThumbnail()).into(imageView);
+//            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            holder.video.setThumbImageView(imageView);
+            Glide.with(mContext).load(list.get(position).getVideoThumbnail()).into(holder.video.thumbImageView);
+
 
             if (TextUtils.isEmpty(list.get(position).getNickName())) {
                 holder.uname.setText("小麦穗");//用户昵称
             } else {
                 holder.uname.setText(list.get(position).getNickName());//用户昵称
             }
-            holder.video.setUp(list.get(position).getPlayUrl(), false, null, null);//视频
-            ImageView backButton = holder.video.getBackButton();
+            holder.video.setUp(list.get(position).getPlayUrl(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, " ");//视频
+            holder.video.performClick();
+            /*ImageView backButton = holder.video.getBackButton();
             backButton.setVisibility(View.GONE);//隐藏返回键
             ImageView fullscreenButton = holder.video.getFullscreenButton();
             fullscreenButton.setVisibility(View.GONE);//隐藏全屏按钮
             holder.video.setThumbPlay(true);//点击封面播放
-            View startButton = holder.video.getStartButton();
+            View startButton = holder.video.getStartButton();*/
 //                GSYBaseVideoPlayer player=holder.video;
 //                player.startPlayLogic();//播放视频
 //                View startButton = holder.video.getStartButton();
@@ -267,7 +277,7 @@ public class ShakeStarRecyclerViewAdapter extends RecyclerView.Adapter<ShakeStar
                     player.startPlayLogic();
                 }*/
             if (wifi) {
-                GSYBaseVideoPlayer player = holder.video;
+//                GSYBaseVideoPlayer player = holder.video;
                 //player.startPlayLogic();
             }
 //              holder.zan_count.setText(list.get(position).getPraiseTimes()+"");//点赞数量
@@ -291,11 +301,14 @@ public class ShakeStarRecyclerViewAdapter extends RecyclerView.Adapter<ShakeStar
 
     }
 
+    public void onPlayClick(Shake_starViewHolder holder){
+        holder.video.performClick();
+    }
 
 
     public class Shake_starViewHolder extends RecyclerView.ViewHolder {
         private ShakeCommendItemBinding binding;
-        private com.donut.app.mvp.shakestar.DonutVideoView video;
+        private DonutCameraVideo video;
         private AutoRelativeLayout user;
         private TextView bz;
         private ImageView head_img;

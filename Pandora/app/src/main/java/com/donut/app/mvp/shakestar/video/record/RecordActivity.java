@@ -25,6 +25,7 @@ import com.donut.app.mvp.shakestar.ffmpegdemo.FFmpegFuncion;
 import com.donut.app.mvp.shakestar.ffmpegdemo.FFmpegService;
 import com.donut.app.mvp.shakestar.ffmpegdemo.MediaInfo;
 import com.donut.app.mvp.shakestar.select.particulars.ParticularsContract;
+import com.donut.app.mvp.shakestar.select.particulars.ParticularsEvent;
 import com.donut.app.mvp.shakestar.select.particulars.ParticularsPresenter;
 import com.donut.app.mvp.shakestar.video.DonutCameraVideoView;
 import com.donut.app.mvp.shakestar.video.camera.JCameraView;
@@ -35,6 +36,10 @@ import com.donut.app.mvp.shakestar.video.record.preview.RecordPreviewActivity;
 import com.donut.app.utils.status_bar.StatusBarCompat;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.socks.library.KLog;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -55,20 +60,15 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
     private RelativeLayout mRecordVideoRight;
     private DonutCameraVideoView mRecordPlayerRight;
     private JCameraView mJCameraView;
-    public static int recordTime;
     private Intent intent;
     private String g03 ;
     private String b02;
     private boolean isUpload;
 
-    private  int STATUSA=0;//未收藏
-    private static final int STATUSB=1;//已收藏
     private int page = 0, rows = 10, sortType = 0;
-    private int status;
-    private ParticularsResponse shakingStarListBeans;
-    List<ParticularsResponse.ShakingStarListBean> list;
     public static int VideoDuration;
     public String stringVideoDuration;
+    public static int mDuration;
 
     //视频合成相关
     public enum FunctionState {
@@ -81,7 +81,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
     private int FFmpegTaskIndex=0;
 
     MediaInfo sourceInfo;
-    MediaInfo recordInfo = new MediaInfo(FileUtil.choseSavePath() + File.separator + "pandoravideo.mp4");
+    MediaInfo recordInfo;
     String tempFile1 = "/mnt/sdcard/ffmpeg/tmp1.mp4";
     String tempFile2 = "/mnt/sdcard/ffmpeg/tmp2.mp4";
     String destFile = FileUtil.choseSavePath() + File.separator + "dest.mp4";
@@ -119,7 +119,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
     };
 
     /**
-     * 接收录制结束后的广播:下一步按钮、
+     * 接收录制结束后的广播:下一步按钮
      */
     private BroadcastReceiver mRecordEndReceiver = new BroadcastReceiver() {
         @Override
@@ -137,13 +137,17 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         registerRecordReceiver();
-
-        initFFmpegReceiver();
         initViewJoinVideo();
+        initFFmpegReceiver();
         KLog.e("主界面");
         numberFormat.setMinimumFractionDigits(0);
+        EventBus.getDefault().register(this);//素材视频的时长
     }
-
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
+    public void onEvent(ParticularsEvent event) {
+        String MSG = event.getLastTime();
+        KLog.e("eventbus 中的时间长度++++" + MSG);
+    }
     @Override
     protected int getLayoutId() {
         return R.layout.activity_record;
@@ -154,7 +158,6 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
 
         //此界面中把和相机相关的控件都集中在JCameraView中
         mJCameraView = mViewBinding.jcameraview;
-        KLog.e("此时videoduration  " + "ACETEST" + VideoDuration);
         mBtnNext = mViewBinding.btnNext;
         mRecordVideoRight = mViewBinding.recordVideoRight;
         mRecordPlayerRight = mViewBinding.recordPlayerRight;
@@ -173,14 +176,8 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
         mBtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                KLog.e("点击了下一步");
                 //执行视频合成压缩
-//                RotateOutputVideo();
-                Intent it=new Intent(getApplicationContext(), RecordPreviewActivity.class);
-                it.putExtra("g03",g03);
-                it.putExtra("b02",b02);
-                it.putExtra("isUpload","upload");
-                startActivityForResult(it, REQUEST_FOR_PREVIEW);
+                joinVideo();
             }
         });
 
@@ -191,14 +188,12 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
         mRecordVideoRight.setLayoutParams(frameparams);
 //        mRecordPlayerRight.setUp("mnt/sdcard/ffmpeg/anyixuan.mp4", false, null);
 
-
         //美颜
         mViewBinding.imageBeauty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                joinVideo();
-                KLog.e("点击了美颜");
-
+//                joinVideo();
+                showToast("精彩内容,敬请期待!");
             }
         });
 
@@ -212,9 +207,10 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
                 it.putExtra("b02",b02);
                 it.putExtra("isUpload","upload");
                 startActivityForResult(it, REQUEST_FOR_PREVIEW);
-
+                showToast("精彩内容,敬请期待!");
             }
         });
+
     }
 
 
@@ -226,7 +222,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
         b02 = intent.getStringExtra("b02");
         stringVideoDuration = intent.getStringExtra("mylasttime");
         KLog.e("loaddata" + stringVideoDuration);
-        VideoDuration = Integer.parseInt(stringVideoDuration);
+//        VideoDuration = Integer.parseInt(stringVideoDuration);
         mPresenter.loadData(true, b02, g03,page,rows);
         KLog.e("loadData" + VideoDuration);
     }
@@ -275,6 +271,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
         super.onDestroy();
         unRegisterRecordReceiver();
         unregisterReceiver(mFFmpegReceiver);
+        EventBus.getDefault().unregister(this);
     }
 
 /*    public void RotateOutputVideo() {
@@ -345,6 +342,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
 
     void initViewJoinVideo(){
         currentFuncionState = FunctionState.VideoJoin;
+//        recordInfo = new MediaInfo(FileUtil.choseSavePath() + File.separator + "pandoravideo.mp4");
         sourceInfo = new MediaInfo(FileUtil.choseSavePath() + File.separator + "download.mp4");
         Intent intent = new Intent(this, FFmpegService.class);
         intent.putStringArrayListExtra("param", FFmpegFuncion.getMediaInfo(sourceInfo.getFilePath()));
@@ -355,11 +353,13 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
      */
     //合成按钮
     public void joinVideo() {
+//        initViewJoinVideo();
+        recordInfo = new MediaInfo(FileUtil.choseSavePath() + File.separator + "pandoravideo.mp4");
+//        sourceInfo = new MediaInfo(FileUtil.choseSavePath() + File.separator + "download.mp4");
         Intent intent = new Intent(this, FFmpegService.class);
         KLog.e("启动Service");
         FFmpegTaskCreate(currentFuncionState);
         FFmpegTaskIndex = 0;
-        KLog.e();
         intent.putStringArrayListExtra("param", FFmpegTasklist[FFmpegTaskIndex++]);
         startService(intent);
         showProgressDialog();
@@ -472,11 +472,14 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
                 @Override
                 public void run() {
                     Intent preIntent =new Intent(getContext(),RecordPreviewActivity.class);
+                    preIntent.putExtra("g03",g03);
+                    preIntent.putExtra("b02",b02);
+                    preIntent.putExtra("isUpload","upload");
                     startActivityForResult(preIntent, REQUEST_FOR_PREVIEW);
                 }
             };
             Timer timer = new Timer();
-            timer.schedule(task, 500);
+            timer.schedule(task, 300);
             return;
         }
 

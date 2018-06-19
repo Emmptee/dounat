@@ -14,6 +14,7 @@ import com.donut.app.http.message.BaseResponse;
 import com.donut.app.http.message.UploadResponse;
 import com.donut.app.mvp.shakestar.video.camera.util.FileUtil;
 import com.donut.app.service.SaveBehaviourDataService;
+import com.donut.app.utils.FileUtils;
 import com.donut.app.utils.JsonUtils;
 import com.donut.app.utils.PictureUtil;
 import com.socks.library.KLog;
@@ -48,7 +49,7 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
                 BaseResponse response = JsonUtils.fromJson(responseJson, BaseResponse.class);
                 KLog.e("CODEC----" + response.getCode());
                 if (COMMON_SUCCESS.equals(response.getCode())) {
-                    showToast("发布~~~成功!");
+                    showToast("发布成功!");
                     KLog.e("发布成功");
                     mView.finishView();
                 } else {
@@ -78,18 +79,17 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
     public void uploadVideo(String filePath, boolean takeVideo) {
         KLog.e("上传视频");
         this.takeVideo = takeVideo;
-        Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(
+        /*Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(
                 filePath, MediaStore.Video.Thumbnails.MINI_KIND);
         bitmap = ThumbnailUtils.extractThumbnail(bitmap, bitmap.getWidth(), bitmap.getHeight(),
                 ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
-        File file = new File(FileUtil.choseSavePath(),
-                "DonutVideoTnumbnail.JPG");
+        File file = new File(FileUtil.choseSavePath(), "DonutVideoThumbnail.jpg");
         if (bitmap != null) {
             PictureUtil.compressBmpToFile(bitmap, file);
-        }
+        }*/
 
         // 上传视频文件缩略图
-        uploadImg(file.getAbsolutePath(), 4, UPLOAD_VIDEO_IMG);
+        uploadImg(FileUtil.choseSavePath(), 4, UPLOAD_VIDEO_IMG);
         LoadController controller = mUploadArray.get(UPLOAD_VIDEO);
         if (controller != null) {
             controller.cancel();
@@ -113,7 +113,6 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
         @Override
         public void onLoading(long total, long count, String filePath) {
             int progress = (int) ((float) count / (float) total * 100f);
-            showToast("正在上传,请稍后");
         }
 
         @Override
@@ -135,7 +134,7 @@ public class ShakeStarPreviewPresenter extends ShakeStarPreviewContract.Presente
 
                         break;
                     case UPLOAD_VIDEO:
-
+                        KLog.e("UPLOAD_VIDEO ====" + playUrl);
                         lastTime = res.getVideoTime();
                         playUrl = res.getFileUrl();
                         break;

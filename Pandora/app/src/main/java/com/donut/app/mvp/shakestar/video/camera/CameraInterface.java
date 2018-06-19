@@ -507,7 +507,7 @@ public class CameraInterface implements Camera.PreviewCallback {
                         callback.captureResult(bitmap, false);
                     }
                 }
-                FileUtil.savePicture("mnt/sdcard/ffmpeg/", bitmap);
+//                FileUtil.savePicture("mnt/sdcard/ffmpeg/", bitmap);
 //                FileUtil.saveBitmap("mnt/sdcard/ffmpeg",bitmap);
 
             }

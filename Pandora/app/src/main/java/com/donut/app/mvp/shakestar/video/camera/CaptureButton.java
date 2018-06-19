@@ -13,10 +13,15 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.donut.app.R;
+import com.donut.app.mvp.shakestar.select.particulars.ParticularsEvent;
 import com.donut.app.mvp.shakestar.video.camera.listener.CaptureListener;
 import com.donut.app.mvp.shakestar.video.camera.util.CheckPermission;
 import com.donut.app.mvp.shakestar.video.record.RecordActivity;
 import com.socks.library.KLog;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 
 public class CaptureButton extends View {
@@ -69,6 +74,7 @@ public class CaptureButton extends View {
     private LongPressRunnable longPressRunnable;    //长按后处理的逻辑Runnable
     private CaptureListener captureLisenter;        //按钮回调接口
     private RecordCountDownTimer timer;             //计时器
+    private int msg;
 
     public CaptureButton(Context context) {
         super(context);
@@ -76,6 +82,7 @@ public class CaptureButton extends View {
 
     public CaptureButton(Context context, int size) {
         super(context);
+        EventBus.getDefault().register(this);//素材视频的时长
         this.button_size = size;
         button_radius = size / 2.0f;
 
@@ -97,7 +104,7 @@ public class CaptureButton extends View {
         KLog.e(TAG,"CaptureButtom start");
         duration = 10 * 1000;              //默认最长录制时间为10s
         KLog.e(TAG,"CaptureButtom end");
-        min_duration = (int) (RecordActivity.VideoDuration*0.8);              //默认最短录制时间为素材视频时长的80%
+        min_duration = (int) (msg*0.8);              //默认最短录制时间为素材视频时长的80%
 //        min_duration = 6000;              //默认最短录制时间为素材视频时长的80%
 
         center_X = (button_size + outside_add_size * 2) / 2;
@@ -111,6 +118,11 @@ public class CaptureButton extends View {
                 center_Y + (button_radius + outside_add_size - strokeWidth / 2));
 
         timer = new RecordCountDownTimer(duration, duration / 360);    //录制定时器
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
+    public void onEvent(ParticularsEvent event) {
+        msg = Integer.parseInt(event.getLastTime());
     }
 
     @Override
@@ -229,6 +241,7 @@ public class CaptureButton extends View {
             }
         }
         resetRecordAnim();  //重制按钮状态
+        EventBus.getDefault().unregister(this);
     }
 
     //重制状态

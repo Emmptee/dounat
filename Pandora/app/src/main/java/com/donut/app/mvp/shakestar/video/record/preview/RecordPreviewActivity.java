@@ -3,9 +3,12 @@ package com.donut.app.mvp.shakestar.video.record.preview;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -24,12 +27,14 @@ import com.donut.app.databinding.ActivityRecordPreviewLayoutBinding;
 import com.donut.app.entity.UploadInfo;
 import com.donut.app.http.HeaderRequest;
 import com.donut.app.mvp.MVPBaseActivity;
+import com.donut.app.mvp.shakestar.DonutVideoView;
 import com.donut.app.mvp.shakestar.ffmpegdemo.MediaInfo;
 import com.donut.app.mvp.shakestar.video.DonutCameraVideoView;
 import com.donut.app.mvp.shakestar.video.camera.util.FileUtil;
 import com.donut.app.mvp.shakestar.video.camera.util.ScreenUtils;
 import com.donut.app.service.UploadService;
 import com.donut.app.utils.JsonUtils;
+import com.donut.app.utils.PictureUtil;
 import com.donut.app.utils.status_bar.StatusBarCompat;
 import com.lidroid.xutils.exception.DbException;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
@@ -39,6 +44,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.JZVideoPlayerStandard;
 
 public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreviewLayoutBinding, ShakeStarPreviewPresenter>
         implements ShakeStarPreviewContract.View {
@@ -51,7 +59,7 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
     private EditText mVideoPreviewSearchEt;
     CharSequence descriptionCharSequence;
     private String videoFilePath = FileUtil.choseSavePath() + File.separator + "dest.mp4";
-    MediaInfo joinVideoInfo = new MediaInfo(videoFilePath);
+//    MediaInfo joinVideoInfo = new MediaInfo(videoFilePath);
     private String g03;
     private String b02;
     private Intent intent;
@@ -60,6 +68,8 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
     public static RecordPreviewActivity instance;
     private String isUpload;
     private long maxFileSize;
+    private DonutCameraVideo mVideoviewPre;
+    private String des = null;
 
     public RecordPreviewActivity() {
 
@@ -86,6 +96,7 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
         isUpload = intent.getStringExtra("isUpload");
         KLog.e("ISUPLOADING000000000" + isUpload);
         KLog.e("g03和b02------" + g03+"====" +b02);
+        saveThumbnail(videoFilePath);
     }
 
     @Override
@@ -95,7 +106,6 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
 
     @Override
     protected void initView() {
-        GSYVideoType.setShowType(GSYVideoType.SCREEN_MATCH_FULL);
         //返回
         mViewBinding.videoPreviewBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,13 +120,13 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
         params.width = ScreenUtils.getScreenWidth(this);
         params.height = ScreenUtils.getScreenWidth(this);
         mPreviewVideoLayout.setLayoutParams(params);
-        mViewBinding.videoviewPre.setUp(videoFilePath, false, null);
-        FileUtil.savePicture(FileUtil.choseSavePath(), joinVideoInfo.getCoverBitmap());
+        mVideoviewPre = mViewBinding.videoviewPre;
+        mVideoviewPre.setUp(videoFilePath,JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL," ");
+//        FileUtil.savePicture(FileUtil.choseSavePath(), joinVideoInfo.getCoverBitmap());
         //设置封面
-        ImageView imageView = new ImageView(getContext());
-        Glide.with(this).load(FileUtil.choseSavePath()).into(imageView);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        mViewBinding.videoviewPre.setThumbImageView(imageView);
+
+        Glide.with(this).load(FileUtil.choseSavePath() + File.separator +"DonutVideoThumbnail.JPG")
+                .into(mVideoviewPre.thumbImageView);
         //编辑框
         mVideoPreviewSearchEt = mViewBinding.videoPreviewSearchEt;
         //发布
@@ -127,18 +137,26 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
             public void onClick(View v) {
                 KLog.e("点击发布");
                 mPresenter.uploadVideo(videoFilePath,true);
-                TimerTask task = new TimerTask() {
+                showToast("请稍候片刻,大片正在上传中~~");
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         saveData();
                     }
-                };
-                Timer timer = new Timer();
-                timer.schedule(task, 500);
-                return;
+                }, 5000);//5秒后执行保存数据
+            }
+        });
+
+/*
+        mViewBinding.previewBtnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveData();
 
             }
         });
+*/
 
         mVideoPreviewSearchEt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -166,18 +184,18 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
                 }
             }
         });
+
+
     }
 
     public void saveData() {
-
-        Log.e(TAG, "开始保存数据");
-        String des = mVideoPreviewSearchEt.getText().toString().trim();
+        des = mVideoPreviewSearchEt.getText().toString().trim();
+        KLog.e(TAG, "开始保存数据");
         KLog.e("G03ID是" + g03);
-        Log.e(TAG, "描述是" + des);
+        KLog.e(TAG, "描述是" + des);
         KLog.e(TAG, "视频地址是" + mPresenter.playUrl);
         KLog.e(TAG, "缩略图" + mPresenter.videoThumbnail);
         KLog.e("视频时长是" + (int) mPresenter.lastTime);
-
         if (TextUtils.isEmpty(des)) {
             showToast("请填写描述");
             return;
@@ -202,9 +220,8 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
         request.setVideoThumbnail(mPresenter.videoThumbnail);
         request.setPlayUrl(mPresenter.playUrl);
         mPresenter.saveBehaviour("01", request, HeaderRequest.SHAKESTAR_PREVIEW);
-
-        try {
-            KLog.e("不是拍摄视频");
+        /*try {
+            KLog.e("不是拍摄");
             UploadService.getUploadManager().addNewUpload(
                     videoFilePath,
                     getUserInfo().getUserId(),
@@ -214,11 +231,22 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
                     JsonUtils.toJson(request, request.getClass()));
         } catch (DbException e) {
             e.printStackTrace();
-        }
+        }*/
         showToast("视频过大可能导致压缩时间较长哦，请耐心等候！");
         mPresenter.saveData(request);
     }
 
+    private void saveThumbnail(String filePath){
+        Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(
+                filePath, MediaStore.Video.Thumbnails.MINI_KIND);
+        bitmap = ThumbnailUtils.extractThumbnail(bitmap, bitmap.getWidth(), bitmap.getHeight(),
+                ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+        File file = new File(FileUtil.choseSavePath(),
+                "DonutVideoThumbnail.JPG");
+        if (bitmap != null) {
+            PictureUtil.compressBmpToFile(bitmap, file);
+        }
+    }
     @Override
     protected void loadData() {
         StatusBarCompat.translucentStatusBar(this);
@@ -245,4 +273,9 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        JZVideoPlayer.releaseAllVideos();
+    }
 }

@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.donut.app.R;
+import com.donut.app.mvp.shakestar.select.particulars.ParticularsEvent;
 import com.donut.app.mvp.shakestar.video.Player;
 import com.donut.app.mvp.shakestar.video.camera.listener.CaptureListener;
 import com.donut.app.mvp.shakestar.video.camera.listener.ClickListener;
@@ -41,6 +42,10 @@ import com.donut.app.mvp.shakestar.video.camera.view.CameraView;
 import com.donut.app.mvp.shakestar.video.constant.CameraContants;
 import com.donut.app.mvp.shakestar.video.record.RecordActivity;
 import com.socks.library.KLog;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.io.IOException;
@@ -114,7 +119,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     private int iconSrc = 0;        //图标资源
     private int iconLeft = 0;       //左图标
     private int iconRight = 0;      //右图标
-    private int duration = 0;       //录制时间
+    private int duration ;       //录制时间
 
     //缩放梯度
     private int zoomGradient = 0;
@@ -132,6 +137,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     private LinearLayout mLinearlayout;
     private FrameLayout mFrameLayout;
     public float widthSize;
+    private int msg;
 
 
     public JCameraView(Context context) {
@@ -144,6 +150,8 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
 
     public JCameraView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        EventBus.getDefault().register(this);//素材视频的时长
+
         mContext = context;
         mediaRecorder = new MediaRecorder();
         mCaptureButton = new CaptureButton(getContext());
@@ -168,6 +176,11 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         initView();
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
+    public void onEvent(ParticularsEvent event) {
+        msg = Integer.parseInt(event.getLastTime());
+    }
+
     private void initData() {
         layout_width = ScreenUtils.getScreenWidth(mContext);
         //缩放梯度
@@ -179,6 +192,8 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     public RecordActivity getmRecordActivity() {
         return mRecordActivity;
     }
+
+
 
     private void initView() {
         setWillNotDraw(false);
@@ -192,9 +207,10 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
 //        mSwitchCamera.setImageResource(iconSrc);
         mCaptureLayout = (CaptureLayout) view.findViewById(R.id.capture_layout);
 
-        duration = RecordActivity.VideoDuration;
 
-        KLog.e("initview视频时长是" + duration);
+        duration = msg;
+
+        KLog.e("initview 视频时长是" + duration);
         mCaptureLayout.setDuration(duration);
 //        mCaptureLayout.setIconSrc(iconLeft, iconRight);
         mFoucsView = (FoucsView) view.findViewById(R.id.fouce_view);
@@ -207,15 +223,11 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
         ViewGroup.LayoutParams frameparams = mFrameLayout.getLayoutParams();
         frameparams.width = layout_width / 2;
         mFrameLayout.setLayoutParams(frameparams);
-
-
 //        mNextButton = (TextView) view.findViewById(R.id.btn_next);
         mMidCameraButton = (TextView) view.findViewById(R.id.btn_camera_mid);
         mClickCameraButton = (TextView) view.findViewById(R.id.btn_camera_click);
         mPressCameraButton = (TextView) view.findViewById(R.id.btn_camera_press);
-
         mButtonText = (TextView) view.findViewById(R.id.btn_button_state);
-
 /*        mNextButton.setEnabled(false);
         mNextButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -280,7 +292,7 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
 
             @Override
             public void recordShort(final long time) {
-                mCaptureLayout.setTextWithAnimation("录制时间过短");
+//                mCaptureLayout.setTextWithAnimation("录制时间过短");
 //                player.resetToStart();
 //                stopPlayLeftVideo();
                 postDelayed(new Runnable() {
@@ -298,10 +310,6 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
                 machine.stopRecord(false, time);
                 sendRecordEndBroadcast();
 
-//                stopPlayLeftVideo();
-//                mNextButton.setBackgroundResource(R.drawable.shape_half_rec_main);
-//                mNextButton.setEnabled(true);
-//                mNextButton.setClickable(true);
             }
 
             @Override
@@ -437,6 +445,8 @@ public class JCameraView extends FrameLayout implements CameraInterface.CameraOp
     public void surfaceDestroyed(SurfaceHolder holder) {
         KLog.i("JCameraView SurfaceDestroyed");
         CameraInterface.getInstance().doDestroyCamera();
+        EventBus.getDefault().unregister(this);
+
     }
 
 

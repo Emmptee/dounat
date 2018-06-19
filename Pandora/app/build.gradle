@@ -53,7 +53,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled false
             buildConfigField 'boolean', 'LOG_SWITCH', 'true'
-            buildConfigField 'String', 'API_HOST', '"http://10.10.10.251:8080/Donut"'
+            buildConfigField 'String', 'API_HOST', '"http://www.sweetdonut.cn"'
             buildConfigField 'String', 'BaiduPushKey', '"TT1yYHulxc6dgiYqbWnR22pt"'
         }
         release {
@@ -189,9 +189,11 @@ dependencies {
     api 'com.shuyu:GSYVideoPlayer:3.0.0'
     testCompile 'junit:junit:4.12'
     implementation project(':guideview')
-    api 'com.github.zhaokaiqiang.klog:library:1.6.0'
+        api 'com.github.zhaokaiqiang.klog:library:1.6.0'
     api 'com.github.yangjie10930:EpMedia:v0.9.5'
     implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.10'
+    implementation 'org.greenrobot:eventbus:3.0.0'
 
 }
 

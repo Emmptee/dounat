@@ -10,14 +10,18 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
+import com.android.volley.Response;
 import com.bis.android.plug.refresh_recycler.layoutmanager.ABaseGridLayoutManager;
 import com.bis.android.plug.refresh_recycler.listener.OnRecyclerViewScrollLocationListener;
 import com.bis.android.sharelibrary.ShareBuilderCommonUtil;
+import com.bumptech.glide.Glide;
 import com.donut.app.R;
 import com.donut.app.adapter.ShakeStarParticularsAdapter;
 import com.donut.app.databinding.ActivityParticularsLayoutBinding;
@@ -38,6 +42,8 @@ import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
 import com.socks.library.KLog;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -95,6 +101,7 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
 
     @Override
     protected void loadData() {
+        KLog.e("加载数据------");
         StatusBarCompat.translucentStatusBar(this);
         intent = getIntent();
         g03 = intent.getStringExtra("g03");
@@ -103,55 +110,66 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
     }
 
     @Override
-    public void showView( List<ParticularsResponse.ShakingStarListBean> list,ParticularsResponse shakingStarListBeans) {
+    public void showView(List<ParticularsResponse.ShakingStarListBean> list,ParticularsResponse particularsResponse) {
 //        GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_DEFAULT);//默认比例
         this.list=list;
-        sourceVideoUrl = shakingStarListBeans.getMaterialVideoList().get(0).getPlayUrl();
-        videoPath = Environment.getExternalStorageDirectory().getPath() + "/PandoraVideo/";
-        mDownloadUtil = new DownloadUtil(4, videoPath, "download.mp4", sourceVideoUrl, this);
 //        mViewBinding.shakeCommendSwip.setEnabled(false);
-        mViewBinding.xqRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
-        if(shakingStarListBeans.getShakingStarList().get(0).getVideoThumbnail()!=null){
-            mViewBinding.xqMessage.setVisibility(View.GONE);
-        }else{
+        sourceVideoUrl = particularsResponse.getMaterialVideoList().get(0).getPlayUrl();
+        videoPath = Environment.getExternalStorageDirectory().getPath() + "/DonutVideo/";
+        mDownloadUtil = new DownloadUtil(4, videoPath, "download.mp4", sourceVideoUrl, this);
+
+        if (particularsResponse.getShakingStarList() != null){
+
+            mViewBinding.xqRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+            if(particularsResponse.getShakingStarList().get(0).getVideoThumbnail()!=null){
+                //不是首次拍摄
+                KLog.e("不是首次拍摄");
+                mViewBinding.xqMessage.setVisibility(View.GONE);
+            }
+            adapter=new ShakeStarParticularsAdapter(list,this);
+            mViewBinding.xqRecyclerView.setAdapter(adapter);
+            mViewBinding.xqRecyclerView.setNestedScrollingEnabled(false);
+        }else {
+            KLog.e("抖星列表为空");
             mViewBinding.xqMessage.setVisibility(View.VISIBLE);
+            mViewBinding.xqRecyclerView.setVisibility(View.GONE);
         }
-        BindingUtils.loadRoundImg(mViewBinding.particularsImg,shakingStarListBeans.getStarHeadPic());
-        mViewBinding.particularsContent.setText(shakingStarListBeans.getTitle());
-        mViewBinding.particularsUser.setText(shakingStarListBeans.getStarName());
-        mViewBinding.particularsNumber.setText(shakingStarListBeans.getUseTimes()+"人使用");
-        adapter=new ShakeStarParticularsAdapter(list,this);
-        mViewBinding.xqRecyclerView.setAdapter(adapter);
-        mViewBinding.xqRecyclerView.setNestedScrollingEnabled(false);
-        if(shakingStarListBeans.getDisplay()==0){//素材在左
+        BindingUtils.loadRoundImg(mViewBinding.particularsImg,particularsResponse.getStarHeadPic());
+        mViewBinding.particularsContent.setText(particularsResponse.getTitle());
+        mViewBinding.particularsUser.setText(particularsResponse.getStarName());
+        mViewBinding.particularsNumber.setText(particularsResponse.getUseTimes()+"人使用");
+
+        if(particularsResponse.getDisplay()==0){//素材在左
+            KLog.e("素材在左边");
             mViewBinding.videoRight.setVisibility(View.GONE);
             mViewBinding.videoLeft.setVisibility(View.VISIBLE);
-            mViewBinding.particularsPlayerLeft.setUp( shakingStarListBeans.getMaterialVideoList().get(0).getPlayUrl(),false,null);
+            mViewBinding.particularsPlayerLeft.setUp( particularsResponse.getMaterialVideoList().get(0).getPlayUrl(),false,null);
             ImageView backButton = mViewBinding.particularsPlayerLeft.getBackButton();
             backButton.setVisibility(View.GONE);//隐藏返回键
             ImageView fullscreenButton = mViewBinding.particularsPlayerLeft.getFullscreenButton();
             fullscreenButton.setVisibility(View.GONE);//隐藏全屏按钮
-            status=shakingStarListBeans.getCollectionStatus();
+            status=particularsResponse.getCollectionStatus();
             boolean wifi = NetUtils.isWifi(mContext);
             if(wifi){
                 GSYBaseVideoPlayer player=mViewBinding.particularsPlayerLeft;
                 //player.startPlayLogic();
             }
-        }else if(shakingStarListBeans.getDisplay()==1){//素在在右
+        }else if(particularsResponse.getDisplay()==1){//素材在右
+            KLog.e("素材在右边");
             ImageView backButton = mViewBinding.particularsPlayerRight.getBackButton();
             backButton.setVisibility(View.GONE);//隐藏返回键
             ImageView fullscreenButton = mViewBinding.particularsPlayerRight.getFullscreenButton();
             fullscreenButton.setVisibility(View.GONE);//隐藏全屏按钮
-            status=shakingStarListBeans.getCollectionStatus();
+            status=particularsResponse.getCollectionStatus();
             mViewBinding.videoRight.setVisibility(View.VISIBLE);
             mViewBinding.videoLeft.setVisibility(View.GONE);
-            mViewBinding.particularsPlayerRight.setUp( shakingStarListBeans.getMaterialVideoList().get(0).getPlayUrl(),false,null);
+            mViewBinding.particularsPlayerRight.setUp( particularsResponse.getMaterialVideoList().get(0).getPlayUrl(),false,null);
             boolean wifi = NetUtils.isWifi(mContext);
             if(wifi){
                 GSYBaseVideoPlayer player=mViewBinding.particularsPlayerRight;
                 //player.startPlayLogic();
             }
-            itemLastTime = getLastTime(shakingStarListBeans.getMaterialVideoList().get(0).getPlayUrl());
+            itemLastTime = getLastTime(particularsResponse.getMaterialVideoList().get(0).getPlayUrl());
             KLog.e("在particular中的时长" + itemLastTime);
         }
 
@@ -166,7 +184,12 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
 //                return mViewBinding.xqRecyclerView;
 //            }
 //        });
-        onClick(shakingStarListBeans);
+        if (particularsResponse.getShakingStarList() != null){
+            onClick(particularsResponse);
+        }
+
+        onClick2(particularsResponse);
+
     }
 
     private static String getLastTime(String url){
@@ -188,7 +211,8 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
     }
 
     @Override
-    public void showCommend(List<CommendAllResponse.CommentsListBean> commendAllResponse, CommendAllResponse Response) {
+    public void showCommend(List<CommendAllResponse.CommentsListBean> commendAllResponse, CommendAllResponse
+        Response) {
 
     }
 
@@ -224,8 +248,9 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
         mViewBinding.scrollview.setScrollViewListener(new ScrollInterceptScrollView.IScrollChangedListener() {
             @Override
             public void onScrolledToBottom() {
-                page++;
-                mPresenter.loadData(false,g03,b02,page,rows);
+                     page++;
+                     KLog.e("滑到底部");
+//                    mPresenter.loadData(false,g03,b02,page,rows);
             }
 
             @Override
@@ -238,9 +263,9 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
 
             }
         });
-        adapter.setItemOnClickListener(new ShakeStarParticularsAdapter.ItemOnClickListener() {
-            @Override
-            public void onClick(int position) {
+       adapter.setItemOnClickListener(new ShakeStarParticularsAdapter.ItemOnClickListener() {
+           @Override
+           public void onClick(int position) {
                 Intent it=new Intent(ParticularsActivity.this,SelectVideoActivity.class);
                 Bundle bundle=new Bundle();
                 bundle.putParcelableArrayList("shakingStarListBeans", (ArrayList<? extends Parcelable>) list);
@@ -251,8 +276,14 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
                 bundle.putInt("position",position);
                 it.putExtra("bundle",bundle);
                 startActivity(it);
-            }
-        });
+           }
+       });
+
+
+
+    }
+
+    private void onClick2(final ParticularsResponse shakingStarListBeans){
         mViewBinding.particularsFx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -294,8 +325,6 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
                 }
             }
         });
-
-
     }
 
     @Override
@@ -333,6 +362,8 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
                 KLog.e("视频下载结束");
                 calcelProgressDialog();
                 mDownloadUtil.pause();
+                ParticularsEvent particularsEvent = new ParticularsEvent(itemLastTime);
+                EventBus.getDefault().postSticky(particularsEvent);
                 Intent it=new Intent(getContext(), RecordActivity.class);
                 it.putExtra("g03",g03);
                 it.putExtra("b02",b02);

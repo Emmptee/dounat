@@ -34,12 +34,12 @@
             android:layout_width="match_parent"
             android:layout_height="690px"
             >
-         <com.donut.app.mvp.shakestar.DonutVideoView
+         <com.donut.app.mvp.shakestar.video.record.preview.DonutCameraVideo
              android:id="@+id/tj_video"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              >
-         </com.donut.app.mvp.shakestar.DonutVideoView>
+         </com.donut.app.mvp.shakestar.video.record.preview.DonutCameraVideo>
             <!--<ImageView-->
                 <!--android:id="@+id/action_start"-->
                 <!--android:layout_width="wrap_content"-->

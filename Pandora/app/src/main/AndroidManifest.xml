@@ -582,7 +582,8 @@
         </service>
 
         <activity android:name="com.donut.app.mvp.shakestar.video.record.RecordTestActivity"
-            />
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -51,12 +51,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="126px">
 
-                <com.donut.app.mvp.shakestar.DonutVideoView
+                <com.donut.app.mvp.shakestar.video.record.preview.DonutCameraVideo
                     android:id="@+id/videoview_pre"
                     android:layout_width="match_parent"
                     android:layout_height="360dp">
 
-                </com.donut.app.mvp.shakestar.DonutVideoView>
+                </com.donut.app.mvp.shakestar.video.record.preview.DonutCameraVideo>
                 <!--<com.donut.app.mvp.shakestar.video.DonutCameraVideoView
                     android:id="@+id/preview_videoview"
                     android:layout_width="match_parent"
@@ -71,7 +71,8 @@
                 android:layout_height="50dp"
                 android:layout_below="@+id/preview_video_layout"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/shape_shake_rec_gray"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:focusableInTouchMode="true"
                 android:hint="为你的大片填个描述吧~~"
                 android:maxLines="1"
@@ -92,6 +93,18 @@
                 android:text="发布"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/text_first_font_size" />
+            <!--<Button
+                android:id="@+id/preview_btn_test"
+                android:layout_width="320dp"
+                android:layout_height="@dimen/px_50"
+                android:layout_below="@+id/preview_btn_publish"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_login_btn_main"
+                android:text="测试"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_first_font_size" />-->
 
         </RelativeLayout>
     </RelativeLayout>
