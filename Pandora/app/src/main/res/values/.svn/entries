@@ -1,15 +1,15 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/res/values
 svn://shidongfang@10.10.10.201/repo1
 
 
 
-2018-04-12T11:49:59.262233Z
-61204
-wangyichao
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2018-06-12T03:01:06.000000Z
-9ffadd1e7306eeefc0c35341a95d8bc6
-2018-03-02T02:46:28.202772Z
-60735
-zhaofeng
+2018-06-07T03:11:36.000000Z
+f255395ee03937aaeb727beaea390066
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -58,7 +58,7 @@ zhaofeng
 
 
 
-2960
+3129
 
 styles.xml
 file
@@ -100,11 +100,11 @@ file
 
 
 
-2018-06-12T03:01:06.000000Z
-9d03c6e1a7e384b63e7fdfb967d24a83
-2018-04-12T11:49:59.262233Z
-61204
-wangyichao
+2018-06-07T03:11:36.000000Z
+94ed77d621701eb8320ba28a3eb169a8
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -126,7 +126,7 @@ wangyichao
 
 
 
-16641
+17104
 
 attrs.xml
 file
@@ -134,11 +134,11 @@ file
 
 
 
-2018-06-12T03:01:06.000000Z
-98077fe8a826d9d265a7d43f3a246330
-2018-02-13T07:02:35.699060Z
-60564
-zhaofeng
+2018-06-07T03:11:36.000000Z
+14590a251cb94b24e8a5b70c045e943d
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -160,7 +160,7 @@ zhaofeng
 
 
 
-1025
+2927
 
 dimens.xml
 file

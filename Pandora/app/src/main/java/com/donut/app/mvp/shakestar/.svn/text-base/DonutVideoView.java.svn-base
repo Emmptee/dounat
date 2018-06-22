@@ -20,18 +20,18 @@ import com.shuyu.gsyvideoplayer.video.base.GSYVideoControlView;
  * Created by hard on 2018/3/6.
  */
 
-public class VideoView extends NormalGSYVideoPlayer {
+public class DonutVideoView extends NormalGSYVideoPlayer {
 
-    public VideoView(Context context, Boolean fullFlag) {
+    public DonutVideoView(Context context, Boolean fullFlag) {
         super(context, fullFlag);
     }
 
-    public VideoView(Context context) {
+    public DonutVideoView(Context context) {
         super(context);
         this.mContext=context;
     }
 
-    public VideoView(Context context, AttributeSet attrs) {
+    public DonutVideoView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

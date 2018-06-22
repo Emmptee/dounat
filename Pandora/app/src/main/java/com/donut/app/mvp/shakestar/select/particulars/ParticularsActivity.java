@@ -101,7 +101,7 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
 
     @Override
     protected void loadData() {
-        KLog.e("加载数据------");
+        KLog.v("加载数据------");
         StatusBarCompat.translucentStatusBar(this);
         intent = getIntent();
         g03 = intent.getStringExtra("g03");
@@ -123,14 +123,14 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
             mViewBinding.xqRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
             if(particularsResponse.getShakingStarList().get(0).getVideoThumbnail()!=null){
                 //不是首次拍摄
-                KLog.e("不是首次拍摄");
+                KLog.v("不是首次拍摄");
                 mViewBinding.xqMessage.setVisibility(View.GONE);
             }
             adapter=new ShakeStarParticularsAdapter(list,this);
             mViewBinding.xqRecyclerView.setAdapter(adapter);
             mViewBinding.xqRecyclerView.setNestedScrollingEnabled(false);
         }else {
-            KLog.e("抖星列表为空");
+            KLog.v("抖星列表为空");
             mViewBinding.xqMessage.setVisibility(View.VISIBLE);
             mViewBinding.xqRecyclerView.setVisibility(View.GONE);
         }
@@ -140,10 +140,14 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
         mViewBinding.particularsNumber.setText(particularsResponse.getUseTimes()+"人使用");
 
         if(particularsResponse.getDisplay()==0){//素材在左
-            KLog.e("素材在左边");
+            KLog.v("素材在左边");
             mViewBinding.videoRight.setVisibility(View.GONE);
             mViewBinding.videoLeft.setVisibility(View.VISIBLE);
             mViewBinding.particularsPlayerLeft.setUp( particularsResponse.getMaterialVideoList().get(0).getPlayUrl(),false,null);
+            ImageView imageView = new ImageView(getContext());
+            Glide.with(this).load(particularsResponse.getMaterialVideoList().get(0).getThumbnailUrl()).into(imageView);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            mViewBinding.particularsPlayerLeft.setThumbImageView(imageView);
             ImageView backButton = mViewBinding.particularsPlayerLeft.getBackButton();
             backButton.setVisibility(View.GONE);//隐藏返回键
             ImageView fullscreenButton = mViewBinding.particularsPlayerLeft.getFullscreenButton();
@@ -155,7 +159,7 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
                 //player.startPlayLogic();
             }
         }else if(particularsResponse.getDisplay()==1){//素材在右
-            KLog.e("素材在右边");
+            KLog.v("素材在右边");
             ImageView backButton = mViewBinding.particularsPlayerRight.getBackButton();
             backButton.setVisibility(View.GONE);//隐藏返回键
             ImageView fullscreenButton = mViewBinding.particularsPlayerRight.getFullscreenButton();
@@ -164,13 +168,17 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
             mViewBinding.videoRight.setVisibility(View.VISIBLE);
             mViewBinding.videoLeft.setVisibility(View.GONE);
             mViewBinding.particularsPlayerRight.setUp( particularsResponse.getMaterialVideoList().get(0).getPlayUrl(),false,null);
+            ImageView imageView = new ImageView(getContext());
+            Glide.with(this).load(particularsResponse.getMaterialVideoList().get(0).getThumbnailUrl()).into(imageView);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            mViewBinding.particularsPlayerRight.setThumbImageView(imageView);
             boolean wifi = NetUtils.isWifi(mContext);
             if(wifi){
                 GSYBaseVideoPlayer player=mViewBinding.particularsPlayerRight;
                 //player.startPlayLogic();
             }
             itemLastTime = getLastTime(particularsResponse.getMaterialVideoList().get(0).getPlayUrl());
-            KLog.e("在particular中的时长" + itemLastTime);
+            KLog.v("在particular中的时长" + itemLastTime);
         }
 
 
@@ -249,7 +257,7 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
             @Override
             public void onScrolledToBottom() {
                      page++;
-                     KLog.e("滑到底部");
+                     KLog.v("滑到底部");
 //                    mPresenter.loadData(false,g03,b02,page,rows);
             }
 
@@ -359,7 +367,7 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
 
             @Override
             public void downloadEnd() {
-                KLog.e("视频下载结束");
+                KLog.v("视频下载结束");
                 calcelProgressDialog();
                 mDownloadUtil.pause();
                 ParticularsEvent particularsEvent = new ParticularsEvent(itemLastTime);

@@ -143,8 +143,8 @@ public class ShakeStarAttentionFragment extends MVPBaseFragment<ShakeAttentionFr
             @Override
             public void onClick(View v) {
                 //选择素材
-               /* Intent it=new Intent(getActivity(), ShakeStarSelectActivity.class);
-                startActivity(it);*/
+                Intent it=new Intent(getActivity(), ShakeStarSelectActivity.class);
+                startActivity(it);
                 ToastUtil.showLong(getActivity(),"精彩内容,敬请期待");
             }
         });

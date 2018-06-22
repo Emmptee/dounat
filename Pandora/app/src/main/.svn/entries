@@ -1,15 +1,15 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main
 svn://shidongfang@10.10.10.201/repo1
 
 
 
-2018-05-09T03:24:32.548956Z
-61452
-wangyichao
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 
 
 
@@ -26,17 +26,26 @@ wangyichao
 
 0b7bfb8c-1547-11e3-8535-551624b94288
 
+jni
+dir
+
+java
+dir
+
+assets
+dir
+
 AndroidManifest.xml
 file
 
 
 
 
-2018-06-12T03:01:11.000000Z
-1be5520afbc7f32ecf09e3e7352de8da
-2018-04-04T07:41:06.356561Z
-61159
-qizhengang
+2018-06-14T05:26:55.000000Z
+58260f675498e09021eaccbdff7f0104
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -58,24 +67,17 @@ qizhengang
 
 
 
-25556
+27107
 
-assets
+res
 dir
 
-java
+libs
 dir
-
-jni
-dir
-
-
-
-add
 
 jniLibs
 dir
 
-res
+obj
 dir
 

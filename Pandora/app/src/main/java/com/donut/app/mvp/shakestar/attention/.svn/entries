@@ -1,15 +1,15 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/shakestar/attention
 svn://shidongfang@10.10.10.201/repo1
 
 
 
-2018-04-04T10:14:11.653654Z
-61163
-qizhengang
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2018-06-07T02:39:10.000000Z
-41fda87fd30de2c3adc42755e795b26f
-2018-04-04T10:14:11.653654Z
-61163
-qizhengang
+2018-06-07T03:38:14.000000Z
+cb8adce357b548001c491f029de33453
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -58,7 +58,7 @@ qizhengang
 
 
 
-18301
+18297
 
 AttentionContract.java
 file

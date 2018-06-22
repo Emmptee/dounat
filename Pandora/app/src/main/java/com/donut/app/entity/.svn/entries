@@ -1,15 +1,15 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/entity
 svn://shidongfang@10.10.10.201/repo1
 
 
 
-2018-01-16T08:31:13.941847Z
-59933
-qizhengang
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -66,11 +66,11 @@ file
 
 
 
-2018-06-07T02:39:12.000000Z
-f3e7757853cc8a5acc3655ff2c67d05d
-2018-01-16T08:31:13.941847Z
-59933
-qizhengang
+2018-06-09T07:26:34.000000Z
+400d780fd6fb12862c059cb4d756ab28
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -92,7 +92,7 @@ qizhengang
 
 
 
-5108
+5139
 
 ConfigInfo.java
 file

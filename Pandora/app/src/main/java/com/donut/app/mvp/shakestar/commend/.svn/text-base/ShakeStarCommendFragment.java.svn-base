@@ -1,12 +1,8 @@
 package com.donut.app.mvp.shakestar.commend;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -19,14 +15,10 @@ import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.transition.Explode;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -56,7 +48,6 @@ import com.donut.app.http.message.shakestar.ShakeStarCommendResponse;
 import com.donut.app.mvp.MVPBaseFragment;
 import com.donut.app.mvp.shakestar.ItemDecoration;
 import com.donut.app.mvp.shakestar.MDialog;
-import com.donut.app.mvp.shakestar.VideoView;
 import com.donut.app.mvp.shakestar.mine.MyActivity;
 import com.donut.app.mvp.shakestar.select.particulars.JointActivity;
 import com.donut.app.mvp.shakestar.select.particulars.ParticularsActivity;
@@ -65,13 +56,15 @@ import com.donut.app.utils.L;
 import com.donut.app.utils.ToastUtil;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.utils.CommonUtil;
-import com.umeng.qq.tencent.l;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
 
-import org.w3c.dom.Text;
-
 import java.util.List;
+
+import cn.jzvd.JZMediaManager;
+import cn.jzvd.JZUtils;
+import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.JZVideoPlayerManager;
 
 /**
  * 推荐页面
@@ -174,9 +167,17 @@ public class ShakeStarCommendFragment extends MVPBaseFragment<ShakeCommendFragme
             @Override
             public void onClick(View v) {
                 //选择素材
-                /*Intent it=new Intent(getActivity(), ShakeStarSelectActivity.class);
-                startActivity(it);*/
-                ToastUtil.showLong(getActivity(),"精彩内容,敬请期待");
+                UserInfo userInfo = SysApplication.getUserInfo();
+                String userId = userInfo.getUserId();
+                if(TextUtils.isEmpty(userId)||null==userId){
+                    //去登陆
+                    Intent it=new Intent(getActivity(), LoginActivity.class);
+                    getActivity().startActivity(it);
+                }else{
+                    Intent it=new Intent(getActivity(), ShakeStarSelectActivity.class);
+                    startActivity(it);
+                }
+
             }
         });
     }
@@ -207,10 +208,29 @@ public class ShakeStarCommendFragment extends MVPBaseFragment<ShakeCommendFragme
                 super.onScrolled(recyclerView, dx, dy);
                 firstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
                 lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
+
                 //这是滑动自动播放的代码
-                scrollCalculatorHelper.onScroll(recyclerView, firstVisibleItem, lastVisibleItem, lastVisibleItem);
+//                scrollCalculatorHelper.onScroll(recyclerView, firstVisibleItem, lastVisibleItem, lastVisibleItem);
             }
         });
+        mViewBinding.shakeCommendRecycler.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
+            @Override
+            public void onChildViewAttachedToWindow(View view) {
+
+            }
+
+            @Override
+            public void onChildViewDetachedFromWindow(View view) {
+                JZVideoPlayer jzvd = view.findViewById(R.id.tj_video);
+                if (jzvd != null && JZUtils.dataSourceObjectsContainsUri(jzvd.dataSourceObjects, JZMediaManager.getCurrentDataSource())) {
+                    JZVideoPlayer currentJzvd = JZVideoPlayerManager.getCurrentJzvd();
+                    if (currentJzvd != null && currentJzvd.currentScreen != JZVideoPlayer.SCREEN_WINDOW_FULLSCREEN) {
+                        JZVideoPlayer.releaseAllVideos();
+                    }
+                }
+            }
+        });
+
         onClick(starCommendResponses);
     }
 

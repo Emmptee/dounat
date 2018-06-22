@@ -1,18 +1,18 @@
 10
 
 dir
-0
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/shakestar/video/camera/view
 svn://shidongfang@10.10.10.201/repo1
-add
 
 
 
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
-
-svn:special svn:externals svn:needs-lock
 
 
 
@@ -31,5 +31,32 @@ file
 
 
 
-add
+
+2018-05-31T06:14:00.000000Z
+f6873c464c73864c7fafcde2f2f96c27
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+428
 

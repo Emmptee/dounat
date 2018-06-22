@@ -74,7 +74,8 @@ public enum BehaviourEnum {
     SUBJECT_NOTICE_LIST("078"),
     SUBJECT_NOTICE_DETAIL("079"),
     STAR_SEND_NOTICE("080"),
-    MY_AUCTION_LIST("081");
+    MY_AUCTION_LIST("081"),
+    SHAKE_STAR_PREVIEW("082");
 
     BehaviourEnum(String code) {
         this.code = code;

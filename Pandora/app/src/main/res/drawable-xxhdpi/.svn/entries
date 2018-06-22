@@ -1,7 +1,7 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/res/drawable-xxhdpi
 svn://shidongfang@10.10.10.201/repo1
 
@@ -536,40 +536,6 @@ has-props
 
 395074
 
-sc1.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-3c1d078b7841b1a01e040b82ee74e115
-2018-02-28T08:50:52.454999Z
-60702
-zhaofeng
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-871
-
 icon_recommanded.png
 file
 
@@ -603,6 +569,40 @@ has-props
 
 
 2123
+
+sc1.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+3c1d078b7841b1a01e040b82ee74e115
+2018-02-28T08:50:52.454999Z
+60702
+zhaofeng
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+871
 
 like_d.png
 file
@@ -638,40 +638,6 @@ has-props
 
 163
 
-start.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-52812f9eb9d45d8794df3ba87fdde975
-2018-03-07T10:48:58.591639Z
-60846
-zhaofeng
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-10458
-
 ip_pressed.png
 file
 
@@ -705,6 +671,40 @@ has-props
 
 
 3707
+
+start.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+52812f9eb9d45d8794df3ba87fdde975
+2018-03-07T10:48:58.591639Z
+60846
+zhaofeng
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10458
 
 dianzan1.png
 file
@@ -842,40 +842,6 @@ has-props
 
 6483
 
-icon_un_recommand.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-fcd57b4bbb3c6bfbdc5749d6ba72e903
-2016-07-29T10:36:07.121545Z
-49043
-wujj
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2122
-
 icon_round_back.png
 file
 
@@ -909,6 +875,40 @@ has-props
 
 
 2362
+
+icon_un_recommand.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+fcd57b4bbb3c6bfbdc5749d6ba72e903
+2016-07-29T10:36:07.121545Z
+49043
+wujj
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2122
 
 back2.png
 file
@@ -978,17 +978,17 @@ has-props
 
 21161
 
-idou_acrive.png
+icon_comment_favor_gray.png
 file
 
 
 
 
 2018-06-12T03:01:04.000000Z
-68a91a4c0b7a8855c3640ea0518a3e6a
-2018-04-03T06:17:16.827652Z
-61148
-wangyichao
+73978e1a38c47182025a79f41e7d4a98
+2016-07-01T11:05:54.513402Z
+47671
+wujj
 has-props
 
 
@@ -1010,7 +1010,7 @@ has-props
 
 
 
-3834
+1890
 
 gallery_icon_more.png
 file
@@ -1046,17 +1046,17 @@ has-props
 
 276
 
-icon_comment_favor_gray.png
+idou_acrive.png
 file
 
 
 
 
 2018-06-12T03:01:04.000000Z
-73978e1a38c47182025a79f41e7d4a98
-2016-07-01T11:05:54.513402Z
-47671
-wujj
+68a91a4c0b7a8855c3640ea0518a3e6a
+2018-04-03T06:17:16.827652Z
+61148
+wangyichao
 has-props
 
 
@@ -1078,7 +1078,7 @@ has-props
 
 
 
-1890
+3834
 
 about_logo.png
 file
@@ -2202,40 +2202,6 @@ has-props
 
 6891
 
-guide_next.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-e97be1beb2cbbcd67be685ea2a4678d4
-2016-09-07T10:32:38.590160Z
-50521
-wujj
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5767
-
 guide_know.png
 file
 
@@ -2269,6 +2235,40 @@ has-props
 
 
 6851
+
+guide_next.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+e97be1beb2cbbcd67be685ea2a4678d4
+2016-09-07T10:32:38.590160Z
+50521
+wujj
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5767
 
 icon_reward.png
 file
@@ -2304,40 +2304,6 @@ has-props
 
 5068
 
-left_line.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-15d0821d71c8f1c677071a180377445e
-2018-02-28T08:50:52.454999Z
-60702
-zhaofeng
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-213
-
 icon_parise_pre.png
 file
 
@@ -2371,6 +2337,40 @@ has-props
 
 
 2588
+
+left_line.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+15d0821d71c8f1c677071a180377445e
+2018-02-28T08:50:52.454999Z
+60702
+zhaofeng
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+213
 
 icon_ver.png
 file
@@ -2440,40 +2440,6 @@ has-props
 
 1498
 
-ip_my_img.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-5f392192e0dc9cb33dfbf325da766a3a
-2016-09-08T09:10:57.733490Z
-50549
-qizhengang
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3634
-
 icon_open.png
 file
 
@@ -2507,6 +2473,40 @@ has-props
 
 
 3446
+
+ip_my_img.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+5f392192e0dc9cb33dfbf325da766a3a
+2016-09-08T09:10:57.733490Z
+50549
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3634
 
 toggle_off.png
 file
@@ -2644,40 +2644,6 @@ has-props
 
 388511
 
-home_fx.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-3b50696badc75a257a42fca746a57970
-2018-03-07T10:48:58.591639Z
-60846
-zhaofeng
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1840
-
 icon_attention_add.png
 file
 
@@ -2711,6 +2677,40 @@ has-props
 
 
 3664
+
+home_fx.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+3b50696badc75a257a42fca746a57970
+2018-03-07T10:48:58.591639Z
+60846
+zhaofeng
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1840
 
 new_guide4.jpg
 file
@@ -2814,40 +2814,6 @@ has-props
 
 5290
 
-star_pressed.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-6fba8e3632841d3eca3fc260147484a7
-2016-10-12T10:10:39.128663Z
-51281
-wujj
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2510
-
 home_cd.png
 file
 
@@ -2881,6 +2847,40 @@ has-props
 
 
 266
+
+star_pressed.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+6fba8e3632841d3eca3fc260147484a7
+2016-10-12T10:10:39.128663Z
+51281
+wujj
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2510
 
 icon_v_gray.png
 file
@@ -3052,16 +3052,16 @@ has-props
 
 9310
 
-mine_pressed.png
+icon_recommand.png
 file
 
 
 
 
 2018-06-12T03:01:04.000000Z
-9e3b3f72e0d23332db5ef74558462258
-2016-10-12T10:10:39.128663Z
-51281
+15ae899e182cebab9579bbc3941c43bd
+2016-08-31T09:36:11.196412Z
+50280
 wujj
 has-props
 
@@ -3084,7 +3084,7 @@ has-props
 
 
 
-2846
+8646
 
 icon_attention.png
 file
@@ -3120,16 +3120,16 @@ has-props
 
 3053
 
-icon_recommand.png
+mine_pressed.png
 file
 
 
 
 
 2018-06-12T03:01:04.000000Z
-15ae899e182cebab9579bbc3941c43bd
-2016-08-31T09:36:11.196412Z
-50280
+9e3b3f72e0d23332db5ef74558462258
+2016-10-12T10:10:39.128663Z
+51281
 wujj
 has-props
 
@@ -3152,7 +3152,7 @@ has-props
 
 
 
-8646
+2846
 
 fx_b.png
 file
@@ -3324,40 +3324,6 @@ has-props
 
 238
 
-like_peas.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-0048441daf08d891a296286ab220215b
-2018-02-28T08:50:52.454999Z
-60702
-zhaofeng
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4035
-
 icon_comment_gray.png
 file
 
@@ -3391,6 +3357,40 @@ has-props
 
 
 1448
+
+like_peas.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+0048441daf08d891a296286ab220215b
+2018-02-28T08:50:52.454999Z
+60702
+zhaofeng
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4035
 
 video_btn_down.png
 file
@@ -3562,40 +3562,6 @@ has-props
 
 1820
 
-icon_close.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-80e10bea51c68fadc82aba822dc5e2bc
-2016-06-30T10:35:10.743703Z
-47590
-wujj
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2329
-
 icon_note.png
 file
 
@@ -3629,6 +3595,40 @@ has-props
 
 
 5613
+
+icon_close.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+80e10bea51c68fadc82aba822dc5e2bc
+2016-06-30T10:35:10.743703Z
+47590
+wujj
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2329
 
 guide_u.png
 file
@@ -3732,40 +3732,6 @@ has-props
 
 1536
 
-play_gray.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-c7682cd89e4f9ff63b67c54370fabd05
-2016-06-28T10:45:31.409666Z
-47444
-wujj
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2818
-
 guide_hand.png
 file
 
@@ -3799,6 +3765,40 @@ has-props
 
 
 6401
+
+play_gray.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+c7682cd89e4f9ff63b67c54370fabd05
+2016-06-28T10:45:31.409666Z
+47444
+wujj
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2818
 
 favor_gray.png
 file
@@ -3834,40 +3834,6 @@ has-props
 
 3204
 
-mine_normal.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-1f9a799a2ec2d7550938fdd6dab14776
-2016-10-12T10:10:39.128663Z
-51281
-wujj
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2858
-
 idou.png
 file
 
@@ -3901,6 +3867,40 @@ has-props
 
 
 4720
+
+mine_normal.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+1f9a799a2ec2d7550938fdd6dab14776
+2016-10-12T10:10:39.128663Z
+51281
+wujj
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2858
 
 icon_arrow.png
 file
@@ -3970,14 +3970,14 @@ has-props
 
 2656
 
-video_btn_on.png
+icon_play_small.png
 file
 
 
 
 
 2018-06-12T03:01:04.000000Z
-956d7b2f2da823f7196f0541d89dc447
+f9113327cff49f1f2eb6b64c6ddea94f
 2016-05-25T05:54:07.509134Z
 45733
 wujiaojiao
@@ -4002,41 +4002,7 @@ has-props
 
 
 
-1103
-
-icon_unchoice.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-311d49f2402b7fb3206fca86e18418a9
-2016-07-18T10:38:13.051276Z
-48510
-wujj
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1831
+1943
 
 icon_cry.png
 file
@@ -4072,14 +4038,48 @@ has-props
 
 7761
 
-icon_play_small.png
+icon_unchoice.png
 file
 
 
 
 
 2018-06-12T03:01:04.000000Z
-f9113327cff49f1f2eb6b64c6ddea94f
+311d49f2402b7fb3206fca86e18418a9
+2016-07-18T10:38:13.051276Z
+48510
+wujj
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1831
+
+video_btn_on.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+956d7b2f2da823f7196f0541d89dc447
 2016-05-25T05:54:07.509134Z
 45733
 wujiaojiao
@@ -4104,7 +4104,7 @@ has-props
 
 
 
-1943
+1103
 
 icon_addr_del.png
 file
@@ -4208,40 +4208,6 @@ has-props
 
 2819
 
-like_peas_2.png
-file
-
-
-
-
-2018-06-12T03:01:04.000000Z
-68a91a4c0b7a8855c3640ea0518a3e6a
-2018-02-28T08:50:52.454999Z
-60702
-zhaofeng
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3834
-
 icon_voice.png
 file
 
@@ -4275,6 +4241,40 @@ has-props
 
 
 3383
+
+like_peas_2.png
+file
+
+
+
+
+2018-06-12T03:01:04.000000Z
+68a91a4c0b7a8855c3640ea0518a3e6a
+2018-02-28T08:50:52.454999Z
+60702
+zhaofeng
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3834
 
 red_dot.png
 file

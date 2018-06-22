@@ -1,15 +1,15 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora
 svn://shidongfang@10.10.10.201/repo1
 
 
 
-2018-05-09T03:24:32.548956Z
-61452
-wangyichao
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 
 
 
@@ -30,9 +30,6 @@ projectFilesBackup
 dir
 
 app
-dir
-
-.idea
 dir
 
 UmengShareLibrary
@@ -189,11 +186,11 @@ file
 
 
 
-2018-06-12T03:01:20.000000Z
-ed081e933699630688f56c706f46479d
-2018-02-07T12:12:13.439224Z
-60411
-zhaofeng
+2018-06-12T03:23:37.000000Z
+346e8dc3bef90b5f7b6973cf96b4c042
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -215,7 +212,7 @@ zhaofeng
 
 
 
-732
+797
 
 settings.gradle
 file
@@ -287,9 +284,6 @@ has-props
 
 
 2143
-
-build
-dir
 
 keystore.properties
 file

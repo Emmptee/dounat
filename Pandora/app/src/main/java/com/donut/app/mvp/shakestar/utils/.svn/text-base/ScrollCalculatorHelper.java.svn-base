@@ -37,7 +37,8 @@ public class ScrollCalculatorHelper {
     public void onScrollStateChanged(RecyclerView view, int scrollState) {
         switch (scrollState) {
             case RecyclerView.SCROLL_STATE_IDLE:
-                playVideo(view);
+//                playVideo(view);
+
                 break;
         }
     }

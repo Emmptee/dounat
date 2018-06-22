@@ -1,21 +1,28 @@
 package com.donut.app.mvp.shakestar.select.particulars;
 
+import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Parcelable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
+import com.android.volley.Response;
 import com.bis.android.plug.refresh_recycler.layoutmanager.ABaseGridLayoutManager;
 import com.bis.android.plug.refresh_recycler.listener.OnRecyclerViewScrollLocationListener;
 import com.bis.android.sharelibrary.ShareBuilderCommonUtil;
+import com.bumptech.glide.Glide;
 import com.donut.app.R;
-import com.donut.app.activity.StarDetailActivity;
 import com.donut.app.adapter.ShakeStarParticularsAdapter;
 import com.donut.app.databinding.ActivityParticularsLayoutBinding;
 import com.donut.app.http.HeaderRequest;
@@ -25,20 +32,22 @@ import com.donut.app.http.message.shakestar.ParticularsResponse;
 import com.donut.app.mvp.MVPBaseActivity;
 import com.donut.app.mvp.blooper.detail.BlooperDetailActivity;
 import com.donut.app.mvp.shakestar.select.ScrollInterceptScrollView;
+import com.donut.app.mvp.shakestar.video.SourceVideoDownload.DownloadUtil;
+import com.donut.app.mvp.shakestar.video.record.RecordActivity;
 import com.donut.app.utils.BindingUtils;
 import com.donut.app.utils.L;
 import com.donut.app.utils.NetUtils;
-import com.donut.app.utils.ToastUtil;
 import com.donut.app.utils.status_bar.StatusBarCompat;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
-import com.shuyu.gsyvideoplayer.utils.GSYVideoType;
 import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
+import com.socks.library.KLog;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.donut.app.mvp.subject.snap.SubjectSnapActivity.STAR_DETAIL_CODE;
 
 /**
  * Created by hard on 2018/2/1.
@@ -47,18 +56,34 @@ import static com.donut.app.mvp.subject.snap.SubjectSnapActivity.STAR_DETAIL_COD
 public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayoutBinding, ParticularsPresenter>implements ParticularsContract.View{
 
     private static final String TAG = "ParticularsActivity";
+    public static final int REQUEST_FOR_RECORD = 1000;
 
-  private ShakeStarParticularsAdapter adapter;
-  private Intent intent;
-  private String g03 ;
-  private String b02;
-  boolean isCollection;
-  private  int STATUSA=0;//未收藏
-  private static final int STATUSB=1;//已收藏
-  private int page = 0, rows = 10, sortType = 0;
-  private int status;
-  private ParticularsResponse shakingStarListBeans;
-List<ParticularsResponse.ShakingStarListBean> list;
+    private ShakeStarParticularsAdapter adapter;
+    private Intent intent;
+    private String g03 ;
+    private String b02;
+    boolean isCollection;
+    private  int STATUSA=0;//未收藏
+    private static final int STATUSB=1;//已收藏
+    private int page = 0, rows = 10, sortType = 0;
+    private int status;
+    private ParticularsResponse shakingStarListBeans;
+    List<ParticularsResponse.ShakingStarListBean> list;
+    private String itemLastTime;
+
+    private ProgressDialog mProgressDialog;
+    private String videoPath;//下载路径
+    private int max;
+    private String sourceVideoUrl;
+    private DownloadUtil mDownloadUtil;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_particulars_layout;
@@ -76,59 +101,84 @@ List<ParticularsResponse.ShakingStarListBean> list;
 
     @Override
     protected void loadData() {
+        KLog.v("加载数据------");
         StatusBarCompat.translucentStatusBar(this);
-         intent = getIntent();
-         g03 = intent.getStringExtra("g03");
-         b02 = intent.getStringExtra("b02");
+        intent = getIntent();
+        g03 = intent.getStringExtra("g03");
+        b02 = intent.getStringExtra("b02");
         mPresenter.loadData(true,b02,g03,page,rows);
     }
 
     @Override
-    public void showView( List<ParticularsResponse.ShakingStarListBean> list,ParticularsResponse shakingStarListBeans) {
+    public void showView(List<ParticularsResponse.ShakingStarListBean> list,ParticularsResponse particularsResponse) {
 //        GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_DEFAULT);//默认比例
         this.list=list;
 //        mViewBinding.shakeCommendSwip.setEnabled(false);
-        mViewBinding.xqRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
-        if(shakingStarListBeans.getShakingStarList().get(0).getVideoThumbnail()!=null){
-            mViewBinding.xqMessage.setVisibility(View.GONE);
-        }else{
+        sourceVideoUrl = particularsResponse.getMaterialVideoList().get(0).getPlayUrl();
+        videoPath = Environment.getExternalStorageDirectory().getPath() + "/DonutVideo/";
+        mDownloadUtil = new DownloadUtil(4, videoPath, "download.mp4", sourceVideoUrl, this);
+
+        if (particularsResponse.getShakingStarList() != null){
+
+            mViewBinding.xqRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+            if(particularsResponse.getShakingStarList().get(0).getVideoThumbnail()!=null){
+                //不是首次拍摄
+                KLog.v("不是首次拍摄");
+                mViewBinding.xqMessage.setVisibility(View.GONE);
+            }
+            adapter=new ShakeStarParticularsAdapter(list,this);
+            mViewBinding.xqRecyclerView.setAdapter(adapter);
+            mViewBinding.xqRecyclerView.setNestedScrollingEnabled(false);
+        }else {
+            KLog.v("抖星列表为空");
             mViewBinding.xqMessage.setVisibility(View.VISIBLE);
+            mViewBinding.xqRecyclerView.setVisibility(View.GONE);
         }
-        BindingUtils.loadRoundImg(mViewBinding.particularsImg,shakingStarListBeans.getStarHeadPic());
-        mViewBinding.particularsContent.setText(shakingStarListBeans.getTitle());
-        mViewBinding.particularsUser.setText(shakingStarListBeans.getStarName());
-        mViewBinding.particularsNumber.setText(shakingStarListBeans.getUseTimes()+"人使用");
-        adapter=new ShakeStarParticularsAdapter(list,this);
-        mViewBinding.xqRecyclerView.setAdapter(adapter);
-        mViewBinding.xqRecyclerView.setNestedScrollingEnabled(false);
-        if(shakingStarListBeans.getDisplay()==0){//素材在左
+        BindingUtils.loadRoundImg(mViewBinding.particularsImg,particularsResponse.getStarHeadPic());
+        mViewBinding.particularsContent.setText(particularsResponse.getTitle());
+        mViewBinding.particularsUser.setText(particularsResponse.getStarName());
+        mViewBinding.particularsNumber.setText(particularsResponse.getUseTimes()+"人使用");
+
+        if(particularsResponse.getDisplay()==0){//素材在左
+            KLog.v("素材在左边");
             mViewBinding.videoRight.setVisibility(View.GONE);
             mViewBinding.videoLeft.setVisibility(View.VISIBLE);
-            mViewBinding.particularsPlayerLeft.setUp( shakingStarListBeans.getMaterialVideoList().get(0).getPlayUrl(),false,null);
+            mViewBinding.particularsPlayerLeft.setUp( particularsResponse.getMaterialVideoList().get(0).getPlayUrl(),false,null);
+            ImageView imageView = new ImageView(getContext());
+            Glide.with(this).load(particularsResponse.getMaterialVideoList().get(0).getThumbnailUrl()).into(imageView);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            mViewBinding.particularsPlayerLeft.setThumbImageView(imageView);
             ImageView backButton = mViewBinding.particularsPlayerLeft.getBackButton();
             backButton.setVisibility(View.GONE);//隐藏返回键
             ImageView fullscreenButton = mViewBinding.particularsPlayerLeft.getFullscreenButton();
             fullscreenButton.setVisibility(View.GONE);//隐藏全屏按钮
-            status=shakingStarListBeans.getCollectionStatus();
+            status=particularsResponse.getCollectionStatus();
             boolean wifi = NetUtils.isWifi(mContext);
             if(wifi){
                 GSYBaseVideoPlayer player=mViewBinding.particularsPlayerLeft;
                 //player.startPlayLogic();
             }
-        }else if(shakingStarListBeans.getDisplay()==1){//素在在右
+        }else if(particularsResponse.getDisplay()==1){//素材在右
+            KLog.v("素材在右边");
             ImageView backButton = mViewBinding.particularsPlayerRight.getBackButton();
             backButton.setVisibility(View.GONE);//隐藏返回键
             ImageView fullscreenButton = mViewBinding.particularsPlayerRight.getFullscreenButton();
             fullscreenButton.setVisibility(View.GONE);//隐藏全屏按钮
-            status=shakingStarListBeans.getCollectionStatus();
+            status=particularsResponse.getCollectionStatus();
             mViewBinding.videoRight.setVisibility(View.VISIBLE);
             mViewBinding.videoLeft.setVisibility(View.GONE);
-            mViewBinding.particularsPlayerRight.setUp( shakingStarListBeans.getMaterialVideoList().get(0).getPlayUrl(),false,null);
+            mViewBinding.particularsPlayerRight.setUp( particularsResponse.getMaterialVideoList().get(0).getPlayUrl(),false,null);
+            ImageView imageView = new ImageView(getContext());
+            Glide.with(this).load(particularsResponse.getMaterialVideoList().get(0).getThumbnailUrl()).into(imageView);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            mViewBinding.particularsPlayerRight.setThumbImageView(imageView);
             boolean wifi = NetUtils.isWifi(mContext);
             if(wifi){
                 GSYBaseVideoPlayer player=mViewBinding.particularsPlayerRight;
                 //player.startPlayLogic();
             }
+            itemLastTime = getLastTime(particularsResponse.getMaterialVideoList().get(0).getPlayUrl());
+            KLog.v("在particular中的时长" + itemLastTime);
         }
 
 
@@ -142,11 +192,35 @@ List<ParticularsResponse.ShakingStarListBean> list;
 //                return mViewBinding.xqRecyclerView;
 //            }
 //        });
-        onClick(shakingStarListBeans);
+        if (particularsResponse.getShakingStarList() != null){
+            onClick(particularsResponse);
+        }
+
+        onClick2(particularsResponse);
+
+    }
+
+    private static String getLastTime(String url){
+        String duration = null;
+        MediaPlayer player = new MediaPlayer();
+        try {
+            player.setDataSource(url);  //recordingFilePath（）为音频文件的路径
+            player.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //获取素材视频的时间
+        duration = String.valueOf(player.getDuration());
+        KLog.d("ACETEST", "### duration: " + duration);
+        player.release();//释放资源
+        return duration;
     }
 
     @Override
-    public void showCommend(List<CommendAllResponse.CommentsListBean> commendAllResponse, CommendAllResponse Response) {
+    public void showCommend(List<CommendAllResponse.CommentsListBean> commendAllResponse, CommendAllResponse
+        Response) {
 
     }
 
@@ -183,7 +257,8 @@ List<ParticularsResponse.ShakingStarListBean> list;
             @Override
             public void onScrolledToBottom() {
                      page++;
-                    mPresenter.loadData(false,g03,b02,page,rows);
+                     KLog.v("滑到底部");
+//                    mPresenter.loadData(false,g03,b02,page,rows);
             }
 
             @Override
@@ -211,6 +286,12 @@ List<ParticularsResponse.ShakingStarListBean> list;
                 startActivity(it);
            }
        });
+
+
+
+    }
+
+    private void onClick2(final ParticularsResponse shakingStarListBeans){
         mViewBinding.particularsFx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,19 +322,17 @@ List<ParticularsResponse.ShakingStarListBean> list;
             public void onClick(View v) {
                 L.e("status",status);
                 if(STATUSA==0){
-                   //收藏        type:99是没有用过的标识 ，后台没有操作
+                    //收藏        type:99是没有用过的标识 ，后台没有操作
                     mViewBinding.particularsSc.setImageResource(R.drawable.sc2);
-                        mPresenter.Collect(false,b02,99,1);
+                    mPresenter.Collect(false,b02,99,1);
                     STATUSA=1;
-                    }else if(STATUSA==1){//取消收藏
+                }else if(STATUSA==1){//取消收藏
                     mViewBinding.particularsSc.setImageResource(R.drawable.sc1);
-                        mPresenter.Collect(false,b02,99,0);
+                    mPresenter.Collect(false,b02,99,0);
                     STATUSA=0;
-                    }
+                }
             }
         });
-
-
     }
 
     @Override
@@ -263,7 +342,68 @@ List<ParticularsResponse.ShakingStarListBean> list;
     }
 
     public void newImagePic(View view) {
-        ToastUtil.showShort(getContext(),"精彩内容,敬请期待");
+        requestRuntimePermission("为了给您提供更好的服务,甜麦圈需要获取存储器读写权限",
+                Manifest.permission.CAMERA,Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//        ToastUtil.showShort(getContext(),"精彩内容,敬请期待");
+        initSourceVideo();
+    }
+    private void initSourceVideo(){
+        mDownloadUtil.start();
+        mDownloadUtil.setOnDownloadListener(new DownloadUtil.OnDownloadListener() {
+            @Override
+            public void downloadStart(int fileSize) {
+                showProgressDialog();
+                KLog.d("开始下载视频");
+                max = fileSize;//文件总长度
+            }
 
+            @Override
+            public void downloadProgress(int downloadedSize) {
+                KLog.d("视频在下载中");
+                mProgressDialog.setMessage("资源加载中..."+ downloadedSize * 100 / max + "%");
+
+            }
+
+            @Override
+            public void downloadEnd() {
+                KLog.v("视频下载结束");
+                calcelProgressDialog();
+                mDownloadUtil.pause();
+                ParticularsEvent particularsEvent = new ParticularsEvent(itemLastTime);
+                EventBus.getDefault().postSticky(particularsEvent);
+                Intent it=new Intent(getContext(), RecordActivity.class);
+                it.putExtra("g03",g03);
+                it.putExtra("b02",b02);
+                it.putExtra("mylasttime",itemLastTime);
+                startActivityForResult(it,REQUEST_FOR_RECORD);
+            }
+        });
+    }
+
+    private void showProgressDialog() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        Log.e("DAo","正在处理中");
+        mProgressDialog.setMessage("资源加载中");
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+    }
+    private void calcelProgressDialog() {
+        if( mProgressDialog !=null){
+            mProgressDialog.cancel();
+            mProgressDialog =null;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_FOR_RECORD){
+            if (resultCode == RESULT_OK){
+                setResult(RESULT_OK);
+                this.finish();
+            }
+        }
     }
 }

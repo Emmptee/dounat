@@ -1,15 +1,15 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/CordovaLib
 svn://shidongfang@10.10.10.201/repo1
 
 
 
-2018-03-07T10:48:58.591639Z
-60846
-zhaofeng
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -25,9 +25,6 @@ zhaofeng
 
 
 0b7bfb8c-1547-11e3-8535-551624b94288
-
-build
-dir
 
 project.properties
 file
@@ -174,11 +171,11 @@ file
 
 
 
-2018-06-12T03:01:13.000000Z
-9be8a2451a5f5169cc700b62c9a598ef
-2018-02-07T12:12:13.439224Z
-60411
-zhaofeng
+2018-06-12T03:04:37.000000Z
+1f8accade4e4dd85976c24003dd794ab
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -200,5 +197,5 @@ zhaofeng
 
 
 
-1846
+1864
 

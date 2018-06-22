@@ -35,6 +35,7 @@ import com.donut.app.mvp.shakestar.utils.UserMessageDialog;
 import com.donut.app.utils.status_bar.StatusBarCompat;
 import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
+import com.socks.library.KLog;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -49,6 +50,7 @@ import java.util.TimerTask;
 
 public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelectLayoutBinding, SelectPresenter> implements SelectContract.View,SwipeRefreshLayout.OnRefreshListener {
 
+    public static final int REQUEST_FOR_PARTICULARS = 1000;
 
     private String name=null;
     private int page = 0, rows = 10, sortType = 0;
@@ -84,6 +86,45 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
                     e.printStackTrace();
                 }
 
+            }
+        });
+
+        //最新
+        mViewBinding.ivShakeNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                KLog.i("最新");
+                sortType = 1;
+                load();
+            }
+        });
+        //最热
+        mViewBinding.ivShakeHot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                KLog.i("最热");
+                sortType = 0;
+                load();
+            }
+        });
+        //同屏
+        mViewBinding.ivShakeSamescreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                KLog.i("同屏");
+                sortType = 2;
+                load();
+//                clickToRefresh();
+            }
+        });
+
+        //拼接
+        mViewBinding.ivShakeSplice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                KLog.i("拼接");
+                sortType = 3;
+                load();
             }
         });
     }
@@ -126,12 +167,12 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
                     Intent itent=new Intent(getApplicationContext(), ParticularsActivity.class);
                     itent.putExtra("g03",selectResponse.get(position).getG03Id());
                     itent.putExtra("b02",selectResponse.get(position).getB02Id());
-                    startActivity(itent);
+                    startActivityForResult(itent,REQUEST_FOR_PARTICULARS);
                 }else if(selectResponse.get(position).getType()==ACTIONB){
                     Intent itent=new Intent(getApplicationContext(), JointActivity.class);
                     itent.putExtra("g03",selectResponse.get(position).getG03Id());
                     itent.putExtra("b02",selectResponse.get(position).getB02Id());
-                    startActivity(itent);
+                    startActivityForResult(itent,REQUEST_FOR_PARTICULARS);
                 }
 
             }
@@ -244,5 +285,16 @@ public class ShakeStarSelectActivity extends MVPBaseActivity<ActivityShakeSelect
     }
     public void load(){
         mPresenter.loadData(true,name,sortType,page,rows);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_FOR_PARTICULARS){
+            if (resultCode == RESULT_OK){
+                setResult(RESULT_OK);
+                this.finish();
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/AndroidAutoLayout/src/main/java/com/bis/android/plug/autolayout/attr
 svn://shidongfang@10.10.10.201/repo1
 
@@ -94,40 +94,6 @@ qizhengang
 
 876
 
-HeightAttr.java
-file
-
-
-
-
-2018-06-12T03:01:15.000000Z
-a4145fbfb7bcec16ff37924365c8573b
-2016-05-25T07:40:11.169943Z
-45758
-qizhengang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1199
-
 AutoAttr.java
 file
 
@@ -161,6 +127,40 @@ qizhengang
 
 
 2883
+
+HeightAttr.java
+file
+
+
+
+
+2018-06-12T03:01:15.000000Z
+a4145fbfb7bcec16ff37924365c8573b
+2016-05-25T07:40:11.169943Z
+45758
+qizhengang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1199
 
 MarginRightAttr.java
 file
@@ -298,40 +298,6 @@ qizhengang
 
 1631
 
-TextSizeAttr.java
-file
-
-
-
-
-2018-06-12T03:01:15.000000Z
-23c2e1eeee6be0f028623540fe9033eb
-2018-01-16T08:32:08.989336Z
-59935
-qizhengang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1339
-
 WidthAttr.java
 file
 
@@ -365,6 +331,40 @@ qizhengang
 
 
 1181
+
+TextSizeAttr.java
+file
+
+
+
+
+2018-06-12T03:01:15.000000Z
+23c2e1eeee6be0f028623540fe9033eb
+2018-01-16T08:32:08.989336Z
+59935
+qizhengang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1339
 
 PaddingLeftAttr.java
 file

@@ -33,6 +33,7 @@
     <dimen name="px_8">8px</dimen>
     <dimen name="px_10">10px</dimen>
     <dimen name="px_15">15px</dimen>
+    <dimen name="px_17">17px</dimen>
     <dimen name="px_20">20px</dimen>
     <dimen name="px_25">25px</dimen>
     <dimen name="px_30">30px</dimen>

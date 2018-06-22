@@ -1,18 +1,18 @@
 10
 
 dir
-0
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/shakestar/video/camera
 svn://shidongfang@10.10.10.201/repo1
-add
 
 
 
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 
 
 
-
-svn:special svn:externals svn:needs-lock
 
 
 
@@ -26,87 +26,256 @@ svn:special svn:externals svn:needs-lock
 
 0b7bfb8c-1547-11e3-8535-551624b94288
 
-CameraInterface.java
-file
-
-
-
-add
-
 CaptureButton.java
 file
 
 
 
-add
+
+2018-06-22T03:23:11.000000Z
+2e2a251d9b9c7e16cf8866d5697412ac
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+16032
+
+state
+dir
 
 CaptureLayout.java
 file
 
 
 
-add
+
+2018-06-22T03:23:12.000000Z
+6997d9eab9f123c8f3c308b16e385d4d
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12096
+
+listener
+dir
+
+CameraInterface.java
+file
+
+
+
+
+2018-06-22T03:23:12.000000Z
+7601eb48a3998580155389b5110fbf63
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+29148
 
 FoucsView.java
 file
 
 
 
-add
+
+2018-05-31T06:14:00.000000Z
+5bb44beb9645fbd72b67274a14e07cf9
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2000
 
-JCameraView.java
-file
-
-
-
-add
+view
+dir
 
 ReturnButton.java
 file
 
 
 
-add
+
+2018-05-31T06:14:00.000000Z
+792f5bcbaad54c695fd9038eeb327bfe
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1393
+
+callback
+dir
+
+JCameraView.java
+file
+
+
+
+
+2018-06-22T03:23:11.000000Z
+45406c72cfba179d7e152e77e40090fb
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+27321
 
 TypeButton.java
 file
 
 
 
-add
-
-callback
-dir
+
+2018-05-31T06:14:00.000000Z
+815cfd7013f4c91d0c9f7ddadddba61b
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
-add
-
-listener
-dir
 
 
 
-add
-
-state
-dir
 
 
 
-add
+
+
+
+
+
+
+
+
+
+
+
+
+3585
 
 util
 dir
-
-
-
-add
-
-view
-dir
-
-
-
-add
 

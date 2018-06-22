@@ -132,11 +132,11 @@ public class ParticularsPresenter<V extends ParticularsContract.View> extends Pa
             case NEW_PARTICULARS_CODE:
                L.e("json",responseJson);
                 ParticularsResponse particularsResponse=JsonUtils.fromJson(responseJson, ParticularsResponse.class);
-                KLog.e("ParticularsResponse为"  + particularsResponse);
+                KLog.v("ParticularsResponse为"  + particularsResponse);
                 if(COMMON_SUCCESS.equals(particularsResponse.getCode())){
-                    KLog.e("登录成功");
+                    KLog.v("登录成功");
                     if(particularsResponse.getShakingStarList()!=null){
-                        KLog.e("用户拍摄素材列表不为空");
+                        KLog.v("用户拍摄素材列表不为空");
                         if(page==0){
                             starCommendResponses.clear();
                         }

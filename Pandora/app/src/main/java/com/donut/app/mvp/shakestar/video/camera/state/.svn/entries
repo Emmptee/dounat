@@ -1,18 +1,18 @@
 10
 
 dir
-0
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/shakestar/video/camera/state
 svn://shidongfang@10.10.10.201/repo1
-add
 
 
 
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 
 
 
-
-svn:special svn:externals svn:needs-lock
 
 
 
@@ -26,38 +26,173 @@ svn:special svn:externals svn:needs-lock
 
 0b7bfb8c-1547-11e3-8535-551624b94288
 
-BorrowPictureState.java
+State.java
 file
 
 
 
-add
+
+2018-05-31T06:14:00.000000Z
+d78ad786af74489ccc9b34914da34982
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+716
 
 BorrowVideoState.java
 file
 
 
 
-add
-
-CameraMachine.java
-file
+
+2018-05-31T06:14:00.000000Z
+42765ecf35aeb6eaf5196a95cf244507
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
-add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1742
 
 PreviewState.java
 file
 
 
 
-add
+
+2018-06-22T03:23:11.000000Z
+3099f054866a5bc0cef537df9aa0a13e
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3053
 
-State.java
+BorrowPictureState.java
 file
 
 
 
-add
+
+2018-05-31T06:14:00.000000Z
+8a0ff093f1c2ee09f174eecc3dbdf92d
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1826
+
+CameraMachine.java
+file
+
+
+
+
+2018-05-31T06:14:00.000000Z
+f360c77bb14be37a2109a64d398d9e06
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2973
 

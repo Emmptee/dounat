@@ -490,7 +490,7 @@ public class UploadManager {
                     ShakeStarPreviewRequest request
                             = JsonUtils.fromJson(uploadInfo.getSaveData(),ShakeStarPreviewRequest.class);
                     request.setPlayUrl(res.getFileUrl());
-                    KLog.e("视频播放地址====" + res.getFileUrl());
+                    KLog.v("视频播放地址====" + res.getFileUrl());
 
                     requestCode = 500;
 
@@ -498,9 +498,9 @@ public class UploadManager {
                     baseRequest.setUserId(uploadInfo.getUserId());
                     baseRequest.setToken(uploadInfo.getToken());
                     baseRequest.setData(JsonUtils.toJson(request, request.getClass()));
-                    KLog.e("userde id====" + uploadInfo.getUserId());
+                    KLog.v("userde id====" + uploadInfo.getUserId());
 
-                    KLog.e("token id====" + uploadInfo.getToken());
+                    KLog.v("token id====" + uploadInfo.getToken());
 
                 }
 

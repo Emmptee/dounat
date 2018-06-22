@@ -1,7 +1,7 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/assets/www/images
 svn://shidongfang@10.10.10.201/repo1
 
@@ -128,40 +128,6 @@ has-props
 
 8581
 
-bg_09.png
-file
-
-
-
-
-2018-06-12T03:01:01.000000Z
-9a77e9269bcf8d4b61953fa08291a192
-2016-07-12T01:36:14.705999Z
-48196
-qizhengang
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1141
-
 load.gif
 file
 
@@ -195,6 +161,40 @@ has-props
 
 
 33507
+
+bg_09.png
+file
+
+
+
+
+2018-06-12T03:01:01.000000Z
+9a77e9269bcf8d4b61953fa08291a192
+2016-07-12T01:36:14.705999Z
+48196
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1141
 
 weixin.png
 file
@@ -230,17 +230,17 @@ has-props
 
 2571
 
-fack_back1.png
+close.png
 file
 
 
 
 
 2018-06-12T03:01:01.000000Z
-a41e8d8756647bc9f77f37788004345c
-2016-07-12T01:36:14.705999Z
-48196
-qizhengang
+62ce0915bba29b2947419bb835b19ad3
+2016-08-11T06:13:48.646156Z
+49573
+lishuhui
 has-props
 
 
@@ -262,7 +262,7 @@ has-props
 
 
 
-1953
+1224
 
 default_head.png
 file
@@ -298,50 +298,16 @@ has-props
 
 4957
 
-close.png
+fack_back1.png
 file
 
 
 
 
 2018-06-12T03:01:01.000000Z
-62ce0915bba29b2947419bb835b19ad3
-2016-08-11T06:13:48.646156Z
-49573
-lishuhui
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1224
-
-bg_1.png
-file
-
-
-
-
-2018-06-12T03:01:01.000000Z
-8d0d9efa25f2fd525fbcc348e716df0b
-2016-07-12T12:06:20.670854Z
-48289
+a41e8d8756647bc9f77f37788004345c
+2016-07-12T01:36:14.705999Z
+48196
 qizhengang
 has-props
 
@@ -364,7 +330,7 @@ has-props
 
 
 
-9984
+1953
 
 shopping1.png
 file
@@ -400,6 +366,40 @@ has-props
 
 2983
 
+bg_1.png
+file
+
+
+
+
+2018-06-12T03:01:01.000000Z
+8d0d9efa25f2fd525fbcc348e716df0b
+2016-07-12T12:06:20.670854Z
+48289
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9984
+
 bg_2.png
 file
 
@@ -434,40 +434,6 @@ has-props
 
 9882
 
-bg_3.png
-file
-
-
-
-
-2018-06-12T03:01:01.000000Z
-dc66768c44aec28dd27638cf6828cdfe
-2016-07-12T12:06:20.670854Z
-48289
-qizhengang
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-10170
-
 auction_good.png
 file
 
@@ -501,6 +467,40 @@ has-props
 
 
 2149
+
+bg_3.png
+file
+
+
+
+
+2018-06-12T03:01:01.000000Z
+dc66768c44aec28dd27638cf6828cdfe
+2016-07-12T12:06:20.670854Z
+48289
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10170
 
 img_adress.png
 file

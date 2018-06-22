@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/CordovaLib/assets"/><source path="/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/CordovaLib/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/dashuyourong/Desktop/Donut_Android/Donut_Android_True/Pandora/CordovaLib/src/release/assets"/></dataSet></merger>

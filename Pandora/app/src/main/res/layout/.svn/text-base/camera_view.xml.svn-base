@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_surfaceview"
+        android:layout_width="wrap_content"
+        android:layout_height="360dp"
+        android:orientation="horizontal">
+        <FrameLayout
+            android:id="@+id/fl_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <VideoView
+                android:id="@+id/video_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/image_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000"
+                android:visibility="invisible" />
+
+            <com.donut.app.mvp.shakestar.video.camera.FoucsView
+                android:id="@+id/fouce_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+        <!--<com.bis.android.plug.autolayout.AutoLinearLayout
+            android:id="@+id/record_video_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <com.donut.app.mvp.shakestar.VideoView
+                android:id="@+id/record_player_right"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+            </com.donut.app.mvp.shakestar.VideoView>
+
+        </com.bis.android.plug.autolayout.AutoLinearLayout>-->
+    </LinearLayout>
+    <!--<ImageView
+        android:id="@+id/img_camera_back"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:src="@drawable/back"
+        android:layout_marginTop="@dimen/px_30"
+        android:layout_marginLeft="@dimen/px_15"
+        />-->
+    <!--<TextView
+        android:id="@+id/btn_next"
+        android:layout_width="@dimen/px_110"
+        android:layout_height="@dimen/px_50"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/px_17"
+        android:layout_marginRight="@dimen/px_10"
+        android:gravity="center"
+        android:text="下一步"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_fourth_font_size"
+        android:layout_alignParentRight="true" />-->
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/ll_surfaceview"
+        android:layout_marginTop="30dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_beauty_close" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="美颜开"
+                android:textColor="@color/videoButton"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_bg_music" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="背景音乐"
+                android:textColor="@color/videoButton"
+                android:textSize="9sp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_turn_camera" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="旋转屏幕"
+                android:textColor="@color/videoButton"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_marginBottom="44dp"
+        >
+
+        <com.donut.app.mvp.shakestar.video.camera.CaptureLayout
+            android:id="@+id/capture_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="45dp">
+
+        <TextView
+            android:id="@+id/btn_button_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="长按拍"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_40"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/px_20">
+
+        <LinearLayout
+            android:id="@+id/LL_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/LL_mid"
+            android:layout_marginRight="61dp">
+
+            <TextView
+                android:id="@+id/btn_camera_press"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="长按拍摄"
+                android:textColor="@color/videoButton"
+                android:textSize="12sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LL_mid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/roundBtn1"
+                android:background="@drawable/shape_video_point"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/btn_camera_mid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="长按拍摄"
+                android:textColor="@color/videoButton"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LL_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/LL_mid"
+            android:layout_marginLeft="61dp">
+
+            <TextView
+                android:id="@+id/btn_camera_click"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="单击拍摄"
+                android:textColor="@color/videoButton"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+

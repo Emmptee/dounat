@@ -1,15 +1,15 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/shakestar
 svn://shidongfang@10.10.10.201/repo1
 
 
 
-2018-04-21T04:48:32.362976Z
-61303
-wangyichao
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 
 
 
@@ -26,28 +26,23 @@ wangyichao
 
 0b7bfb8c-1547-11e3-8535-551624b94288
 
-DonutVideoView.java
-file
-
-
-
-add
-
-
-
-
-
-
-
-
-
-
-
-
-
-copied
-svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/shakestar/VideoView.java
-61452
+greendaobase
+dir
+
+select
+dir
+
+utils
+dir
+
+commend
+dir
+
+attention
+dir
+
+search
+dir
 
 ItemDecoration.java
 file
@@ -83,6 +78,49 @@ zhaofeng
 
 1556
 
+video
+dir
+
+mine
+dir
+
+ffmpegdemo
+dir
+
+DonutVideoView.java
+file
+
+
+
+
+2018-06-07T03:11:36.000000Z
+fa07793db7e3a8cba62bb5633cffb280
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2401
+
 MDialog.java
 file
 
@@ -116,77 +154,4 @@ zhaofeng
 
 
 2676
-
-VideoView.java
-file
-
-
-
-delete
-2018-06-07T02:39:11.000000Z
-c22d9da9e5f287bbc5b8f00606412f0d
-2018-03-07T10:48:58.591639Z
-60846
-zhaofeng
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2381
-
-attention
-dir
-
-commend
-dir
-
-ffmpegdemo
-dir
-
-
-
-add
-
-greendaobase
-dir
-
-
-
-add
-
-mine
-dir
-
-search
-dir
-
-select
-dir
-
-utils
-dir
-
-video
-dir
-
-
-
-add
 

@@ -57,6 +57,11 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import java.io.Serializable;
 import java.util.List;
 
+import cn.jzvd.JZMediaManager;
+import cn.jzvd.JZUtils;
+import cn.jzvd.JZVideoPlayer;
+import cn.jzvd.JZVideoPlayerManager;
+
 /**
  * Created by hard on 2018/2/7.
  */
@@ -169,7 +174,24 @@ public class SelectVideoActivity  extends MVPBaseActivity<ActivitySelectVideoBin
                 firstVisibleItem = layoutManager.findFirstVisibleItemPosition();
                 lastVisibleItem = layoutManager.findLastVisibleItemPosition();
                 //这是滑动自动播放的代码
-                scrollCalculatorHelper.onScroll(recyclerView, firstVisibleItem, lastVisibleItem, lastVisibleItem);
+//                scrollCalculatorHelper.onScroll(recyclerView, firstVisibleItem, lastVisibleItem, lastVisibleItem);
+            }
+        });
+        mViewBinding.selectVideo.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
+            @Override
+            public void onChildViewAttachedToWindow(View view) {
+
+            }
+
+            @Override
+            public void onChildViewDetachedFromWindow(View view) {
+                JZVideoPlayer jzvd = view.findViewById(R.id.tj_video);
+                if (jzvd != null && JZUtils.dataSourceObjectsContainsUri(jzvd.dataSourceObjects, JZMediaManager.getCurrentDataSource())) {
+                    JZVideoPlayer currentJzvd = JZVideoPlayerManager.getCurrentJzvd();
+                    if (currentJzvd != null && currentJzvd.currentScreen != JZVideoPlayer.SCREEN_WINDOW_FULLSCREEN) {
+                        JZVideoPlayer.releaseAllVideos();
+                    }
+                }
             }
         });
         onClick();

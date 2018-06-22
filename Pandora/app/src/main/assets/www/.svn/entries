@@ -1,7 +1,7 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/assets/www
 svn://shidongfang@10.10.10.201/repo1
 
@@ -26,17 +26,17 @@ qizhengang
 
 0b7bfb8c-1547-11e3-8535-551624b94288
 
-goods-details_auction.html
+my_report.html
 file
 
 
 
 
 2018-06-12T03:01:01.000000Z
-dc1afc3024e4048be33d2e956c25fd39
-2017-04-25T08:26:51.673410Z
-56815
-wangtianyang
+f9cbd2d8ce1f2c43c186d3178b057462
+2016-11-15T05:36:21.598025Z
+52788
+qizhengang
 
 
 
@@ -58,7 +58,7 @@ wangtianyang
 
 
 
-6404
+3340
 
 my_goods.html
 file
@@ -94,17 +94,17 @@ wangtianyang
 
 3338
 
-my_report.html
+goods-details_auction.html
 file
 
 
 
 
 2018-06-12T03:01:01.000000Z
-f9cbd2d8ce1f2c43c186d3178b057462
-2016-11-15T05:36:21.598025Z
-52788
-qizhengang
+dc1afc3024e4048be33d2e956c25fd39
+2017-04-25T08:26:51.673410Z
+56815
+wangtianyang
 
 
 
@@ -126,7 +126,7 @@ qizhengang
 
 
 
-3340
+6404
 
 .project
 file
@@ -233,40 +233,6 @@ qizhengang
 css
 dir
 
-goods_details_videos.html
-file
-
-
-
-
-2018-06-12T03:01:01.000000Z
-c680a5c0da1de8b54df0fc670afff24b
-2017-01-06T05:39:37.393380Z
-54089
-qizhengang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4338
-
 cart.html
 file
 
@@ -300,6 +266,40 @@ qizhengang
 
 
 6330
+
+goods_details_videos.html
+file
+
+
+
+
+2018-06-12T03:01:01.000000Z
+c680a5c0da1de8b54df0fc670afff24b
+2017-01-06T05:39:37.393380Z
+54089
+qizhengang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4338
 
 goods_details_doc_display.html
 file
@@ -403,17 +403,17 @@ qizhengang
 
 6176
 
-auctionRecord.html
+goods_details_documents.html
 file
 
 
 
 
 2018-06-12T03:01:01.000000Z
-cf6d9a3aa27f129380f8219b0f0a5ec8
-2017-04-25T03:12:21.791454Z
-56795
-wangtianyang
+bb70b0ceb05237e3835c835e06b9fe94
+2016-10-25T02:20:44.623542Z
+51696
+qizhengang
 
 
 
@@ -435,7 +435,7 @@ wangtianyang
 
 
 
-4775
+5339
 
 closeAnAccount.html
 file
@@ -471,17 +471,17 @@ qizhengang
 
 4955
 
-goods_details_documents.html
+auctionRecord.html
 file
 
 
 
 
 2018-06-12T03:01:01.000000Z
-bb70b0ceb05237e3835c835e06b9fe94
-2016-10-25T02:20:44.623542Z
-51696
-qizhengang
+cf6d9a3aa27f129380f8219b0f0a5ec8
+2017-04-25T03:12:21.791454Z
+56795
+wangtianyang
 
 
 
@@ -503,7 +503,7 @@ qizhengang
 
 
 
-5339
+4775
 
 images
 dir

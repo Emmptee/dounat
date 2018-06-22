@@ -71,6 +71,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.jzvd.JZVideoPlayer;
+
 /**
  * 搜索页面
  * Created by hard on 2018/1/29.
@@ -124,9 +126,9 @@ public class ShakeStarSearchFragment extends MVPBaseFragment<ShakeSearchFragment
             @Override
             public void onClick(View v) {
                 //选择素材
-             /*   Intent it=new Intent(getActivity(), ShakeStarSelectActivity.class);
+                Intent it=new Intent(getActivity(), ShakeStarSelectActivity.class);
                 startActivity(it);
-                l.e("这个是tosi");*/
+                l.e("这个是tosi");
                 ToastUtil.showLong(getActivity(),"精彩内容,敬请期待");
             }
         });
@@ -460,6 +462,6 @@ public class ShakeStarSearchFragment extends MVPBaseFragment<ShakeSearchFragment
     @Override
     public void onPause() {
         super.onPause();
-        GSYVideoManager.onPause();
+        JZVideoPlayer.releaseAllVideos();
     }
 }

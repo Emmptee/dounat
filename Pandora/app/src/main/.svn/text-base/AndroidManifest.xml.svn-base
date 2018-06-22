@@ -22,6 +22,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -43,6 +44,16 @@
     <permission
         android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.com.donut.app"
         android:protectionLevel="normal" />
+
+    <permission
+        android:name="android.permission.FLASHLIGHT"
+        android:permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+        android:protectionLevel="normal" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
 
     <application
         android:name=".SysApplication"
@@ -351,10 +362,10 @@
             android:windowSoftInputMode="stateHidden"
             />
         <activity
-        android:name=".mvp.shakestar.select.particulars.ParticularsActivity"
-        android:launchMode="singleTask"
-        android:screenOrientation="portrait"
-        />
+            android:name=".mvp.shakestar.select.particulars.ParticularsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".mvp.shakestar.select.particulars.SelectVideoActivity"
             android:screenOrientation="portrait"
@@ -551,6 +562,28 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
+
+
+        <activity android:name="com.donut.app.mvp.shakestar.video.record.RecordActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.donut.app.mvp.shakestar.video.record.preview.RecordPreviewActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mvp.shakestar.ffmpegdemo.TestActivity"/>
+
+        <service android:name="com.donut.app.mvp.shakestar.ffmpegdemo.FFmpegService"
+            android:process="com.myaya.ffmpegservice">
+            <intent-filter>
+                <action android:name="com.myaya.ffmpegservice" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.donut.app.mvp.shakestar.video.record.RecordTestActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@ import com.donut.app.http.SendNetRequestManager;
 import com.donut.app.http.message.BaseResponse;
 import com.donut.app.http.message.UploadResponse;
 import com.donut.app.http.message.wish.AddWishRequest;
+import com.donut.app.mvp.shakestar.video.record.preview.RecordPreviewActivity;
 import com.donut.app.service.SaveBehaviourDataService;
 import com.donut.app.utils.FileUtils;
 import com.donut.app.utils.JsonUtils;

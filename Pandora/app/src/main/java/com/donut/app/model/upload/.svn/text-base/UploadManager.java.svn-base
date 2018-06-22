@@ -1,5 +1,6 @@
 package com.donut.app.model.upload;
 
+import android.content.IntentFilter;
 import android.database.Cursor;
 
 import com.android.volley.manager.LoadController;
@@ -18,6 +19,7 @@ import com.donut.app.http.message.IpAddRequest;
 import com.donut.app.http.message.StarNoticeAddRequest;
 import com.donut.app.http.message.UploadResponse;
 import com.donut.app.http.message.wish.WishCompletedRequest;
+import com.donut.app.mvp.shakestar.video.record.preview.ShakeStarPreviewRequest;
 import com.donut.app.utils.FileUtils;
 import com.donut.app.utils.JsonUtils;
 import com.donut.app.utils.NetUtils;
@@ -28,6 +30,7 @@ import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
 import com.lidroid.xutils.http.HttpHandler;
 import com.lidroid.xutils.util.LogUtils;
+import com.socks.library.KLog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -482,6 +485,23 @@ public class UploadManager {
                     baseRequest.setUserId(uploadInfo.getUserId());
                     baseRequest.setToken(uploadInfo.getToken());
                     baseRequest.setData(JsonUtils.toJson(request, request.getClass()));
+                } else if (uploadInfo.getSaveType() == UploadInfo.SaveTypeEnum.SHAKE_STAR_PREVIEW.getType()) {
+
+                    ShakeStarPreviewRequest request
+                            = JsonUtils.fromJson(uploadInfo.getSaveData(),ShakeStarPreviewRequest.class);
+                    request.setPlayUrl(res.getFileUrl());
+                    KLog.v("视频播放地址====" + res.getFileUrl());
+
+                    requestCode = 500;
+
+                    baseRequest.setHeader(HeaderRequest.SHAKESTAR_PREVIEW);
+                    baseRequest.setUserId(uploadInfo.getUserId());
+                    baseRequest.setToken(uploadInfo.getToken());
+                    baseRequest.setData(JsonUtils.toJson(request, request.getClass()));
+                    KLog.v("userde id====" + uploadInfo.getUserId());
+
+                    KLog.v("token id====" + uploadInfo.getToken());
+
                 }
 
                 try {

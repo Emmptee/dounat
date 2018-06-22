@@ -1,15 +1,15 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app
 svn://shidongfang@10.10.10.201/repo1
 
 
 
-2018-05-09T03:24:32.548956Z
-61452
-wangyichao
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 
 
 
@@ -26,39 +26,11 @@ wangyichao
 
 0b7bfb8c-1547-11e3-8535-551624b94288
 
-AppManager.java
-file
-
-
-
-
-2018-06-07T02:39:12.000000Z
-0f690c081b8b2e092af080e35c22004b
-2016-08-02T09:08:24.284932Z
-49156
-qizhengang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2804
+http
+dir
+
+adapter
+dir
 
 SysApplication.java
 file
@@ -66,11 +38,11 @@ file
 
 
 
-2018-06-07T02:39:12.000000Z
-e9ef5f3c3faa51a39b24e87abaed9e28
-2018-04-04T10:14:11.653654Z
-61163
-qizhengang
+2018-06-07T08:55:36.000000Z
+11af4aa287969ff7e8955f58e2e2c9a9
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -92,7 +64,7 @@ qizhengang
 
 
 
-5479
+5974
 
 WBShareActivity.java
 file
@@ -128,25 +100,50 @@ wujj
 
 190
 
+wxapi
+dir
+
+AppManager.java
+file
+
+
+
+
+2018-06-07T02:39:12.000000Z
+0f690c081b8b2e092af080e35c22004b
+2016-08-02T09:08:24.284932Z
+49156
+qizhengang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2804
+
 activity
 dir
 
-adapter
+utils
 dir
 
-config
-dir
-
-customview
-dir
-
-entity
-dir
-
-fragment
-dir
-
-http
+service
 dir
 
 model
@@ -155,15 +152,18 @@ dir
 mvp
 dir
 
+fragment
+dir
+
 receiver
 dir
 
-service
+customview
 dir
 
-utils
+config
 dir
 
-wxapi
+entity
 dir
 

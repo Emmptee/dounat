@@ -1,15 +1,15 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/shakestar/select/particulars
 svn://shidongfang@10.10.10.201/repo1
 
 
 
-2018-04-21T04:48:32.362976Z
-61303
-wangyichao
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 
 
 
@@ -60,17 +60,85 @@ wangyichao
 
 10650
 
+ParticularsPresenter.java
+file
+
+
+
+
+2018-06-22T03:23:12.000000Z
+066e2d75cfd5ad134152dd8b4f2c1034
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8931
+
+SelectVideoActivity.java
+file
+
+
+
+
+2018-06-19T02:40:30.000000Z
+70bbc84aa573043a5f13273deced82f2
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+20844
+
 ParticularsActivity.java
 file
 
 
 
 
-2018-06-07T02:39:10.000000Z
-47825f5d1e5e21628944c47d182a452c
-2018-04-04T10:04:04.071231Z
-61162
-wangyichao
+2018-06-22T03:23:11.000000Z
+dc415a42eec46d5ed87101e8a913a0f0
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 
 
 
@@ -92,7 +160,7 @@ wangyichao
 
 
 
-11838
+17469
 
 ParticularsContract.java
 file
@@ -130,22 +198,15 @@ zhaofeng
 
 ParticularsEvent.java
 file
-0
-
-
-add
-
-ParticularsPresenter.java
-file
 
 
 
 
-2018-06-07T02:39:10.000000Z
-19a0632865a9cfe8a3644148c1e2e2b3
-2018-04-21T04:48:32.362976Z
-61303
-wangyichao
+2018-06-15T03:20:24.000000Z
+55aa2f6b07b10956bd33fb9ecd82928b
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 
 
 
@@ -167,39 +228,5 @@ wangyichao
 
 
 
-8545
-
-SelectVideoActivity.java
-file
-
-
-
-
-2018-06-07T02:39:10.000000Z
-3fa21c7c89eafacae790d4cedc06167a
-2018-04-04T10:14:11.653654Z
-61163
-qizhengang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-19843
+373
 

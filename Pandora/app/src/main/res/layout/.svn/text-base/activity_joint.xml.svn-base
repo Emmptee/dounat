@@ -23,11 +23,11 @@
                   android:id="@+id/jointr"
                   android:layout_width="match_parent"
                   android:layout_height="622px">
-         <com.donut.app.mvp.shakestar.VideoView
+         <com.donut.app.mvp.shakestar.DonutVideoView
              android:id="@+id/user_pj_player"
              android:layout_width="wrap_content"
              android:layout_height="match_parent">
-           </com.donut.app.mvp.shakestar.VideoView>
+           </com.donut.app.mvp.shakestar.DonutVideoView>
               <TextView
                   android:layout_width="match_parent"
                   android:layout_height="80px"

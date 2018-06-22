@@ -1,7 +1,7 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/CameraLibrary/src/main/res/drawable
 svn://shidongfang@10.10.10.201/repo1
 
@@ -162,14 +162,14 @@ qizhengang
 
 303
 
-mcam_camera_front.xml
+mcam_square_selector.xml
 file
 
 
 
 
 2018-06-12T03:01:20.000000Z
-3785c65e3640f241f1b44491d3b32fa0
+ab94a14befcc255f1cf1338f1ebbf774
 2016-11-28T10:15:44.065579Z
 53165
 qizhengang
@@ -194,7 +194,7 @@ qizhengang
 
 
 
-536
+271
 
 mcam_action_capture.xml
 file
@@ -230,14 +230,14 @@ qizhengang
 
 311
 
-mcam_square_selector.xml
+mcam_camera_front.xml
 file
 
 
 
 
 2018-06-12T03:01:20.000000Z
-ab94a14befcc255f1cf1338f1ebbf774
+3785c65e3640f241f1b44491d3b32fa0
 2016-11-28T10:15:44.065579Z
 53165
 qizhengang
@@ -262,41 +262,7 @@ qizhengang
 
 
 
-271
-
-mcam_circle_selector.xml
-file
-
-
-
-
-2018-06-12T03:01:20.000000Z
-ba4b376da0df67d5f9be450be62cd1e7
-2016-11-28T10:15:44.065579Z
-53165
-qizhengang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-271
+536
 
 mcam_camera_rear.xml
 file
@@ -331,6 +297,40 @@ qizhengang
 
 
 482
+
+mcam_circle_selector.xml
+file
+
+
+
+
+2018-06-12T03:01:20.000000Z
+ba4b376da0df67d5f9be450be62cd1e7
+2016-11-28T10:15:44.065579Z
+53165
+qizhengang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+271
 
 mcam_action_play.xml
 file

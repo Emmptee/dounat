@@ -1,7 +1,7 @@
 10
 
 dir
-61452
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/res/drawable-xxxhdpi
 svn://shidongfang@10.10.10.201/repo1
 
@@ -25,74 +25,6 @@ wangtianyang
 
 
 0b7bfb8c-1547-11e3-8535-551624b94288
-
-cb_selected.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-dad4833ca0d8b0b6c145f7435c6a4378
-2016-08-03T08:08:46.726540Z
-49241
-qizhengang
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2681
-
-cb_normal.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-663d7c665336971816cc67159f525307
-2016-08-03T08:08:46.726540Z
-49241
-qizhengang
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2267
 
 subject_search_icon.png
 file
@@ -128,6 +60,74 @@ has-props
 
 3107
 
+cb_normal.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+663d7c665336971816cc67159f525307
+2016-08-03T08:08:46.726540Z
+49241
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2267
+
+cb_selected.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+dad4833ca0d8b0b6c145f7435c6a4378
+2016-08-03T08:08:46.726540Z
+49241
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2681
+
 subject_share_icon_normal.png
 file
 
@@ -162,40 +162,6 @@ has-props
 
 2922
 
-d1.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-2e63279d1c540a4eb79e4b302748a22b
-2018-02-28T08:50:52.454999Z
-60702
-zhaofeng
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-373
-
 stars_selected.png
 file
 
@@ -229,6 +195,40 @@ has-props
 
 
 9607
+
+d1.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+2e63279d1c540a4eb79e4b302748a22b
+2018-02-28T08:50:52.454999Z
+60702
+zhaofeng
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+373
 
 icon_vip.png
 file
@@ -298,40 +298,6 @@ has-props
 
 2337
 
-loading_10.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-96854a64dad8c3059191a59309e103ff
-2016-10-24T07:22:55.130847Z
-51660
-qizhengang
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-24048
-
 stars_item_pic_bg.png
 file
 
@@ -365,6 +331,40 @@ has-props
 
 
 9970
+
+loading_10.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+96854a64dad8c3059191a59309e103ff
+2016-10-24T07:22:55.130847Z
+51660
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+24048
 
 loading_11.png
 file
@@ -1080,40 +1080,6 @@ has-props
 
 3914
 
-pay_btn_bg.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-3b4985a810cf70a6663cad81b9d54a45
-2016-07-22T07:16:44.431689Z
-48742
-qizhengang
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5914
-
 loading_8.png
 file
 
@@ -1148,16 +1114,16 @@ has-props
 
 24047
 
-loading_9.png
+pay_btn_bg.png
 file
 
 
 
 
 2018-06-12T03:01:08.000000Z
-92d3fa5781a7a721d92e1046f3b40faa
-2016-10-24T07:22:55.130847Z
-51660
+3b4985a810cf70a6663cad81b9d54a45
+2016-07-22T07:16:44.431689Z
+48742
 qizhengang
 has-props
 
@@ -1180,41 +1146,7 @@ has-props
 
 
 
-24050
-
-dianzan1.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-54bee07ac8071c92886acde065107721
-2018-04-03T06:17:16.827652Z
-61148
-wangyichao
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2072
+5914
 
 reward_amount_item_bg_selected.png
 file
@@ -1250,6 +1182,74 @@ has-props
 
 4036
 
+dianzan1.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+54bee07ac8071c92886acde065107721
+2018-04-03T06:17:16.827652Z
+61148
+wangyichao
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2072
+
+loading_9.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+92d3fa5781a7a721d92e1046f3b40faa
+2016-10-24T07:22:55.130847Z
+51660
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+24050
+
 icon_open_white.png
 file
 
@@ -1283,40 +1283,6 @@ has-props
 
 
 6173
-
-subject_collect_normal.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-7068b7d0a514ebb7ddfc8abb40fb6fe5
-2016-05-26T06:46:36.555904Z
-45875
-qizhengang
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4216
 
 subject_collect_selected.png
 file
@@ -1352,16 +1318,16 @@ has-props
 
 3088
 
-ip_content_right_line.9.png
+subject_collect_normal.png
 file
 
 
 
 
 2018-06-12T03:01:08.000000Z
-b0e5e246408a56a9aafc682625bc3b2c
-2016-05-31T09:08:35.218497Z
-46097
+7068b7d0a514ebb7ddfc8abb40fb6fe5
+2016-05-26T06:46:36.555904Z
+45875
 qizhengang
 has-props
 
@@ -1384,7 +1350,7 @@ has-props
 
 
 
-495
+4216
 
 icon_recommand.png
 file
@@ -1419,6 +1385,40 @@ has-props
 
 
 11084
+
+ip_content_right_line.9.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+b0e5e246408a56a9aafc682625bc3b2c
+2016-05-31T09:08:35.218497Z
+46097
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+495
 
 tab_icon.png
 file
@@ -1658,40 +1658,6 @@ has-props
 
 464
 
-like_peas.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-0048441daf08d891a296286ab220215b
-2018-02-28T08:50:52.454999Z
-60702
-zhaofeng
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4035
-
 star_title_left_icon.png
 file
 
@@ -1725,6 +1691,40 @@ has-props
 
 
 1303
+
+like_peas.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+0048441daf08d891a296286ab220215b
+2018-02-28T08:50:52.454999Z
+60702
+zhaofeng
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4035
 
 icon_challenge_pre.png
 file
@@ -1760,40 +1760,6 @@ has-props
 
 2853
 
-ip_collection_icon_checked.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-81427634a3682edf11d779c79f62cd7e
-2016-06-01T08:28:38.813776Z
-46155
-qizhengang
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3301
-
 subject_share_icon_selected.png
 file
 
@@ -1828,84 +1794,16 @@ has-props
 
 2917
 
-line_l.png
+ip_collection_icon_checked.png
 file
 
 
 
 
 2018-06-12T03:01:08.000000Z
-2bc88dd3ebe00d0fcfb08c5e6c5dd5f0
-2018-03-09T09:09:32.856848Z
-60887
-zhaofeng
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-341
-
-hot_normal.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-5e1849e5efc1d76401ff3aa2a9079518
-2018-04-03T06:17:16.827652Z
-61148
-wangyichao
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7404
-
-icon_pwd.png
-file
-
-
-
-
-2018-06-12T03:01:08.000000Z
-3b2e9cca93140090491af5aedb7f1484
-2016-07-28T10:18:20.385754Z
-48983
+81427634a3682edf11d779c79f62cd7e
+2016-06-01T08:28:38.813776Z
+46155
 qizhengang
 has-props
 
@@ -1928,7 +1826,7 @@ has-props
 
 
 
-3161
+3301
 
 star_head_bg.png
 file
@@ -1964,16 +1862,16 @@ has-props
 
 16635
 
-ip_collection_icon_normal.png
+icon_pwd.png
 file
 
 
 
 
 2018-06-12T03:01:08.000000Z
-a1d6b25a729e6a0715694702ababe071
-2016-06-01T08:28:38.813776Z
-46155
+3b2e9cca93140090491af5aedb7f1484
+2016-07-28T10:18:20.385754Z
+48983
 qizhengang
 has-props
 
@@ -1996,7 +1894,75 @@ has-props
 
 
 
-2901
+3161
+
+hot_normal.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+5e1849e5efc1d76401ff3aa2a9079518
+2018-04-03T06:17:16.827652Z
+61148
+wangyichao
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7404
+
+line_l.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+2bc88dd3ebe00d0fcfb08c5e6c5dd5f0
+2018-03-09T09:09:32.856848Z
+60887
+zhaofeng
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+341
 
 star_top_bg.png
 file
@@ -2032,16 +1998,16 @@ has-props
 
 556082
 
-ip_content_pic_bg.png
+ip_collection_icon_normal.png
 file
 
 
 
 
 2018-06-12T03:01:08.000000Z
-06572e7e0112cfb25a099f163f551c2b
-2016-05-31T09:08:35.218497Z
-46097
+a1d6b25a729e6a0715694702ababe071
+2016-06-01T08:28:38.813776Z
+46155
 qizhengang
 has-props
 
@@ -2064,7 +2030,7 @@ has-props
 
 
 
-6375
+2901
 
 icon_channel_pressed.png
 file
@@ -2099,6 +2065,40 @@ has-props
 
 
 2622
+
+ip_content_pic_bg.png
+file
+
+
+
+
+2018-06-12T03:01:08.000000Z
+06572e7e0112cfb25a099f163f551c2b
+2016-05-31T09:08:35.218497Z
+46097
+qizhengang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6375
 
 like_d2.png
 file

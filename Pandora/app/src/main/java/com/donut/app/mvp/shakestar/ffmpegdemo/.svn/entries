@@ -1,18 +1,18 @@
 10
 
 dir
-0
+61657
 svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/java/com/donut/app/mvp/shakestar/ffmpegdemo
 svn://shidongfang@10.10.10.201/repo1
-add
 
 
 
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 
 
 
-
-svn:special svn:externals svn:needs-lock
 
 
 
@@ -26,59 +26,139 @@ svn:special svn:externals svn:needs-lock
 
 0b7bfb8c-1547-11e3-8535-551624b94288
 
-FFmpegFuncion.java
-file
-
-
-
-add
-
-
-
-
-
-has-props
-has-prop-mods
-
 FFmpegService.java
 file
 
 
 
-add
 
-
-
-
-
+2018-06-07T05:28:25.000000Z
+2f5d5d6f6f37fc8dfe2ff11ead07ee7f
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1736
+
+FFmpegFuncion.java
+file
+
+
+
+
+2018-06-06T11:29:53.000000Z
+43ed005bbc5132e12d16e44e2d1b5332
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2540
 
 MediaInfo.java
 file
 
 
 
-add
 
-
-
-
-
+2018-06-06T11:29:53.000000Z
+69af1f6599642e8a14d7c45f37d2d474
+2018-06-20T03:31:23.008416Z
+61648
+shidongfang
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1686
 
 TestActivity.java
 file
 
 
 
-add
 
-
-
-
-
+2018-06-22T03:23:12.000000Z
+0edf9b3b1715e068e0a602e8caea1d05
+2018-06-22T03:25:32.195643Z
+61657
+shidongfang
 has-props
-has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9812
 

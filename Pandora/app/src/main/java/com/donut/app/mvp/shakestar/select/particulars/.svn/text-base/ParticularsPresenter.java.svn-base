@@ -19,6 +19,7 @@ import com.donut.app.http.message.wish.CommendLikeRequest;
 import com.donut.app.http.message.wish.ShakeStarSelectRequest;
 import com.donut.app.utils.JsonUtils;
 import com.donut.app.utils.L;
+import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,8 +132,11 @@ public class ParticularsPresenter<V extends ParticularsContract.View> extends Pa
             case NEW_PARTICULARS_CODE:
                L.e("json",responseJson);
                 ParticularsResponse particularsResponse=JsonUtils.fromJson(responseJson, ParticularsResponse.class);
+                KLog.v("ParticularsResponse为"  + particularsResponse);
                 if(COMMON_SUCCESS.equals(particularsResponse.getCode())){
+                    KLog.v("登录成功");
                     if(particularsResponse.getShakingStarList()!=null){
+                        KLog.v("用户拍摄素材列表不为空");
                         if(page==0){
                             starCommendResponses.clear();
                         }
@@ -141,6 +145,8 @@ public class ParticularsPresenter<V extends ParticularsContract.View> extends Pa
 //                            starCommendResponses.add(commendResponse.getShakingStarList().get(i));
 //                        }
                         starCommendResponses.addAll(particularsResponse.getShakingStarList());
+                        mView.showView(starCommendResponses,particularsResponse);
+                    }else if (particularsResponse.getShakingStarList() == null){
                         mView.showView(starCommendResponses,particularsResponse);
                     }
 
