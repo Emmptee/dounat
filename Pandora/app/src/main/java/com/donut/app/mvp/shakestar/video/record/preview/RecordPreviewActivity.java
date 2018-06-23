@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.os.Handler;
@@ -126,10 +127,13 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
         File file = new File(FileUtil.choseSavePath() + File.separator + "myThumbnail.jpg");
         if (file.exists()) {
             KLog.v("加载封面" + FileUtil.choseSavePath() + File.separator + "myThumbnail.jpg");
-            Glide.with(this)
+            ImageView imageView = new ImageView(getContext());
+            /*Glide.with(this)
                     .load(FileUtil.choseSavePath() + File.separator + "myThumbnail.jpg")
                     .centerCrop()
-                    .into(mViewBinding.videoviewPre.thumbImageView);
+                    .into(mViewBinding.videoviewPre.thumbImageView);*/
+            mViewBinding.videoviewPre.thumbImageView.setImageBitmap(BitmapFactory.decodeFile(
+                    FileUtil.choseSavePath() + File.separator + "myThumbnail.jpg"));
         }
 
         //编辑框
