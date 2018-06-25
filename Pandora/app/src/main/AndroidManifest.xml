@@ -567,6 +567,9 @@
         <activity android:name="com.donut.app.mvp.shakestar.video.record.RecordActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <activity android:name="com.donut.app.mvp.shakestar.video.record.RecordLeftActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.donut.app.mvp.shakestar.video.record.preview.RecordPreviewActivity"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"

@@ -127,12 +127,11 @@ public class RecordPreviewActivity extends MVPBaseActivity<ActivityRecordPreview
         File file = new File(FileUtil.choseSavePath() + File.separator + "myThumbnail.jpg");
         if (file.exists()) {
             KLog.v("加载封面" + FileUtil.choseSavePath() + File.separator + "myThumbnail.jpg");
-            ImageView imageView = new ImageView(getContext());
             /*Glide.with(this)
                     .load(FileUtil.choseSavePath() + File.separator + "myThumbnail.jpg")
                     .centerCrop()
                     .into(mViewBinding.videoviewPre.thumbImageView);*/
-            mViewBinding.videoviewPre.thumbImageView.setImageBitmap(BitmapFactory.decodeFile(
+            mVideoviewPre.thumbImageView.setImageBitmap(BitmapFactory.decodeFile(
                     FileUtil.choseSavePath() + File.separator + "myThumbnail.jpg"));
         }
 

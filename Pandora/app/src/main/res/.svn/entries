@@ -1,88 +1,0 @@
-10
-
-dir
-61657
-svn://shidongfang@10.10.10.201/repo1/svn/Project/PJ027D160413_PANDORA/src/trunk/Donut_Android/Pandora/app/src/main/res
-svn://shidongfang@10.10.10.201/repo1
-
-
-
-2018-06-20T03:31:23.008416Z
-61648
-shidongfang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-0b7bfb8c-1547-11e3-8535-551624b94288
-
-values-w820dp
-dir
-
-drawable
-dir
-
-drawable-xxhdpi
-dir
-
-anim
-dir
-
-mipmap-xxhdpi
-dir
-
-drawable-v21
-dir
-
-drawable-xhdpi
-dir
-
-mipmap-xhdpi
-dir
-
-values
-dir
-
-xml
-dir
-
-values-xxhdpi
-dir
-
-drawable-hdpi
-dir
-
-menu
-dir
-
-values-v21
-dir
-
-mipmap-hdpi
-dir
-
-drawable-mdpi
-dir
-
-mipmap-mdpi
-dir
-
-drawable-xxxhdpi
-dir
-
-mipmap-xxxhdpi
-dir
-
-layout
-dir
-

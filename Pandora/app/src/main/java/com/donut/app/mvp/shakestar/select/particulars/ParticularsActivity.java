@@ -34,6 +34,7 @@ import com.donut.app.mvp.blooper.detail.BlooperDetailActivity;
 import com.donut.app.mvp.shakestar.select.ScrollInterceptScrollView;
 import com.donut.app.mvp.shakestar.video.SourceVideoDownload.DownloadUtil;
 import com.donut.app.mvp.shakestar.video.record.RecordActivity;
+import com.donut.app.mvp.shakestar.video.record.RecordLeftActivity;
 import com.donut.app.utils.BindingUtils;
 import com.donut.app.utils.L;
 import com.donut.app.utils.NetUtils;
@@ -76,6 +77,7 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
     private int max;
     private String sourceVideoUrl;
     private DownloadUtil mDownloadUtil;
+    public static int RecordDisPlay = 102;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -158,6 +160,8 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
                 GSYBaseVideoPlayer player=mViewBinding.particularsPlayerLeft;
                 //player.startPlayLogic();
             }
+            itemLastTime = getLastTime(particularsResponse.getMaterialVideoList().get(0).getPlayUrl());
+            RecordDisPlay = 101;
         }else if(particularsResponse.getDisplay()==1){//素材在右
             KLog.v("素材在右边");
             ImageView backButton = mViewBinding.particularsPlayerRight.getBackButton();
@@ -178,6 +182,7 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
                 //player.startPlayLogic();
             }
             itemLastTime = getLastTime(particularsResponse.getMaterialVideoList().get(0).getPlayUrl());
+            RecordDisPlay = 102;
             KLog.v("在particular中的时长" + itemLastTime);
         }
 
@@ -372,11 +377,20 @@ public class ParticularsActivity extends MVPBaseActivity<ActivityParticularsLayo
                 mDownloadUtil.pause();
                 ParticularsEvent particularsEvent = new ParticularsEvent(itemLastTime);
                 EventBus.getDefault().postSticky(particularsEvent);
-                Intent it=new Intent(getContext(), RecordActivity.class);
-                it.putExtra("g03",g03);
-                it.putExtra("b02",b02);
-                it.putExtra("mylasttime",itemLastTime);
-                startActivityForResult(it,REQUEST_FOR_RECORD);
+                if (RecordDisPlay == 102){
+                    Intent it=new Intent(getContext(), RecordActivity.class);
+                    it.putExtra("g03",g03);
+                    it.putExtra("b02",b02);
+                    it.putExtra("mylasttime",itemLastTime);
+                    startActivityForResult(it,REQUEST_FOR_RECORD);
+                }else if (RecordDisPlay == 101){
+                    Intent it=new Intent(getContext(), RecordLeftActivity.class);
+                    it.putExtra("g03",g03);
+                    it.putExtra("b02",b02);
+                    it.putExtra("mylasttime",itemLastTime);
+                    startActivityForResult(it,REQUEST_FOR_RECORD);
+                }
+
             }
         });
     }

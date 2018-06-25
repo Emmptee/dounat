@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\WorkSpaceForSure\\dounat\\Pandora\\guideview\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\WorkSpaceForSure\\dounat\\Pandora\\guideview\\build\\intermediates\\bundles\\debug\\res\\mipmap-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\WorkSpaceForSure\\dounat\\Pandora\\guideview\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\WorkSpaceForSure\\dounat\\Pandora\\guideview\\build\\intermediates\\bundles\\debug\\res\\mipmap-mdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\WorkSpaceForSure\\dounat\\Pandora\\guideview\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\WorkSpaceForSure\\dounat\\Pandora\\guideview\\build\\intermediates\\bundles\\debug\\res\\mipmap-xhdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\WorkSpaceForSure\\dounat\\Pandora\\guideview\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_launcher.png.flat",
+        "source": "E:\\WorkSpaceForSure\\dounat\\Pandora\\guideview\\build\\intermediates\\bundles\\debug\\res\\mipmap-xxhdpi-v4\\ic_launcher.png"
+    }
+]

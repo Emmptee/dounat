@@ -278,28 +278,6 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
         EventBus.getDefault().unregister(this);
     }
 
-/*    public void RotateOutputVideo() {
-        EpVideo epVideo = new EpVideo(CameraInterface.videoFileAbsPath);
-        epVideo.rotation(0, true);
-        final String outPath = FileUtil.choseSavePath() + File.separator + "pandoraoutvideo.mp4";
-        EpEditor.exec(epVideo, new EpEditor.OutputOption(outPath), new OnEditorListener() {
-            @Override
-            public void onSuccess() {
-                KLog.v("输出成功");
-                OUTPUTROTATEFILE = 1;
-    }
-
-            @Override
-            public void onFailure() {
-                KLog.v("输出失败");
-            }
-
-            @Override
-            public void onProgress(float v) {
-                KLog.v("输出中");
-        }
-        });
-    }*/
 
     private void registerRecordReceiver() {
         IntentFilter startFilter = new IntentFilter();
@@ -446,7 +424,7 @@ public class RecordActivity extends MVPBaseActivity<ActivityRecordBinding, Parti
                     FFmpegTasklist = new ArrayList[2];
                     FFmpegTasklist[0] = FFmpegFuncion.formatVideo(recordInfo.getFilePath(),
                             sourceInfo.getWidth(), sourceInfo.getHeight(), sourceInfo.getFps(), tempFile1);
-                    FFmpegTasklist[1] = FFmpegFuncion.joinVideo(sourceInfo.getFilePath(), tempFile1, destFile);
+                    FFmpegTasklist[1] = FFmpegFuncion.joinVideo(tempFile1,sourceInfo.getFilePath(),destFile);
                     Log.e(TAG,"参数不一致");
                 }
                 break;

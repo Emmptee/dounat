@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="handler"
+            type="com.donut.app.mvp.shakestar.video.record.RecordLeftActivity" />
+    </data>
+    <com.bis.android.plug.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/record_video_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            >
+            <com.donut.app.mvp.shakestar.video.DonutCameraVideoView
+                android:id="@+id/record_player_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </com.donut.app.mvp.shakestar.video.DonutCameraVideoView>
+
+        </RelativeLayout>
+        <com.donut.app.mvp.shakestar.video.camera.JCameraViewLeft
+            android:id="@+id/jcameraview_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true" />
+        <com.bis.android.plug.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150px">
+
+            <ImageView
+                android:id="@+id/img_camera_back"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/back"/>
+
+            <TextView
+                android:id="@+id/btn_next"
+                android:layout_width="@dimen/px_110"
+                android:layout_height="@dimen/px_50"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="下一步"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_fourth_font_size"
+                android:layout_alignParentRight="true" />
+        </com.bis.android.plug.autolayout.AutoRelativeLayout>
+        <!--<ImageView
+            android:id="@+id/img_camera_back"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:src="@drawable/back"
+            android:layout_marginTop="@dimen/px_30"
+            android:layout_marginLeft="@dimen/px_15"
+            />
+
+        <TextView
+            android:id="@+id/btn_next"
+            android:layout_width="@dimen/px_110"
+            android:layout_height="@dimen/px_50"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/px_0"
+            android:layout_marginRight="@dimen/px_10"
+            android:gravity="center"
+            android:text="下一步"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_fourth_font_size"
+            android:layout_alignParentRight="true" />-->
+
+        <LinearLayout
+            android:id="@+id/linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/record_video_left"
+            android:layout_marginTop="30dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/image_beauty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_beauty_close" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="美颜开"
+                    android:textColor="@color/videoButton"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/image_bg_music"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_bg_music" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="背景音乐"
+                    android:textColor="@color/videoButton"
+                    android:textSize="9sp"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_turn_camera"
+                    android:clickable="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="旋转屏幕"
+                    android:textColor="@color/videoButton"
+                    android:textSize="9sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="45dp">
+
+            <TextView
+                android:id="@+id/btn_button_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="长按拍"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>-->
+    </com.bis.android.plug.autolayout.AutoRelativeLayout>
+
+</layout>
